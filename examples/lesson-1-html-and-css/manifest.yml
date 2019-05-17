@@ -1,0 +1,7 @@
+---
+applications:
+- name: apply-for-a-barking-permit
+  memory: 64M
+  buildpacks:
+  - staticfile_buildpack
+
