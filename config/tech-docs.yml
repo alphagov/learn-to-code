@@ -2,26 +2,22 @@
 host: learn-to-code.london.cloudapps.digital
 
 # Header-related options
-show_govuk_logo: true
-service_name: My First Service
-service_link: https://www.larry-the-cat.service.gov.uk
+show_govuk_logo: false
+service_name: Learn to Code
+service_link: https://learn-to-code.london.cloudapps.digital
 phase: Beta
 
 # Links to show on right-hand-side of header
-header_links:
-  About: https://www.larry-the-cat.service.gov.uk
-  Get Started: https://www.larry-the-cat.service.gov.uk/get-started
-  Documentation: /
-  Support: https://www.larry-the-cat.service.gov.uk/support
+header_links: {}
 
 # Enables search functionality. This indexes pages only and is not recommended for single-page sites.
 enable_search: false
 
 # Tracking ID from Google Analytics (e.g. UA-XXXX-Y)
-ga_tracking_id:
+ga_tracking_id: null
 
 # Enable multipage navigation in the sidebar
-multipage_nav: false
+multipage_nav: true
 
 # Enable collapsible navigation in the sidebar
 collapsible_nav: false
@@ -35,4 +31,4 @@ max_toc_heading_level: 6
 prevent_indexing: false
 
 show_contribution_banner: true
-github_repo: alphagov/YOUR_REPO
+github_repo: alphagov/learn-to-code
