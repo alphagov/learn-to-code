@@ -1,0 +1,528 @@
+--
+title: "Lesson 1: HTML and CSS"
+weight: 30
+---
+
+# Lesson 1: HTML and CSS
+
+## Introduction
+
+### Objectives
+
+In this tutorial we are going to look at:
+
+* What is HTML?
+* What is an element?
+* Webpage structure
+* Fundamental HTML elements
+* Applying styles with classes and CSS
+
+### Goal
+
+By the end of this tutorial you will have built [this webpage](https://apply-for-a-barking-permit.london.cloudapps.digital/):
+
+<div style="border: 5px solid;">
+<a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">
+<img src="images/image5.png" alt="Apply for a Barking Permit website, showing an image, a paragraph of text, a link and a form">
+</a>
+</div>
+
+Even though HTML and CSS are not programming languages they’re important fundamentals, and they’ll help you understand how the internet works.
+
+We’ll cover programming languages (like ruby and python) in future lessons.
+
+## Introduction to HTML and CSS
+
+### What do HTML and CSS stand for?
+
+**H**yper **T**ext **M**arkup **L**anguage
+
+**C**ascading **S**tyle **S**heets
+
+### What are HTML and CSS?
+
+HTML is the language used to build websites. All text and content that you
+see on the internet is built using HTML.
+
+CSS is used with HTML to style the page. 
+
+Whenever you go to a website (e.g. www.gov.uk) your browser sends a request
+to a special computer called a "server". The server sends back HTML and CSS,
+which your browser turns into a webpage for you to look at.
+
+## HTML elements
+
+An **element** is an HTML building block. There are paragraphs, headings,
+links, lists, and [many more](https://developer.mozilla.org/en/docs/Web/HTML/Element).
+
+HTML elements are made up of an opening tag (sometimes including some attributes), content, and a closing tag.
+
+![Diagram showing the structure of an HTML element](images/image7.png)
+<small>(<a href="https://en.wikipedia.org/wiki/HTML_element#Syntax">Image from wikipedia</a>)</small>
+
+## Webpage structure
+
+### `doctype` and `HTML`
+
+The doctype is the first thing that must be defined in an HTML page. It tells
+the browser which version of HTML the page is using.
+
+```html
+<!doctype html>
+```
+
+These days you will only ever need to use `html`. There used to be lots of
+complicated doctypes in the olden days, which you can read about [here](https://www.w3.org/wiki/Doctypes_and_markup_styles).
+
+The doctype is always followed by the `<html>` tag, which contains the contents of your page.
+
+```html
+<!doctype html>
+<html>
+</html>
+```
+
+### `head` and `body` tags
+
+A HTML page is split into two parts. The `head` and the `body`.
+
+The `head` contains webpage information like the page title (the text in the
+browser tab), stylesheets, scripts and other information about the page.
+Everything in the `head` is invisible - you can’t put an image or a paragraph
+of text in `head`.
+
+The `body` contains webpage content that is visible to the user.
+
+## Presentational HTML Elements
+
+Let's start by defining the basic structure of your website.
+
+Open Atom and create a new folder for your work called `lesson-1-html-and-css`:
+
+<details>
+<summary>Screenshots showing how to add a folder in Atom</summary>
+<img alt="Screenshot showing how to add a folder to Atom. Menu > File > Add Project Folder..." src="images/image4.png">
+<img alt="Screenshot showing how to create a new folder in the Add Project Folder dialog" src="images/image6.png">
+</details>
+
+Then inside this folder create a new file called `index.html`:
+
+<details>
+<summary>Screenshot showing how to add a file in Atom</summary>
+<img alt="Screenshot showing how to add a file in Atom. Right click on the folder in the sidebar, then select 'New File'." src="images/image2.png">
+</details>
+
+#### Task 1: doctype, html, head and body
+
+Using what we just learnt, and with guidance from your coach, do the following:
+
+* declare the doctype to be HTML
+* open and close a set of `<html></html>` tags
+* Within this, create the `head` and `body` tags
+
+Once you've done this, open `index.html` in your web browser:
+
+<details>
+<summary>Screenshot showing how to open the HTML file in Google Chrome</summary>
+<img alt="Screenshot showing how to open the HTML file in Google Chrome" src="images/image3.png">
+</details>
+
+Do you see anything on the page?
+
+#### Task 2: set the page title
+
+Now inside your head tag create a `<title>` tag with `Apply for a Barking Permit` as your title.
+
+You should see that the tab bar has changed. If not, double check your code.
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Apply for a Barking Permit</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+Notice how in our example each tag is indented to its parent tag. This is
+helpful as it makes your code much easier to read and you'll be able to see
+nested tags much easier, but it's not required.
+
+In HTML multiple spaces and newlines all get squished down into one space.
+
+```
+You      can
+write
+
+text       like    this
+```
+
+and they’ll end up getting displayed with all the space squished, like so:
+
+```
+You can write text like this
+```
+
+### Element: heading (`h1`)
+
+Headings come in 6 levels:
+
+```
+<h1>Heading</h1>
+<h2>Heading</h2>
+<h3>Heading</h3>
+<h4>Heading</h4>
+<h5>Heading</h5>
+<h6>Heading</h6>
+```
+
+A h1 defines the most important heading whereas a h6 defines the least important.
+
+#### Task 3: add a heading
+
+Add a `h1` heading tag, which includes the phrase `Apply for a Barking Permit`, inside the `body` tag of your page.
+
+### Element: paragraph (`p`)
+
+Putting content into a `<p>` tag will break your text up into paragraphs.
+This helps make the content of your page easier to read for the user.
+
+#### Task 4: add a paragraph
+
+Add the following paragraph inside your `<body>` tag, after the `<h1>`:
+
+```html
+<p>
+The ministry of dogs is trying a new pilot. Good dogs can apply for a
+barking permit so they can woof whenever they like. It’s not yet clear how
+this permit will be enforced.
+</p>
+```
+
+### Element: link (`a`)
+
+A link lets the user click through to another webpage. We use the attribute `href` to indicate where you want the user to go.
+
+The link tag is called `a` for "anchor".
+
+#### Task 5: add a link
+
+Add a link to the end of your paragraph:
+
+```html
+<a href="https://en.wikipedia.org/wiki/Bark_(sound)">
+More information about barking
+</a>
+```
+
+### Element: div (`div`)
+
+A div tag lets you group elements together. Grouping elements is useful as we can later style them together (e.g. giving them all the same colour).
+
+#### Task 6: add a div
+
+Wrap your existing paragraph and link in a div:
+
+```html
+<div>
+  <h1>Apply for a Barking Permit</h1>
+  <p>
+    The ministry of dogs is trying a new pilot. Good dogs can apply for a barking permit so they can woof whenever and wherever they like. It’s not yet clear how this permit will be enforced. 
+    <a href="https://en.wikipedia.org/wiki/Bark_(sound)">More information about barking</a>.
+ </p>
+</div>
+```
+
+It's called "div" for "division".
+
+### Element: image (`img`)
+
+So far we've learned a lot about how to add text to our page. Now let’s add some images!
+
+Before we start, we'll need to add the image files we want to use to the
+project folder.
+
+It's common to keep images in their own folder, so first,
+create a folder called `images` inside the same folder as your HTML file.
+
+Next, download the images you'll need. Do this by right clicking on each of
+the following links, select 'Save Link As...', and save it to the images folder
+you just created:
+
+* [shiba-inu.jpg](https://apply-for-a-barking-permit.london.cloudapps.digital/images/shiba-inu.jpg)
+* [puppy-in-a-hat.jpg](https://apply-for-a-barking-permit.london.cloudapps.digital/images/puppy-in-a-hat.jpg)
+
+Images are primarily made up of three components:
+
+* the `<img>` tag
+* the `src` attribute, which gives the location, or source, of the image
+* the `alt` attribute, which is displayed if the image can't be shown, and is read by screen reader software
+
+In order for us to see this image on the webpage we need to link to the
+image, this involves telling the webpage where it is and what it is called.
+
+#### Task 7: add an image
+
+After the main heading of the page, add the following:
+
+```html
+<img src="images/shiba-inu.jpg" alt="A happy shiba inu">
+```
+
+Here you can see we have told the `src` of the image to look in the images
+folder and display the image `shiba-inu.png`, then we have given it a
+description in the `alt` attribute.
+
+## Forms
+
+Forms let you ask your user for input. There are a number of interactive
+components (like text boxes and buttons) you can use in forms.
+
+### Element: form (`form`)
+
+The `<form>` element groups a set of controls together so all of the inputs
+can be submitted at once.
+
+#### Task 8: create an empty form
+
+Create an empty form at the end of your website's `<body>`:
+
+```html
+    ...
+    <form>
+    </form>
+</body>
+```
+
+
+### Elements: label (`label`) and input (`input`)
+
+Labels and Inputs work together to tell the user what information they need to provide and to let them enter it.
+
+`<label>` elements have a `for` attribute and `<input>` elements have an `id`
+attribute. The combination of `for` and `id` link the elements together.
+
+`<input>` elements also have a `name` attribute which is used when the form is
+submitted. Most of the time the `id` and `name` attributes have the same value.
+
+It's common to wrap a label / input pair in a `<div>` so they’re grouped together nicely.
+
+#### Task 9: add labels and inputs
+
+Let’s create a couple of inputs in the form to ask the user for the name and age of their dog:
+
+```html
+<form>
+    <div>
+        <label for="dog-name">Dog name</label>
+        <input id="dog-name" name="dog-name">
+    </div>
+    <div>
+        <label for="dog-age">Dog age (human years)</label>
+        <input id="dog-age" name="dog-age">
+    </div>
+</form>
+```
+
+### Element: button (`button`)
+
+The final thing our form needs is a way for the user to submit their answers.
+In HTML we use the `<button>` tag for creating buttons.
+
+#### Task 10: add a button
+
+Add a `<button>` just before the end of your `form`:
+
+```html
+<button>Apply for a permit</button>
+```
+
+#### Task 11: what happens when the user submits the form?
+
+If you click the button it looks like the page just refreshes, but nothing
+changes. What's going on?
+
+If you look closely you’ll notice that the answers you put in the form are
+appearing in the URL - this is the simplest way of submitting data. In a
+later session we'll cover how to handle this information "on the server" so
+you can show the user a nice confirmation page.
+
+## Styling with CSS
+
+CSS is the language used to style websites.
+
+It defines the visual representation of the content. For example colour, margins, borders, backgrounds, position in the page.
+
+### What can I do with CSS?
+
+You can change the color, position, dimensions and presentation of different elements.
+
+### Anatomy of a CSS rule
+
+Here's an example CSS rule:
+
+```css
+body {
+  color: hotpink;
+}
+```
+
+This rule would set the text colour (`color` - sorry about the american spelling) for the `body` to a nice shade of `hotpink`. 
+
+There are three parts:
+
+* A `selector` (`body` in this example) which restricts which elements this rule applies to
+* One or more `properties` (`color` in this example) which define which things the rule changes
+* A `value` for each `property` (`hotpink` in this example)
+
+```css
+selector {
+  property1: value1;
+  property2: value2;
+}
+```
+
+There are two ways you can use CSS to style your page: using an "inline"
+style tag in your HTML, or loading your CSS from an external file.
+
+### Element: style (`style`)
+
+A style tag lets you put CSS directly inside your HTML.
+
+#### Task 12: add some inline CSS
+
+Jazz up your site with some CSS. Inside the `<head>` element add a new
+`<style>` element like the following:
+
+```html
+<head>
+  <title>Apply for a Barking Permit</title>
+  <style>
+  body {
+    background: hotpink;
+    color: cyan;
+    font-family: cursive;
+  }
+  </style>
+</head>
+```
+
+Too much? Play around with the values until you find something you like.
+
+### Element: link (`link`)
+
+The `<link>` tag lets you load CSS from another file. This is easier to
+maintain and can be reused across several pages.
+
+#### Task 13: replace inline CSS with external CSS
+
+Replace your style tag with a link tag like the following:
+
+```html
+<head>
+  <title>Apply for a Barking Permit</title>
+  <link rel="stylesheet" href="https://www.govukpaas.app/govuk-frontend.css">
+</head>
+```
+
+This includes the CSS from the GOV.UK Frontend project. We can use those to
+make our website look like GOV.UK. Nothing will change yet though - first we
+need to apply some classes.
+
+## Applying styles with classes
+
+Often you don’t want to apply a style to *every* element, but just to certain
+ones that mean something to you. For example, you might want to make one
+heading use a big font and another one somewhere else on the page use a small
+font.
+
+Classes allow you to label certain elements. You can then target them in your
+CSS by using the class name prefixed with a dot. For example:
+
+**HTML**
+
+```html
+<h1 class="mega-big-heading">Apply for a Barking Permit</h1>
+```
+
+**CSS**
+
+```css
+.mega-big-heading {
+  font-size: 100px;
+}
+```
+
+GOV.UK Frontend uses this pattern for all its styles (so they don’t get
+accidentally applied to the wrong elements).
+
+#### Task 14: add GOV.UK classes to your HTML
+
+Try adding these classes to your HTML and reloading the page in your browser
+to see what happens:
+
+* `class="govuk-heading-xl"` (to your main heading)
+* `class="govuk-body"` (to your paragraph)
+* `class="govuk-width-container"` (to your outermost div)
+* `class="govuk-form-group"` (to both of the divs outside your labels and inputs)
+* `class="govuk-label"` (to both of your labels)
+* `class="govuk-input"` (to both of your inputs)
+* `class="govuk-button"` (to your button)
+
+## Summary
+
+Once you've done all the tasks, you should have some HTML that looks something like this:
+
+```html
+<!doctype html>
+<html>
+<head>
+  <title>Apply for a Barking Permit</title>   
+  <link rel="stylesheet" href="https://www.govukpaas.app/govuk-frontend.css">
+</head>
+<body>
+  <div class="govuk-width-container">
+    <h1 class="govuk-heading-xl">Apply for a Barking Permit</h1>
+    <img src="images/shiba-inu.jpg" alt="A happy shiba inu">
+    <p class="govuk-body">
+      The ministry of dogs is trying a new pilot.
+      Good dogs can apply for a barking permit so they can woof whenever they like.
+      It’s not yet clear how this permit will be enforced.
+      <a href="https://en.wikipedia.org/wiki/Bark_(sound)">More information about barking</a>
+    </p>
+    <form>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="dog-name">Dog name</label>
+        <input class="govuk-input" id="dog-name" name="dog-name">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="dog-age">Dog age (human years)</label>
+        <input class="govuk-input" id="dog-age" name="dog-age">
+      </div>
+      <button class="govuk-button">Apply for a permit</button>
+    </form>
+  </div>
+</body>
+</html>
+```
+
+And your website should look something like this:
+
+<div style="border: 5px solid;">
+<a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">
+<img src="images/image5.png" alt="Apply for a Barking Permit website, showing an image, a paragraph of text, a link and a form">
+</a>
+</div>
+
+If things don't look quite right, or if you've got any questions, ask a
+developer and they should be able to help you out.
+
+## Further reading
+
+* [HTML elements](https://developer.mozilla.org/en/docs/Web/HTML/Element)
+* [Special characters](http://htmlandcssbook.com/extras/html-escape-codes/)
+* [The Bare Bones Guide to HTML](http://werbach.com/barebones/barebones.html)
+* [CSS Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference?redirectlocale=en-US&redirectslug=CSS%2FCSS_Reference)
+* [More CSS](https://learn.shayhowe.com/html-css/)
