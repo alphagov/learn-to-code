@@ -1,54 +1,17 @@
 #!/bin/bash
 
-set -e
+set -eu
 
-error() {
-  echo " ! $1"
-}
+cd "$(dirname "$0")/.."
 
-# Check that we have a Staticfile.auth we can use
-echo "Checking Staticfile.auth..."
-if [[ ! -f Staticfile.auth ]]; then
-  error "You are attempting to deploy to an environment that requires a Staticfile.auth, but do not have one locally."
-  error "Please add a Staticfile.auth file to this directory and try again."
-  error
-  error "For information on generating a Staticfile.auth, see"
-  error "http://docs.cloudfoundry.org/buildpacks/staticfile/index.html#basic-auth"
+if ! cf curl /v2/info | grep -F 'london.cloud.service.gov.uk' &> /dev/null; then
+  >&2 echo "It looks like you're not targetting the london region"
+  >&2 echo "  cf login -a api.london.cloud.service.gov.uk --sso"
   exit 1
 fi
-echo "OK!"
 
-# Check that we're on master, or there's an environment variable set to override
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
+cf t -o govuk-paas -s docs
+cf v3-create-app learn-to-code
+cf v3-apply-manifest -f manifest.yml
+cf v3-zdt-push learn-to-code -p build --wait-for-deploy-complete
 
-echo "Checking branch..."
-if [[ $BRANCH != "master" ]] && [[ $I_REALISE_I_AM_NOT_ON_MASTER != "y" ]]; then
-  error "Current branch is not master, cowardly refusing to deploy"
-  error "To force override, run this again with I_REALISE_I_AM_NOT_ON_MASTER=y"
-  exit 1
-fi
-echo "OK!"
-
-# Check that we've not got any uncommitted files in our working directory
-echo "Checking dirty working tree..."
-DIRTY_WORKING_TREE=$(git status --porcelain 2>/dev/null | egrep "^(M| M)" || exit 0)
-if [[ $DIRTY_WORKING_TREE != "" ]]; then
-  error "There are uncommitted changes in the working directory."
-  error "Please commit or stash all changes and try again."
-  exit 1
-fi
-echo "OK!"
-
-# Check if we're behind our Git remote
-echo "Checking if we're behind origin..."
-BEHIND_ORIGIN=$(git fetch origin >/dev/null 2>&1; git diff --stat HEAD...@{u})
-if [[ $BEHIND_ORIGIN != "" ]]; then
-  error "You are behind the origin branch - please pull and try again."
-  exit 1
-fi
-echo "OK!"
-
-bundle exec middleman build
-cp Staticfile.auth build
-cf target -o govuk-service-manual -s integration
-cf push
