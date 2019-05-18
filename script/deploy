@@ -10,6 +10,8 @@ if ! cf curl /v2/info | grep -F 'london.cloud.service.gov.uk' &> /dev/null; then
   exit 1
 fi
 
+bundle exec middleman build
+
 cf t -o govuk-paas -s learn-to-code
 cf v3-create-app learn-to-code
 cf v3-apply-manifest -f manifest.yml
