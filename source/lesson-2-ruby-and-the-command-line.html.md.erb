@@ -1,0 +1,666 @@
+---
+title: "Lesson 2: Ruby and the Command Line"
+weight: 40
+---
+
+# Lesson 2: Ruby and the Command Line
+
+## Introduction
+
+### Objectives
+
+In this tutorial we are going to look at:
+
+* what a command line is
+* how to use the command line to navigate the file system and run programs
+* what ruby is
+* numbers and strings
+* variables
+* calling and defining methods
+* getting user input
+* doing things multiple times using loops
+* building simple programs
+
+### Goal
+
+By the end of this tutorial you will have built a couple of small ruby
+programs, including one like this "times tables challenge":
+
+<iframe height="400px" width="100%" src="https://timestablesgame.richardtowers.repl.run" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts"></iframe>
+
+## Introduction to the command line
+
+### What is the command line?
+
+The command line is a text interface for your computer. Just like Windows
+Explorer on Windows or Finder on macOs it lets you navigate through the files
+and folders of your computer, but it is completely text based. The command line
+works by typing commands against a prompt, which then gets passed to the
+operating system of the computer that runs these commands.
+
+### How do I access the command line?
+
+To access the command line, we use a terminal emulator, usually called a
+terminal. On macOs you can access the terminal by opening the Terminal
+application from your Applications folder.
+
+The terminal can seem unfamiliar and scary, but it's really just a different
+way of interacting with your computer. So long as you are careful not to run
+any commands you don't understand, you won't do any harm.
+
+### Navigating around in the terminal
+
+Once you opened up your terminal you should see a window like this:
+
+![Screenshot of the macOs terminal app. The text says Last login: Sat May 18 11:08:55 on ttys002 ~$ ](/images/lesson-2/image1.png)
+
+Don't worry if the text in yours is a little different, it doesn't matter.
+
+In our examples, we'll write `$` to represent the prompt, you don't have to
+type this just the words after, followed by enter to run the command.
+
+Try running:
+
+```shell
+$ pwd
+```
+
+#### `pwd` or print working directory
+
+The `pwd` command prints out the current directory (another name for folder)
+you are in. If you just opened up your terminal, you are probably in your
+"home" directory, and should get an output similar to this:
+
+```
+/Users/your-username
+```
+
+So your current "working directory" is `/Users/your-username`.
+
+#### `ls` or list
+
+You might wonder "how I do know which files are in a directory?", the `ls` command can do this:
+
+```shell
+$ ls
+```
+
+This should print a list of the files and folders inside the working
+directory. You'll probably see directories like `Applications`, `Desktop`,
+`Documents` and `Downloads`.
+
+### `cd` or change directory
+
+The `cd` command allows you to move between directories. You tell `cd` which directory to move to by putting the path after the `cd`, like this:
+
+```shell
+$ cd 'Desktop'
+```
+
+Lots of commands need parameters like this (e.g. `cd` needs to know the directory to move to, while `pwd` does not). We call the parameters "arguments".
+
+### Task 1: change to the directory containing your code
+
+In Lesson 1 we created a folder to keep our source code
+(`lesson-1-html-and-css`). Create a new folder for lesson 2 called
+`lesson-2-ruby` and change the working directory in your command line using
+`cd`.
+
+> **Notes**
+
+> In macOs Finder you can copy the path to a directory by holding down
+the option key (`⌥`), right clicking, and choosing *Copy
+"Directory" as Pathname*.
+
+> If your directory includes spaces (or other weird characters) you might
+need to put it in quotes so the command line doesn't get confused. So:
+
+> `$ cd '/Users/your-username/My Directory With Spaces/lesson-2-ruby'`
+
+> instead of
+
+> `$ cd /Users/your-username/My Directory With Spaces/lesson-2-ruby`.
+
+Confirm you're in the right place by running:
+
+```shell
+$ pwd
+```
+
+and check what files there are in this directory by running:
+
+```shell
+$ ls
+```
+
+There probably won't be any files yet, because we haven't created any.
+
+## Introduction to ruby
+
+![The ruby logo](/images/lesson-2/ruby.png)
+
+Ruby is a programming language. For a beginner, Ruby is very similar to other
+languages like Python, JavaScript and PHP. The basic skills you learn in ruby
+will translate directly into many other languages.
+
+As well as being a wonderful language, ruby has a vibrant, friendly, and
+sometimes weird community of people. That means there's lots of great
+resources for learning, and lots places where you can get help.
+
+If you learn best from _weird_ books then [_why's (poignant) guide](https://poignant.guide/)
+is excellent. If you'd prefer something a bit more formal, Chris Pine's
+[Learn to Program](https://pine.fm/LearnToProgram/) is excellent.
+
+We'll try to stay on the less weird side in this guide, but no promises.
+
+![A comic strip from _why's (poignant) guide showing Dr. Cham lost in some tunnels under a mysterious castle](/images/lesson-2/poignant-guide.gif)
+
+### Running ruby interactively with `irb`
+
+There are two ways to run ruby from the command line:
+
+* Interactively with `irb` (**I**nteractive **R****u**by)
+* Running a file with `ruby` itself
+
+To start with, let's look at `irb`. We'll get on to how to run a file later.
+
+`irb` is what's known as a REPL (**R**ead **E**valuate **P**rint **L**oop) -
+it lets us write ruby expressions, and quickly see what they evaluate to.
+
+Start `irb` by running:
+
+```shell
+$ irb
+```
+
+Your command line prompt will change from `$ ` to `irb(main):001:0> `.
+
+When you want to leave irb and go back to your command prompt, just type `exit` and press enter.
+
+### Numbers
+
+We can use ruby as a kind of calculator. Try typing `1 + 1` into irb and
+pressing enter. Do you get the right answer?
+
+In ruby, the `+` operator adds numbers together. Other operators include:
+
+* `-` - subtract
+* `*` - multiply
+* `/` - divide
+* `**` - raise to the power of
+
+You can also use brackets (`()`) to group expressions.
+
+#### Task 2: Maths challenge
+
+Use `irb` to work out the answer to "191 multiplied by 7".
+
+<details>
+<summary>Answer</summary>
+
+```
+irb(main):17:0> 191 * 7
+=> 1337
+```
+
+</details>
+
+### Strings
+
+In the real world strings tie things up. Programming strings have *nothing*
+to do with real-world strings.
+
+Programming strings are used to store collections of letters and numbers.
+That could be a single letter like `"a"`, a word like `"hi"`, or a sentence like
+`"Hello my friends."`.
+
+A Ruby string is written as a quote (`"`) followed by some letters, numbers,
+or symbols and ended with a closing quote (`"`). The shortest possible string
+is called the empty string: `""`. It’s not uncommon for a single string to
+contain paragraphs or even pages of text.
+
+If you type a string into `irb` it will echo it back at you:
+
+```
+irb(main):018:0> "Hello IRB"
+=> "Hello IRB"
+```
+
+### Variables
+
+Programming is all about creating abstractions, and in order to create an
+abstraction we must be able to assign names to things. Variables are a way of
+creating a name for a piece of data.
+
+Creating and using variables in ruby is super simple, it's just `name` `=`
+`expression`. Some examples:
+
+```ruby
+name = "Fido"
+age_human_years = 4
+age_dog_years = age_human_years * 7
+```
+
+Variable names in ruby have to start with a letter, and they can't contain
+spaces or "special" characters like `-`, `$`, `@` and `&`.
+
+As a style convention, ruby variables use underscores to separate the bits of
+the name - this is called `snake_case` (as opposed to `camelCase` or `PascalCase` which are used elsewhere).
+
+### String interpolation
+
+We often need to build a string out of other strings and ruby expressions. In
+ruby we can do this with "string interpolation".
+
+Within the string we use the interpolation marker `#{}`. Inside those
+brackets we can put any variables or Ruby code which will be evaluated,
+converted to a string, and output in that spot of the outer string.
+
+```
+irb(main):19:0> "The dog #{name} is #{age_human_years} human years old, which is #{age_dog_years} in dog years."
+=> "The dog Fido is 4 human years old, which is 28 in dog years."
+```
+
+> Note: on macOs you can enter the `#` key with option (`⌥`) + 3
+
+### Calling methods
+
+While programming, we often find ourselves doing the same thing over and over
+again. It would be nice if we could give a particular task a name, and run it
+just by calling its name.
+
+In ruby we do this with *methods*, and there are lots of them already built
+in to the language. One example is `rand()`, which generates a random number:
+
+```
+irb(main):20:0> rand()
+=> 0.11487911496307956
+```
+
+If we want to generate a random number less than a particular number, we can
+provide our maximum to `rand()` as an "argument":
+
+```
+irb(main):21:0> rand(100)
+=> 7
+irb(main):22:0> rand(100)
+=> 43
+```
+
+You can also call some methods on *things* by using a `.` like this:
+
+```
+irb(main):23:0> "make me louder".upcase()
+=> "MAKE ME LOUDER"
+irb(main):24:0> "em esrever".reverse()
+=> "reverse me"
+```
+
+#### Task 3: Decode a secret message
+
+Decode this top secret, encrypted message:
+
+```
+!gniog peeK !llew repus gniod er'uoY
+```
+
+(Hint: it's not Welsh - it's just been reversed)
+
+<details>
+<summary>Answer</summary>
+
+```
+irb(main):25:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
+=> "You're doing super well! Keep going!"
+```
+
+</details>
+
+### Running a file with ruby
+
+We've been having fun with `irb` - it's a great tool for exploring and
+learning about ruby. Ideally though we'd like to be able to save our programs
+for later, and run them whenever we want.
+
+You can run a ruby script from the command line with `ruby name-of-your-script.rb`
+
+#### Task 4: My first ruby script
+
+* Exit `irb` by running the `exit` command
+* Create a file in your text editor called `hello.rb`
+* Confirm you can see the file in the command line by running `ls`
+* From the command line, use ruby to run your file by typing `ruby hello.rb` and pressing enter
+* You should see nothing returned (because `hello.rb` is empty at the moment)
+
+### Interacting with the user
+
+Now that we're running our ruby from a file, we can't rely on `irb` to handle
+all of our user input and output. When we want to show something to the user
+we need to explicitly say so, and likewise, when we want some input from the
+user we have to explicitly ask for it.
+
+Ruby provides a `puts()` method (put string) and a `gets()` method (get
+string). `puts` prints a string, `gets` waits for the user to type one and then
+returns it (so you can store it in a variable or something).
+
+Note that `gets()` gets the user input as a `string`. In ruby strings and
+numbers are *not the same* (`"42" != 42`).
+
+When you need to ask the user for a number you must ask them for a string and
+then convert it into a number using `.to_i()` like so:
+
+```ruby
+user_input_as_string = gets()
+user_input_as_number = user_input_as_string.to_i()
+```
+
+#### Task 5: Hello world!
+
+Add the following to your `hello.rb` file, save it, and run it with `ruby hello.rb`:
+
+```ruby
+puts("What is your name?")
+name = gets()
+puts("Hello #{name}!")
+```
+
+We can use puts and gets to create a very simple text based user interface.
+
+#### Task 6: Create a script that reverses the input
+
+Create a new script called `reverse.rb` in your text editor.
+
+Use `gets()`, `.reverse()` and `puts()` to get a string from the user,
+reverse it, and print it.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+puts("Enter a string to reverse: ")
+input = gets()
+puts("Your string reversed is: ")
+puts(input.reverse())
+```
+
+</details>
+
+#### Task 7: Create a script that multiplies two numbers
+
+Create a new script called `add.rb` in your text editor.
+
+Use `gets()`, `.to_i()` and `puts()` to get two strings from the user,
+converts them to numbers, multiplies them together and prints the result.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+puts("Enter the first number:")
+x_string = gets()
+x_number = x_string.to_i()
+puts("Enter the second number:")
+y_string = gets()
+y_number = y_string.to_i()
+puts("#{x_number} * #{y_number} = #{x_number * y_number}")
+```
+
+</details>
+
+
+
+### Defining methods
+
+The ruby authors didn't manage to write every method we'll ever need into
+ruby itself, so sometimes we need to define our own.
+
+This means we can write abstractions that describe what we're doing and we
+don't have to repeat ourselves.
+
+Earlier, we had this line of code:
+
+```ruby
+age_dog_years = age_human_years * 7
+```
+
+This is okay, but it's a little surprising to see that `7` in there - what's
+it doing? It would be nicer if we could write:
+
+```ruby
+age_dog_years = convert_to_dog_years(age_human_years)
+```
+
+and hide away the grubby implementation details inside a method.
+
+In ruby a method definition looks like this:
+
+```ruby
+def method_name(argument)
+  result = "some value"
+  return result
+end
+```
+
+You can name a method anything you could name a variable (they're
+`snake_cased` by convention too). They can have as many lines of code inside
+them as you want.
+
+#### Task 8: Create a script that converts human years to dog years
+
+Create a script called `dog-years.rb`. Use `puts()`, `gets()` and `.to_i()`
+to ask the user how old their dog is.
+
+Assuming that dogs age faster than humans, and that there are seven "dog
+years" to one "human year", define a method which:
+
+* takes an age in human years as a argument
+* multiplies the age in human years by seven
+* returns the result of the multiplication
+
+Call the method in your script, and print the result.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+puts("How old is your dog in human years?")
+age_human_years_string = gets()
+age_human_years_number = age_human_years_string.to_i()
+
+def convert_to_dog_years(age)
+  return age * 7
+end
+
+age_dog_years = convert_to_dog_years(age_human_years_number)
+puts("Your dog is #{age_dog_years} in dog years")
+```
+
+</details>
+
+### Repeating things
+
+<img src="/images/lesson-2/brøther.jpg" alt="Meme where a cat looks at a bowl of fruit loops, and says 'brøether, may i have the lööps'" style="max-width: 300px;">
+
+So far, each line of code we've written has run exactly once (each time a
+script runs). Ruby goes through each line in the script, runs it, then moves
+on to the next line. When it reaches the end of the file, the script exits.
+
+One of the things that computers are really good at is repeating themselves.
+In ruby we can use methods like `loop` and `.times` to make the computer
+repeat things.
+
+You might want to try some of the following out in `irb` to get a feel for
+how they work. (If you get stuck in a loop in `irb` you can escape it by
+pressing `ctrl + c`):
+
+```ruby
+5.times() do
+  puts("Odelay!")
+end
+```
+
+```ruby
+10.times() do |i|
+  puts("#{10 - i} green bottles, hanging on the wall,")
+  puts("#{10 - i} green bottles, hanging on the wall,")
+  puts("And if one green bottle should accidentally fall,")
+  puts("There'll be #{9 - i} green bottles hanging on the wall.")
+  puts()
+end
+```
+
+```ruby
+loop() do
+  puts "What's your name?"
+  name = gets()
+  puts "Hello #{name}(to exit this infinite loop, press ctrl+c)"
+end
+```
+
+The bit between the `do` and the `end` is called a block, which is run by the
+method repeatedly. Blocks can take parameters after the `do`, which are
+wrapped in vertical pipes like `|i|`.
+
+#### Task 9: Update one of your scripts to work in a loop
+
+Earlier, you wrote a few scripts that ask the user for some input, do
+something with the input then print the result and exit. Change one of these
+scripts (e.g. `add.rb`) so they do this in an infinite loop (using `loop`).
+
+If you get stuck in an infinite loop in the command line you can break out
+by pressing `ctrl + c`.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+loop do
+  puts("Enter the first number:")
+  x_string = gets()
+  x_number = x_string.to_i()
+  puts("Enter the second number:")
+  y_string = gets()
+  y_number = y_string.to_i()
+  puts("#{x_number} * #{y_number} = #{x_number * y_number}")
+end
+```
+
+</details>
+
+### Conditionals
+
+One last thing to learn is how to get the computer to do something based on
+some condition. To do this, we can use the `if` statement, like so:
+
+```ruby
+puts("What is your name?")
+name = gets()
+if name.include?("r")
+  puts "Hi #{name} - you sound like a pretty cool person"
+else
+  puts "Hi nerd"
+end
+```
+
+An `if` statement takes a "conditional expression" (something that evaluates
+to `true` or `false`). You can use things like `==` (equals), `<` (less than),
+or methods like `.include?()` (like we did in the example).
+
+If the conditional expression is true ruby will run the lines of code between
+the `if` and the `else`, otherwise ruby will run the lines of code between
+the `else` and the `end`.
+
+### Tying it all together
+
+Phew! That was a lot to learn. To recap, we've learned:
+
+* how to use `irb`
+* how to use numbers
+* what "strings" are and how to use them
+* how to use variables to name things
+* how to "interpolate" strings
+* how to call methods
+* how to run ruby from a file
+* how to interact with a user
+* how to define methods
+* how to repeat things
+* how to do things conditionally
+
+If you've understood all of that, well done! You now know the basics of
+programming. There's a lot more to learn, but it all builds on these
+fundamentals.
+
+To tie everything you've learned together, here's one final "hard" task
+
+#### Task 10: Build a times tables game
+
+Right at the beginning, we said you'd build this little game:
+
+<iframe height="400px" width="100%" src="https://timestablesgame.richardtowers.repl.run" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts"></iframe>
+
+To do this you'll need to use everything you've just learned. It's a pretty
+difficult problem for a beginner, so if you get stuck on something don't be
+afraid to ask for help.
+
+Here's a rough plan of how to implement this:
+
+* create a `score` variable to keep track of the users score
+* in a loop that happens 4 times
+  * generate two numbers between 1 and 12 using `rand()` and assign them to variables
+  * print a message to the user asking them to multiply the numbers together
+  * get the user's answer and covert it to a number (using `.to_i`)
+  * compare the user's answer to the answer ruby thinks is correct
+  * show the user a message saying whether they're correct (and add one to their score)
+* if the user scored 4 then show them a message saying they got them all right
+* otherwise, show the user a message commiserating them for their failure
+
+For bonus points, consider whether you could define a method to do some of
+the work to make the loop easier to read.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+def multiplication_challenge()
+  x = rand(12) + 1
+  y = rand(12) + 1
+  
+  print("What is #{x} multiplied by #{y} ? ")
+  user_input = gets()
+  user_input_as_a_number = user_input.to_i()
+
+  correct_answer = x * y
+  if user_input_as_a_number == correct_answer
+    puts("\u{1F389} correct!")
+    return true
+  else
+    puts("\u{1F643} oops!")
+    puts("The answer was #{correct_answer}")
+    return false
+  end
+end
+
+number_of_rounds = 4
+score = 0
+
+puts("Times tables challenge")
+puts("----------------------")
+puts()
+puts("You will be asked #{number_of_rounds} questions.")
+puts("Press enter to start...")
+gets()
+
+number_of_rounds.times() do |i|
+  if multiplication_challenge()
+    score = score + 1
+  end
+end
+
+if score == number_of_rounds
+  puts "You scored #{score}/#{number_of_rounds}. Well done!"
+else
+  puts "You scored #{score}/#{number_of_rounds}. Better luck next time!"
+end
+```
+
+</details>
