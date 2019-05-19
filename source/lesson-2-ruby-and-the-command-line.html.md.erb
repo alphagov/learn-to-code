@@ -75,6 +75,20 @@ you are in. If you just opened up your terminal, you are probably in your
 
 So your current "working directory" is `/Users/your-username`.
 
+#### Getting things wrong on the command line
+
+If you type a command that the command line doesn't understand, it will show
+you an error message. Don't panic, if you see one of these - everything is fine!
+Just have a look at the command you wrote and see if you can work out what was wrong.
+
+Try this for example:
+
+```shell
+$ whargleblargle
+```
+
+You should see an error message like `-bash: whargleblargle: command not found`.
+
 #### `ls` or list
 
 You might wonder "how I do know which files are in a directory?", the `ls` command can do this:
@@ -197,7 +211,7 @@ Use `irb` to work out the answer to "191 multiplied by 7".
 <summary>Answer</summary>
 
 ```
-irb(main):17:0> 191 * 7
+irb(main):016:0> 191 * 7
 => 1337
 ```
 
@@ -220,9 +234,31 @@ contain paragraphs or even pages of text.
 If you type a string into `irb` it will echo it back at you:
 
 ```
-irb(main):018:0> "Hello IRB"
+irb(main):017:0> "Hello IRB"
 => "Hello IRB"
 ```
+
+#### Getting things wrong in IRB
+
+Just like in the command line, if you give `irb` a command it doesn't
+understand it will show you an error message. Again, don't panic! Everything
+is fine.
+
+`irb` will do its best to explain why it didn't understand your ruby, but
+sometimes the error messages can be hard for a beginner to understand.
+
+For example:
+
+```
+irb(main):018:0> "Hello IRB" + 7
+TypeError: no implicit conversion of Fixnum into String
+        from (irb):1:in `+'
+        from (irb):1
+        from /usr/bin/irb:11:in `<main>'
+```
+
+Here, `irb` is telling us that you're not allowed to add strings and numbers
+together in ruby.
 
 ### Variables
 
@@ -255,7 +291,7 @@ brackets we can put any variables or Ruby code which will be evaluated,
 converted to a string, and output in that spot of the outer string.
 
 ```
-irb(main):19:0> "The dog #{name} is #{age_human_years} human years old, which is #{age_dog_years} in dog years."
+irb(main):019:0> "The dog #{name} is #{age_human_years} human years old, which is #{age_dog_years} in dog years."
 => "The dog Fido is 4 human years old, which is 28 in dog years."
 ```
 
@@ -271,7 +307,7 @@ In ruby we do this with *methods*, and there are lots of them already built
 in to the language. One example is `rand()`, which generates a random number:
 
 ```
-irb(main):20:0> rand()
+irb(main):020:0> rand()
 => 0.11487911496307956
 ```
 
@@ -279,18 +315,18 @@ If we want to generate a random number less than a particular number, we can
 provide our maximum to `rand()` as an "argument":
 
 ```
-irb(main):21:0> rand(100)
+irb(main):021:0> rand(100)
 => 7
-irb(main):22:0> rand(100)
+irb(main):022:0> rand(100)
 => 43
 ```
 
 You can also call some methods on *things* by using a `.` like this:
 
 ```
-irb(main):23:0> "make me louder".upcase()
+irb(main):023:0> "make me louder".upcase()
 => "MAKE ME LOUDER"
-irb(main):24:0> "em esrever".reverse()
+irb(main):024:0> "em esrever".reverse()
 => "reverse me"
 ```
 
@@ -308,7 +344,7 @@ Decode this top secret, encrypted message:
 <summary>Answer</summary>
 
 ```
-irb(main):25:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
+irb(main):025:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
 => "You're doing super well! Keep going!"
 ```
 
@@ -363,6 +399,30 @@ puts("Hello #{name}!")
 ```
 
 We can use puts and gets to create a very simple text based user interface.
+
+#### Getting things wrong in ruby scripts
+
+Just like `irb`, if you get something wrong in a ruby script ruby will tell
+you by printing an error message. Nothing to worry about - programmers make
+mistakes all the time.
+
+Imagine a script called `oops.rb` containing:
+
+```ruby
+puts("time for a deliberate error")
+oops("this won't work")
+```
+
+When you run this with `ruby oops.rb` you'll get an error like this:
+
+```
+time for a deliberate error
+oops.rb:2:in `<main>': undefined method `oops' for main:Object (NoMethodError)
+```
+
+The `oops.rb:2` bit at the start tells us what file the error was in, and
+what line (2 in this case) the error was on. There's no method called `oops`
+so ruby doesn't know what to do.
 
 #### Task 6: Create a script that reverses the input
 
