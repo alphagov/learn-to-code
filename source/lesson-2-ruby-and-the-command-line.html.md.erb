@@ -170,7 +170,7 @@ There are two ways to run Ruby from the command line:
 
 To start with, let's look at `irb`. We'll get on to how to run a file later.
 
-`irb` is lets us write Ruby expressions and quickly see what they evaluate to.
+`irb` is lets us write bits of Ruby and quickly see what they evaluate to.
 
 Start `irb` by running:
 
@@ -194,7 +194,7 @@ In Ruby, the `+` operator adds numbers together. Other operators include:
 * `/` - divide
 * `**` - raise to the power of
 
-You can also use brackets (`()`) to group expressions.
+You can also use brackets (`()`) to group things.
 
 #### Task 2: Maths challenge
 
@@ -260,7 +260,7 @@ abstraction we must be able to assign names to things. Variables are a way of
 creating a name for a piece of data.
 
 Creating and using variables in Ruby is super simple, it's just `name` `=`
-`expression`. Some examples:
+`value`. Some examples:
 
 ```ruby
 name = "Fido"
@@ -276,7 +276,7 @@ the name - this is called `snake_case` (as opposed to `camelCase` or `PascalCase
 
 ### String interpolation
 
-We often need to build a string out of other strings and Ruby expressions. In
+We often need to build a string out of other strings and bits of Ruby. In
 Ruby we can do this with "string interpolation".
 
 Within the string we use the interpolation marker `#{}`. Inside those
@@ -613,11 +613,11 @@ else
 end
 ```
 
-An `if` statement takes a "conditional expression" (something that evaluates
+An `if` statement takes a "condition" (something that evaluates
 to `true` or `false`). You can use things like `==` (equals), `<` (less than),
 or methods like `.include?()` (like we did in the example).
 
-If the conditional expression is true Ruby will run the lines of code between
+If the condition is true Ruby will run the lines of code between
 the `if` and the `else`, otherwise Ruby will run the lines of code between
 the `else` and the `end`.
 
