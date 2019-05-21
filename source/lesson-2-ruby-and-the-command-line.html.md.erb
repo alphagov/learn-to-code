@@ -13,7 +13,7 @@ In this tutorial we are going to look at:
 
 * what a command line is
 * how to use the command line to navigate the file system and run programs
-* what ruby is
+* what Ruby is
 * numbers and strings
 * variables
 * calling and defining methods
@@ -23,7 +23,7 @@ In this tutorial we are going to look at:
 
 ### Goal
 
-By the end of this tutorial you will have built a couple of small ruby
+By the end of this tutorial you will have built a couple of small Ruby
 programs, including one like [this times tables game](https://timestablesgame.richardtowers.repl.run).
 
 ## Introduction to the command line
@@ -149,15 +149,15 @@ $ ls
 
 There probably won't be any files yet, because we haven't created any.
 
-## Introduction to ruby
+## Introduction to Ruby
 
-![The ruby logo](/images/lesson-2/ruby.png)
+![The Ruby logo](/images/lesson-2/ruby.png)
 
 Ruby is a programming language. For a beginner, Ruby is very similar to other
-languages like Python, JavaScript and PHP. The basic skills you learn in ruby
+languages like Python, JavaScript and PHP. The basic skills you learn in Ruby
 will translate directly into many other languages.
 
-As well as being a wonderful language, ruby has a vibrant, friendly, and
+As well as being a wonderful language, Ruby has a vibrant, friendly, and
 sometimes weird community of people. That means there's lots of great
 resources for learning, and lots of places where you can get help.
 
@@ -169,9 +169,9 @@ We'll try to stay on the less weird side in this guide, but no promises.
 
 ![A comic strip from _why's (poignant) guide showing Dr. Cham lost in some tunnels under a mysterious castle](/images/lesson-2/poignant-guide.gif)
 
-### Running ruby interactively with `irb`
+### Running Ruby interactively with `irb`
 
-There are two ways to run ruby from the command line:
+There are two ways to run Ruby from the command line:
 
 * Interactively with `irb` (**I**nteractive **R****u**by)
 * Running a file with `ruby` itself
@@ -179,7 +179,7 @@ There are two ways to run ruby from the command line:
 To start with, let's look at `irb`. We'll get on to how to run a file later.
 
 `irb` is what's known as a REPL (**R**ead **E**valuate **P**rint **L**oop) -
-it lets us write ruby expressions, and quickly see what they evaluate to.
+it lets us write Ruby expressions, and quickly see what they evaluate to.
 
 Start `irb` by running:
 
@@ -193,10 +193,10 @@ When you want to leave irb and go back to your command prompt, just type `exit` 
 
 ### Numbers
 
-We can use ruby as a kind of calculator. Try typing `1 + 1` into irb and
+We can use Ruby as a kind of calculator. Try typing `1 + 1` into irb and
 pressing enter. Do you get the right answer?
 
-In ruby, the `+` operator adds numbers together. Other operators include:
+In Ruby, the `+` operator adds numbers together. Other operators include:
 
 * `-` - subtract
 * `*` - multiply
@@ -246,7 +246,7 @@ Just like in the command line, if you give `irb` a command it doesn't
 understand it will show you an error message. Again, don't panic! Everything
 is fine.
 
-`irb` will do its best to explain why it didn't understand your ruby, but
+`irb` will do its best to explain why it didn't understand your Ruby, but
 sometimes the error messages can be hard for a beginner to understand.
 
 For example:
@@ -260,7 +260,7 @@ TypeError: no implicit conversion of Fixnum into String
 ```
 
 Here, `irb` is telling us that you're not allowed to add strings and numbers
-together in ruby.
+together in Ruby.
 
 ### Variables
 
@@ -268,7 +268,7 @@ Programming is all about creating abstractions, and in order to create an
 abstraction we must be able to assign names to things. Variables are a way of
 creating a name for a piece of data.
 
-Creating and using variables in ruby is super simple, it's just `name` `=`
+Creating and using variables in Ruby is super simple, it's just `name` `=`
 `expression`. Some examples:
 
 ```ruby
@@ -277,16 +277,16 @@ age_human_years = 4
 age_dog_years = age_human_years * 7
 ```
 
-Variable names in ruby have to start with a letter, and they can't contain
+Variable names in Ruby have to start with a letter, and they can't contain
 spaces or "special" characters like `-`, `$`, `@` and `&`.
 
-As a style convention, ruby variables use underscores to separate the bits of
+As a style convention, Ruby variables use underscores to separate the bits of
 the name - this is called `snake_case` (as opposed to `camelCase` or `PascalCase` which are used elsewhere).
 
 ### String interpolation
 
-We often need to build a string out of other strings and ruby expressions. In
-ruby we can do this with "string interpolation".
+We often need to build a string out of other strings and Ruby expressions. In
+Ruby we can do this with "string interpolation".
 
 Within the string we use the interpolation marker `#{}`. Inside those
 brackets we can put any variables or Ruby code which will be evaluated,
@@ -305,7 +305,7 @@ While programming, we often find ourselves doing the same thing over and over
 again. It would be nice if we could give a particular task a name, and run it
 just by calling its name.
 
-In ruby we do this with *methods*, and there are lots of them already built
+In Ruby we do this with *methods*, and there are lots of them already built
 in to the language. One example is `rand()`, which generates a random number:
 
 ```
@@ -352,25 +352,25 @@ irb(main):025:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
 
 </details>
 
-### Running a file with ruby
+### Running a file with Ruby
 
 We've been having fun with `irb` - it's a great tool for exploring and
-learning about ruby. Ideally though we'd like to be able to save our programs
+learning about Ruby. Ideally though we'd like to be able to save our programs
 for later, and run them whenever we want.
 
-You can run a ruby script from the command line with `ruby name-of-your-script.rb`
+You can run a Ruby script from the command line with `ruby name-of-your-script.rb`
 
-#### Task 4: My first ruby script
+#### Task 4: My first Ruby script
 
 * Exit `irb` by running the `exit` command
 * Create a file in your text editor called `hello.rb`
 * Confirm you can see the file in the command line by running `ls`
-* From the command line, use ruby to run your file by typing `ruby hello.rb` and pressing enter
+* From the command line, use Ruby to run your file by typing `ruby hello.rb` and pressing enter
 * You should see nothing returned (because `hello.rb` is empty at the moment)
 
 ### Interacting with the user
 
-Now that we're running our ruby from a file, we can't rely on `irb` to handle
+Now that we're running our Ruby from a file, we can't rely on `irb` to handle
 all of our user input and output. When we want to show something to the user
 we need to explicitly say so, and likewise, when we want some input from the
 user we have to explicitly ask for it.
@@ -379,7 +379,7 @@ Ruby provides a `puts()` method (put string) and a `gets()` method (get
 string). `puts` prints a string, `gets` waits for the user to type one and then
 returns it (so you can store it in a variable or something).
 
-Note that `gets()` gets the user input as a `string`. In ruby strings and
+Note that `gets()` gets the user input as a `string`. In Ruby strings and
 numbers are *not the same* (`"42" != 42`).
 
 When you need to ask the user for a number you must ask them for a string and
@@ -402,9 +402,9 @@ puts("Hello #{name}!")
 
 We can use puts and gets to create a very simple text based user interface.
 
-#### Getting things wrong in ruby scripts
+#### Getting things wrong in Ruby scripts
 
-Just like `irb`, if you get something wrong in a ruby script ruby will tell
+Just like `irb`, if you get something wrong in a Ruby script Ruby will tell
 you by printing an error message. Nothing to worry about - programmers make
 mistakes all the time.
 
@@ -424,7 +424,7 @@ oops.rb:2:in `<main>': undefined method `oops' for main:Object (NoMethodError)
 
 The `oops.rb:2` bit at the start tells us what file the error was in, and
 what line (2 in this case) the error was on. There's no method called `oops`
-so ruby doesn't know what to do.
+so Ruby doesn't know what to do.
 
 #### Task 6: Create a script that reverses the input
 
@@ -471,8 +471,8 @@ puts("#{x_number} * #{y_number} = #{x_number * y_number}")
 
 ### Defining methods
 
-The ruby authors didn't manage to write every method we'll ever need into
-ruby itself, so sometimes we need to define our own.
+The Ruby authors didn't manage to write every method we'll ever need into
+Ruby itself, so sometimes we need to define our own.
 
 This means we can write abstractions that describe what we're doing and we
 don't have to repeat ourselves.
@@ -492,7 +492,7 @@ age_dog_years = convert_to_dog_years(age_human_years)
 
 and hide away the grubby implementation details inside a method.
 
-In ruby a method definition looks like this:
+In Ruby a method definition looks like this:
 
 ```ruby
 def method_name(argument)
@@ -546,7 +546,7 @@ script runs). Ruby goes through each line in the script, runs it, then moves
 on to the next line. When it reaches the end of the file, the script exits.
 
 One of the things that computers are really good at is repeating themselves.
-In ruby we can use methods like `loop` and `.times` to make the computer
+In Ruby we can use methods like `loop` and `.times` to make the computer
 repeat things.
 
 You might want to try some of the following out in `irb` to get a feel for
@@ -626,8 +626,8 @@ An `if` statement takes a "conditional expression" (something that evaluates
 to `true` or `false`). You can use things like `==` (equals), `<` (less than),
 or methods like `.include?()` (like we did in the example).
 
-If the conditional expression is true ruby will run the lines of code between
-the `if` and the `else`, otherwise ruby will run the lines of code between
+If the conditional expression is true Ruby will run the lines of code between
+the `if` and the `else`, otherwise Ruby will run the lines of code between
 the `else` and the `end`.
 
 ### Tying it all together
@@ -640,7 +640,7 @@ Phew! That was a lot to learn. To recap, we've learned:
 * how to use variables to name things
 * how to "interpolate" strings
 * how to call methods
-* how to run ruby from a file
+* how to run Ruby from a file
 * how to interact with a user
 * how to define methods
 * how to repeat things
@@ -667,7 +667,7 @@ Here's a rough plan of how to implement this:
   * generate two numbers between 1 and 12 using `rand()` and assign them to variables
   * print a message to the user asking them to multiply the numbers together
   * get the user's answer and covert it to a number (using `.to_i`)
-  * compare the user's answer to the answer ruby thinks is correct
+  * compare the user's answer to the answer Ruby thinks is correct
   * show the user a message saying whether they're correct (and add one to their score)
 * if the user scored 4 then show them a message saying they got them all right
 * otherwise, show the user a message commiserating them for their failure
