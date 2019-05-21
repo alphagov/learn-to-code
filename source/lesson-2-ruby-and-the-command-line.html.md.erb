@@ -274,6 +274,26 @@ spaces or "special" characters like `-`, `$`, `@` and `&`.
 As a style convention, Ruby variables use underscores to separate the bits of
 the name - this is called `snake_case` (as opposed to `camelCase` or `PascalCase` which are used elsewhere).
 
+#### Task 3: Set and use a variable
+
+Use `irb` to set a variable called `answer` to the value of `7` multiplied by
+`6`. Multiply the `answer` variable by `10` in `irb` to see what happens.
+
+<details>
+<summary>Answer</summary>
+
+```
+irb(main):020:0> answer = 7 * 6
+=> 42
+irb(main):021:0> answer * 10
+=> 420
+irb(main):022:0> answer
+=> 42
+```
+
+</details>
+
+
 ### String interpolation
 
 We often need to build a string out of other strings and bits of Ruby. In
@@ -290,6 +310,27 @@ irb(main):019:0> "The dog #{name} is #{age_human_years} human years old, which i
 
 > Note: on a Mac you can enter the `#` key with option (`⌥`) + 3
 
+#### Task 4: Use string interpolation
+
+Using string interpolation in `irb`, create a string with the text:
+
+> "The answer to life, the universe and everyting is ..."
+
+Where `...` is the value of the `answer` variable you set in Task 3.
+
+<details>
+<summary>Answer</summary>
+
+```
+irb(main):023:0> answer = 7 * 6
+=> 42
+irb(main):024:0> "The answer to life, the universe and everyting is #{answer}"
+=> "The answer to life, the universe and everyting is 42"
+```
+
+</details>
+
+
 ### Calling methods
 
 While programming, we often find ourselves doing the same thing over and over
@@ -300,7 +341,7 @@ In Ruby we do this with *methods*, and there are lots of them already built
 in to the language. One example is `rand()`, which generates a random number:
 
 ```
-irb(main):020:0> rand()
+irb(main):025:0> rand()
 => 0.11487911496307956
 ```
 
@@ -308,22 +349,22 @@ If we want to generate a random number less than a particular number, we can
 provide our maximum to `rand()` as an "argument":
 
 ```
-irb(main):021:0> rand(100)
+irb(main):026:0> rand(100)
 => 7
-irb(main):022:0> rand(100)
+irb(main):027:0> rand(100)
 => 43
 ```
 
 You can also call some methods on *things* by using a `.` like this:
 
 ```
-irb(main):023:0> "make me louder".upcase()
+irb(main):028:0> "make me louder".upcase()
 => "MAKE ME LOUDER"
-irb(main):024:0> "em esrever".reverse()
+irb(main):029:0> "em esrever".reverse()
 => "reverse me"
 ```
 
-#### Task 3: Decode a secret message
+#### Task 5: Decode a secret message
 
 Decode this top secret, encrypted message:
 
@@ -337,7 +378,7 @@ Decode this top secret, encrypted message:
 <summary>Answer</summary>
 
 ```
-irb(main):025:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
+irb(main):030:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
 => "You're doing super well! Keep going!"
 ```
 
@@ -351,7 +392,7 @@ for later, and run them whenever we want.
 
 You can run a Ruby script from the command line with `ruby name-of-your-script.rb`
 
-#### Task 4: My first Ruby script
+#### Task 6: My first Ruby script
 
 * Exit `irb` by running the `exit` command
 * Create a file in your text editor called `hello.rb`
@@ -381,7 +422,7 @@ user_input_as_string = gets()
 user_input_as_number = user_input_as_string.to_i()
 ```
 
-#### Task 5: Hello world!
+#### Task 7: Hello world!
 
 Add the following to your `hello.rb` file, save it, and run it with `ruby hello.rb`:
 
@@ -417,7 +458,7 @@ The `oops.rb:2` bit at the start tells us what file the error was in, and
 what line (2 in this case) the error was on. There's no method called `oops`
 so Ruby doesn't know what to do.
 
-#### Task 6: Create a script that reverses the input
+#### Task 8: Create a script that reverses the input
 
 Create a new script called `reverse.rb` in your text editor.
 
@@ -436,7 +477,7 @@ puts(input.reverse())
 
 </details>
 
-#### Task 7: Create a script that multiplies two numbers
+#### Task 9: Create a script that multiplies two numbers
 
 Create a new script called `add.rb` in your text editor.
 
@@ -496,7 +537,7 @@ You can name a method anything you could name a variable (they're
 `snake_cased` by convention too). They can have as many lines of code inside
 them as you want.
 
-#### Task 8: Create a script that converts human years to dog years
+#### Task 10: Create a script that converts human years to dog years
 
 Create a script called `dog-years.rb`. Use `puts()`, `gets()` and `.to_i()`
 to ask the user how old their dog is.
@@ -572,7 +613,7 @@ The bit between the `do` and the `end` is called a block, which is run by the
 method repeatedly. Blocks can take parameters after the `do`, which are
 wrapped in vertical pipes like `|i|`.
 
-#### Task 9: Update one of your scripts to work in a loop
+#### Task 11: Update one of your scripts to work in a loop
 
 Earlier, you wrote a few scripts that ask the user for some input, do
 something with the input then print the result and exit. Change one of these
@@ -643,7 +684,7 @@ fundamentals.
 
 To tie everything you've learned together, here's one final "hard" task.
 
-#### Task 10: Build a times tables game
+#### Task 12: Build a times tables game
 
 Right at the beginning, we said you'd build [this times tables game](https://timestablesgame.richardtowers.repl.run).
 
