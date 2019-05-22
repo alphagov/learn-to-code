@@ -410,17 +410,6 @@ Ruby provides a `puts()` method (put string) and a `gets()` method (get
 string). `puts` prints a string, `gets` waits for the user to type one and then
 returns it (so you can store it in a variable or something).
 
-Note that `gets()` gets the user input as a `string`. In Ruby strings and
-numbers are *not the same* (`"42" != 42`).
-
-When you need to ask the user for a number you must ask them for a string and
-then convert it into a number using `.to_i()` like so:
-
-```ruby
-user_input_as_string = gets()
-user_input_as_number = user_input_as_string.to_i()
-```
-
 #### Task 7: Hello world!
 
 Add the following to your `hello.rb` file, save it, and run it with `ruby hello.rb`:
@@ -479,6 +468,17 @@ puts(input.reverse())
 #### Task 9: Create a script that multiplies two numbers
 
 Create a new script called `multiply.rb` in your text editor.
+
+Note that `gets()` gets the user input as a `string`. In Ruby strings and
+numbers are *not the same* (`"42" != 42`).
+
+When you need to ask the user for a number you must ask them for a string and
+then convert it into a number using `.to_i()` like so:
+
+```ruby
+user_input_as_string = gets()
+user_input_as_number = user_input_as_string.to_i()
+```
 
 Use `gets()`, `.to_i()` and `puts()` to get two strings from the user,
 converts them to numbers, multiplies them together and prints the result.
