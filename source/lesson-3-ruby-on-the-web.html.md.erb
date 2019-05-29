@@ -13,6 +13,7 @@ In this tutorial we are going to look at:
 
 * using `require` to access other Ruby modules
 * using Ruby's `Date` type
+* using `File` to read files in Ruby
 * what HTTP is and how it works
 * using Google Chrome's Developer tools to inspect HTTP requests
 * building a web server with Ruby
@@ -33,20 +34,20 @@ You'll have a basic understanding of how web applications work, and a good found
 
 In lesson 2 we used a number of built-in Ruby methods, like `rand()` (to get
 a random number), `.reverse()` (to reverse a string), `gets()` and
-`puts()` to read and write strings from the command line.
+`puts()` (to read and write strings from the command line).
 
 These methods are so useful that they live in the core of Ruby, so you can
 always call them.
 
 Some bits of Ruby are used less often, and these are not included by default.
-To use these other bits you need to `require` them. For example, the `'date'`
+To use these other bits you need to `require` them. For example, the `"date"`
 module lets you work with dates and times, but it isn't included by default.
 
-Running `require 'date'` includes the date code so you can use it in your
+Running `require("date")` includes the date code so you can use it in your
 script. For example:
 
 ```
-irb(main):001:0> require 'date'
+irb(main):001:0> require("date")
 => true
 irb(main):002:0> Date.today()
 => #<Date: 2019-05-30 ((2458633j,0s,0n),+0s,2299161j)>
@@ -100,7 +101,7 @@ Using `irb` and the `Date` type, work out what day of the week you were born on.
 <summary>Answer</summary>
 
 ```
-irb(main):001:0> require 'date'
+irb(main):001:0> require("date")
 => true
 
 irb(main):002:0> birthday = Date.new(1988, 1, 20)
@@ -108,6 +109,56 @@ irb(main):002:0> birthday = Date.new(1988, 1, 20)
 
 irb(main):003:0> birthday.strftime("%A")
 => "Wednesday"
+```
+
+</details>
+
+### Using `File` to read files in Ruby
+
+Sometimes it's nice to be able to store things in files, and read these files
+using Ruby so we can do something with the contents. Ruby has a `File.read()`
+method that lets us do this.
+
+`File.read()` takes the path to the file as an argument, and returns the
+contents of the file as a string.
+
+```
+irb(main):004:0> File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
+=> "<!doctype html>\n<html>...
+```
+
+We can work with the contents using all the string methods (like
+`.reverse()`) we've already seen.
+
+There are lots of other useful methods like `.size()` (which returns how many
+characters there are in the string), and `.sub()` (which takes two arguments,
+and substitutes the first occurence of the first string with the second).
+
+```
+irb(main):005:0> "Cats are the best".sub("Cat", "Dog")
+=> "Dogs are the best"
+irb(main):006:0> "Dogs are the best".size()
+=> 17
+```
+
+#### Task 2: count the characters in a file
+
+We created a file in `lesson-1-html-and-css/index.html`. Use `File.read()`
+and `.size()` to work out how many characters there are in the file.
+
+> In Finder you can copy the path to a directory by right clicking, holding
+down the option key (`⌥`), and choosing *Copy "Directory" as Pathname*.
+Alternatively, you can drag the folder onto the terminal and it will type
+the path for you.
+
+<details>
+<summary>Answer</summary>
+
+```
+irb(main):006:0> file = File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
+=> "<!doctype html>\n<html>...
+irb(main):007:0> file.size()
+1260
 ```
 
 </details>
@@ -156,7 +207,7 @@ webpage by pressing Command + Option + I (`⌘ + ⌥ + I`).
 
 The Network tab shows you the requests and responses your browser is sending and receiving.
 
-#### Task 2: Use the developer tools to look at an HTTP request
+#### Task 3: Use the developer tools to look at an HTTP request
 
 Go to any website you like and use the developer tools to look at the first
 HTTP request it makes.
@@ -167,6 +218,138 @@ HTTP request it makes.
 ![Screenshot showing the Google Chrome developer tools network tab](/images/lesson-3/developer-tools-network.png)
 ![Screenshot showing the Google Chrome developer tools focused on a particular request](/images/lesson-3/developer-tools-network-focused.png)
 
-</summary>
+</details>
 
-### Further reading
+## Building web servers with Ruby
+
+A web server is a computer program that can understand HTTP requests and
+respond to them with HTTP responses.
+
+In lesson 1 we built a website which sent the same HTML back for every
+request. By getting Ruby involved in handling the request we can make our
+website dynamic (so the response is not always the same). We can also perform
+side effects in response to certain requests (like sending emails, or
+printing out physical barking permits).
+
+Ruby is a great language to get started with, because it has everything you
+need to build simple web servers built right in to the language.
+
+First of all, let's create some files for us to serve.
+
+#### Task 4: Create files and directories
+
+* Create a folder called `lesson-3-ruby-on-the-web` next to your other lesson folders.
+* Inside this folder, create another folder called `public`, and copy the images folder from lesson 1 inside.
+
+You should end up with a directory structure like:
+
+```
+lesson-3-ruby-on-the-web
+└── public
+    └── images
+        ├── puppy-in-a-hat.jpg
+        └── shiba-inu.jpg
+```
+
+### Hello WEBrick!
+
+Earlier we `require()`'d `"date"` so we could do some things with dates which
+aren't in the core ruby language. Similarly, we can require a thing called
+`"webrick"` which allows us to build HTTP servers.
+
+We can use WEBrick to create a new server by calling the
+`WEBrick::HTTPServer.new()` method like this:
+
+```ruby
+require("webrick")
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+```
+
+This might look a bit confusing because it uses some bits of Ruby we haven't
+introduced yet (what are all these colons doing all of a sudden?). Don't
+worry about it - at some point you'll learn about modules, classes, and named
+arguments and it will all make sense.
+
+The `server` lets us respond to HTTP requests in any way we like. We can use
+the `.mount_proc()` method to attach a block of Ruby code to a particular request like this:
+
+```ruby
+server.mount_proc("/") do |request, response|
+  puts("Hello server!")
+  response.body = "Hello browser!"
+end
+```
+
+`.mount_proc()` is a bit like `.times()` from lesson 2:
+
+```ruby
+10.times() do |i|
+  puts("#{10 - i} green bottles, hanging on the wall,")
+  # ...
+end
+```
+
+only instead of running the block 10 times straight away, WEBrick will run
+the block every time a request is made to the `/` path.
+
+The final thing we need to do to make the server work is start it, which we
+do by calling the `.start()` method after we've made all our calls to
+`.mount_proc()`:
+
+```ruby
+server.start()
+```
+
+#### Task 5: Create a "hello world" server
+
+* Create a file inside the `lesson-3-ruby-on-the-web` folder called `hello-world-server.rb`
+* Copy / paste (or type) the following ruby into `hello-world-server.rb`
+
+```ruby
+require("webrick")
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+
+server.mount_proc("/") do |request, response|
+  puts("Hello server!")
+  response.body = "Hello browser!"
+end
+
+server.start()
+```
+
+* On the command line, change directory into `lesson-3-ruby-on-the-web` using `cd`
+* Run `hello-world-server.rb` from the command line with `ruby hello-world-server.rb`
+* Visit [http://localhost:8080](http://localhost:8080) in your browser
+* Reload the page a few times to see what happens
+
+<details>
+<summary>Answer</summary>
+
+You should see a web page that says "Hello browser!" and you should see some lines on the command line like this:
+
+```
+[2019-05-29 21:38:46] INFO  WEBrick 1.3.1
+[2019-05-29 21:38:46] INFO  ruby 2.3.7 (2018-03-28) [universal.x86_64-darwin17]
+[2019-05-29 21:38:46] INFO  WEBrick::HTTPServer#start: pid=86541 port=8080
+Hello server!
+::1 - - [29/May/2019:21:38:58 BST] "GET / HTTP/1.1" 200 14
+- -> /
+Hello server!
+::1 - - [29/May/2019:21:38:59 BST] "GET /favicon.ico HTTP/1.1" 200 14
+http://localhost:8080/ -> /favicon.ico
+Hello server!
+::1 - - [29/May/2019:21:39:03 BST] "GET / HTTP/1.1" 200 14
+- -> /
+Hello server!
+::1 - - [29/May/2019:21:39:03 BST] "GET /favicon.ico HTTP/1.1" 200 14
+http://localhost:8080/ -> /favicon.ico
+```
+
+Note that `puts("Hello server!")` still prints to the command line, and that
+the `response.body` is what we see in the browser.
+
+</details>
+
+## Introduction to web security
+
+## Further reading
