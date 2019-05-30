@@ -615,6 +615,40 @@ is valid for.
 * Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 * When you're done, stop the server with `CTRL + C`.
 
+<details>
+<summary>Answer</summary>
+
+```ruby
+require("webrick")
+require("date")
+
+def convert_to_dog_years(age_human_years)
+  return age_human_years * 7
+end
+
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+
+server.mount_proc("/home") do |request, response|
+  dog_name = request.query["dog-name"]
+  dog_age = request.query["dog-age"]
+
+  if dog_name
+    response.body = File.read("barking-permit-template.html").
+      sub("DOG_NAME", dog_name).
+      sub("DOG_AGE_HUMAN_YEARS", dog_age).
+      sub("DOG_AGE_DOG_YEARS", convert_to_dog_years(dog_age.to_i).to_s).
+      sub("PERMIT_ISSUED_ON", Date.today().strftime("%d/%m/%Y")).
+      sub("PERMIT_VALID_UNTIL", (Date.today() + 1000).strftime("%d/%m/%Y"))
+  else
+    response.body = File.read("index.html")
+  end
+end
+
+server.start()
+```
+
+</details>
+
 ### Warning: security!
 
 We've deliberately cut some corners by using `.sub()` for our templating
