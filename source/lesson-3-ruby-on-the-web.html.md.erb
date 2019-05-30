@@ -274,7 +274,7 @@ The `server` lets us respond to HTTP requests in any way we like. We can use
 the `.mount_proc()` method to attach a block of Ruby code to a particular request like this:
 
 ```ruby
-server.mount_proc("/") do |request, response|
+server.mount_proc("/home") do |request, response|
   puts("Hello server!")
   response.body = "Hello browser!"
 end
@@ -290,7 +290,7 @@ end
 ```
 
 only instead of running the block 10 times straight away, WEBrick will run
-the block every time a request is made to the `/` path.
+the block every time a request is made to the `/home` path.
 
 The final thing we need to do to make the server work is start it, which we
 do by calling the `.start()` method after we've made all our calls to
@@ -309,7 +309,7 @@ server.start()
 require("webrick")
 server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
 
-server.mount_proc("/") do |request, response|
+server.mount_proc("/home") do |request, response|
   puts("Hello server!")
   response.body = "Hello browser!"
 end
@@ -319,7 +319,7 @@ server.start()
 
 * On the command line, change directory into `lesson-3-ruby-on-the-web` using `cd`
 * Run `hello-world-server.rb` from the command line with `ruby hello-world-server.rb`
-* Visit [http://localhost:8080](http://localhost:8080) in your browser
+* Visit [http://localhost:8080/home](http://localhost:8080/home) in your browser
 * Reload the page a few times to see what happens
 
 <details>
@@ -358,7 +358,7 @@ To make the browser treat our response as HTML we need to set an HTTP header
 called `Content-Type` like this:
 
 ```ruby
-server.mount_proc("/") do |request, response|
+server.mount_proc("/home") do |request, response|
   response.content_type = "text/html; charset=utf-8"
   response.body = "<h1>Hello browser!</h1>"
 end
@@ -371,7 +371,7 @@ with `File.read()`:
 
 
 ```ruby
-server.mount_proc("/") do |request, response|
+server.mount_proc("/home") do |request, response|
   response.content_type = "text/html; charset=utf-8"
   response.body = File.read("index.html")
 end
@@ -384,7 +384,7 @@ end
 * Copy `lesson-1-html-and-css/index.html` into `lesson-3-ruby-on-the-web`
 * Create a copy of `hello-world-server.rb` called `barking-permit-server.rb`
 * Using the example above, make the server respond with the text from `index.html`
-* Run the server with `ruby barking-permit-server.rb` and visit [http://localhost:8080/](http://localhost:8080/) to check it works
+* Run the server with `ruby barking-permit-server.rb` and visit [http://localhost:8080/home](http://localhost:8080/home) to check it works
 * When you're done, stop the server with `CTRL + C`
 
 ### Responding to requests
@@ -403,7 +403,7 @@ We can access query parameters inside our WEBrick block using
 `request.query["key"]` (note: square brackets, not round brackets)
 
 ```ruby
-server.mount_proc("/") do |request, response|
+server.mount_proc("/home") do |request, response|
 
   dog_name = request.query["dog-name"]
   dog_age = request.query["dog-age"]
@@ -420,7 +420,7 @@ end
 * Using `if request.query["dog-name"]` set the value of `response.body` to be
   "The dog Fido is 3 years old" if the user provided a name, or
   `File.read(...)` if not
-* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form
+* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form
 * When you're done, stop the server with `CTRL + C`
 
 ### Templating HTML
@@ -523,7 +523,7 @@ set, `response.body` is set to `File.read("barking-permit-template.html")`.
 Use `.sub()` to replace `DOG_NAME` with `request.query["dog-name"]` and a
 second `.sub()` to replace `DOG_AGE_HUMAN_YEARS` with `request.query["dog-age"]`.
 
-Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form.
+Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 
 When you're done, stop the server with `CTRL + C`.
 
@@ -549,7 +549,7 @@ is valid for.
   * Issued on should be today's date, formatted as `Day/Month/Year`
   * Valid until should be today's date + 1,000 days (arbitrarily), formatted as `Day/Month/Year`
 * Use three more `.sub()`s to replace the placeholders
-* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form.
+* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 * When you're done, stop the server with `CTRL + C`.
 
 ### Warning: security!
