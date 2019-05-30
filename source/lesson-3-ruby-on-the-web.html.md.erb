@@ -350,7 +350,7 @@ the `response.body` is what we see in the browser.
 
 </details>
 
-### Responding to requests with HTML
+### Serving HTML
 
 We usually want to respond with some HTML, not just "Hello browser!".
 
@@ -359,7 +359,7 @@ called `Content-Type` like this:
 
 ```ruby
 server.mount_proc("/") do |request, response|
-  response.content_type = "text/html"
+  response.content_type = "text/html; charset=utf-8"
   response.body = "<h1>Hello browser!</h1>"
 end
 ```
@@ -372,7 +372,7 @@ with `File.read()`:
 
 ```ruby
 server.mount_proc("/") do |request, response|
-  response.content_type = "text/html"
+  response.content_type = "text/html; charset=utf-8"
   response.body = File.read("index.html")
 end
 ```
@@ -385,6 +385,7 @@ end
 * Create a copy of `hello-world-server.rb` called `barking-permit-server.rb`
 * Using the example above, make the server respond with the text from `index.html`
 * Run the server with `ruby barking-permit-server.rb` and visit [http://localhost:8080/](http://localhost:8080/) to check it works
+* When you're done, stop the server with `CTRL + C`
 
 ### Responding to requests
 
@@ -413,10 +414,172 @@ server.mount_proc("/") do |request, response|
 end
 ```
 
-# TODO: the rest of the tutorial
+#### Task 7: different responses depending on the query
 
-#### Task 6: 
+* Update `barking-permit-server.rb` to read user input with `request.query[]`
+* Using `if request.query["dog-name"]` set the value of `response.body` to be
+  "The dog Fido is 3 years old" if the user provided a name, or
+  `File.read(...)` if not
+* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form
+* When you're done, stop the server with `CTRL + C`
 
-## Introduction to web security
+### Templating HTML
+
+We've learned how to get the user's form input on the server, and change our
+response depending on the input.
+
+Our response to the user should be HTML as well though. If we're reading the
+HTML response from a file how do we change the contents based on the user's
+input?
+
+Templating lets us take a file and substitute placeholders with values of our
+choice. There are lots of fancy templating languages out there, but for us
+Ruby's `.sub()` method will be good enough.
+
+Imagine we had some HTML in a file called `fruits.html`:
+
+```html
+<h1>Favourite Fruit</h1>
+
+<p>My favourite fruit is FAVOURITE_FRUIT_NAME. I like it the best because it is FAVOURITE_FRUIT_REASON.</p>
+```
+
+We could load this file up, and then substitute the placeholders like this:
+
+```ruby
+File.read("fruits.html").
+  sub("FAVOURITE_FRUIT_NAME", "Banana").
+  sub("FAVOURITE_FRUIT_REASON", "easy to peel")
+```
+
+Which would return:
+
+```html
+<h1>Favourite Fruit</h1>
+
+<p>My favourite fruit is Banana. I like it the best because it is easy to peel.</p>
+```
+
+#### Task 8: Template barking permit
+
+Create a file called `barking-permit-template.html` in `lesson-3-ruby-on-the-web`.
+
+Add the following HTML to the file (it's fine to copy-paste this):
+
+<details>
+<summary>HTML for `barking-permit-template.html`</summary>
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Apply for a Barking Permit</title>
+    <link rel="stylesheet" href="https://www.govukpaas.app/govuk-frontend.css">
+    <style>
+    .govuk-barking-permit table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .govuk-barking-permit td,th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="govuk-width-container">
+      <h1 class="govuk-heading-xl">Apply for a Barking Permit</h1>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your permit is available below
+            </div>
+          </div>
+          <div class="govuk-barking-permit">
+            <table>
+              <tr><th colspan="3">Barking Permit</th></tr>
+              <tr><td rowspan="6"><img src="images/puppy-in-a-hat.jpg" alt="A puppy in a hat"></td></tr>
+              <tr><th>Name</th><td>DOG_NAME</td></tr>
+              <tr><th>Age (human years)</th><td>DOG_AGE_HUMAN_YEARS</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+</details>
+
+Update `barking-permit-server.rb` so that when `request.query["dog-name"]` is
+set, `response.body` is set to `File.read("barking-permit-template.html")`.
+
+Use `.sub()` to replace `DOG_NAME` with `request.query["dog-name"]` and a
+second `.sub()` to replace `DOG_AGE_HUMAN_YEARS` with `request.query["dog-age"]`.
+
+Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form.
+
+When you're done, stop the server with `CTRL + C`.
+
+### Finishing off the Barking Permit
+
+Following Task 8, our Barking Permit has:
+
+* Name
+* Age (human years)
+
+We could use Ruby to add some more rows to the permit and make it a bit more
+useful. For example: age in Dog Years (from lesson 2) and how long the permit
+is valid for.
+
+#### Task 9: Add rows to the Barking Permit
+
+* Add rows (`<tr>...</tr>`) with template placeholders to `barking-permit-template.html` for:
+  * Age (dog years) (`DOG_AGE_DOG_YEARS`)
+  * Issued on (`PERMIT_ISSUED_ON`)
+  * Valid until (`PERMIT_VALID_UNTIL`)
+* Calculate values for the placeholders using Ruby
+  * Age (dog years) should be the Age in human years multiplied by 7 (as per lesson 2)
+  * Issued on should be today's date, formatted as `Day/Month/Year`
+  * Valid until should be today's date + 1,000 days (arbitrarily), formatted as `Day/Month/Year`
+* Use three more `.sub()`s to replace the placeholders
+* Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080](http://localhost:8080) and submit the form.
+* When you're done, stop the server with `CTRL + C`.
+
+### Warning: security!
+
+We've deliberately cut some corners by using `.sub()` for our templating
+which would cause security problems in a production application.
+
+In particular, mixing user input and HTML can leave us vulnerable to a thing
+called [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
+
+You don't need to worry about this for the purposes of this lesson, but if
+you're building a production website make sure to talk to a developer to
+check you're following good security practices.
+
+Frameworks like [Ruby on Rails](https://rubyonrails.org/) and
+[Sinatra](http://sinatrarb.com/) help you avoid making security mistakes like
+this.
+
+## Congratulations!
+
+If you've made it this far, give yourself a massive pat on the back! These
+three lessons have been a whirlwind introduction to the world of programming
+on the web. Don't worry if it things still seem confusing - programming is a
+skill that takes time to learn.
+
+Programming is amazingly useful now that computers are such a big part of our
+lives, but it can also be great fun. Hopefully this is just the start of your
+learning journey!
 
 ## Further reading
+
+* [http://tutorials.codebar.io/](http://tutorials.codebar.io/)
+* [http://railsgirls.com/](http://railsgirls.com/)
