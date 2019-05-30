@@ -387,6 +387,21 @@ end
 * Run the server with `ruby barking-permit-server.rb` and visit [http://localhost:8080/home](http://localhost:8080/home) to check it works
 * When you're done, stop the server with `CTRL + C`
 
+<details>
+<summary>Answer</summary>
+
+```ruby
+require("webrick")
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+
+server.mount_proc("/home") do |request, response|
+  response.body = File.read("index.html")
+end
+
+server.start()
+```
+
+</details>
 ### Responding to requests
 
 Our "Apply for a Barking Permit" page contains a form.
@@ -422,6 +437,29 @@ end
   `File.read(...)` if not
 * Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form
 * When you're done, stop the server with `CTRL + C`
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+require("webrick")
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+
+server.mount_proc("/home") do |request, response|
+  dog_name = request.query["dog-name"]
+  dog_age = request.query["dog-age"]
+
+  if dog_name
+    response.body = "The dog #{dog_name} is #{dog_age} years old"
+  else
+    response.body = File.read("index.html")
+  end
+end
+
+server.start()
+```
+
+</details>
 
 ### Templating HTML
 
@@ -526,6 +564,31 @@ second `.sub()` to replace `DOG_AGE_HUMAN_YEARS` with `request.query["dog-age"]`
 Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 
 When you're done, stop the server with `CTRL + C`.
+
+<details>
+<summary>Answer</summary>
+
+```ruby
+require("webrick")
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
+
+server.mount_proc("/home") do |request, response|
+  dog_name = request.query["dog-name"]
+  dog_age = request.query["dog-age"]
+
+  if dog_name
+    response.body = File.read("barking-permit-template.html").
+      sub("DOG_NAME", dog_name).
+      sub("DOG_AGE_HUMAN_YEARS", dog_age)
+  else
+    response.body = File.read("index.html")
+  end
+end
+
+server.start()
+```
+
+</details>
 
 ### Finishing off the Barking Permit
 

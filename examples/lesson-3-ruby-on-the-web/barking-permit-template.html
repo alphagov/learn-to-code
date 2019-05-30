@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Apply for a Barking Permit</title>
+    <link rel="stylesheet" href="https://www.govukpaas.app/govuk-frontend.css">
+    <style>
+    .govuk-barking-permit table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .govuk-barking-permit td,th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="govuk-width-container">
+      <h1 class="govuk-heading-xl">Apply for a Barking Permit</h1>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your permit is available below
+            </div>
+          </div>
+          <div class="govuk-barking-permit">
+            <table>
+              <tr><th colspan="3">Barking Permit</th></tr>
+              <tr><td rowspan="6"><img src="images/puppy-in-a-hat.jpg" alt="A puppy in a hat"></td></tr>
+              <tr><th>Name</th><td>DOG_NAME</td></tr>
+              <tr><th>Age (human years)</th><td>DOG_AGE_HUMAN_YEARS</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
