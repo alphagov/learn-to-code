@@ -350,6 +350,73 @@ the `response.body` is what we see in the browser.
 
 </details>
 
+### Responding to requests with HTML
+
+We usually want to respond with some HTML, not just "Hello browser!".
+
+To make the browser treat our response as HTML we need to set an HTTP header
+called `Content-Type` like this:
+
+```ruby
+server.mount_proc("/") do |request, response|
+  response.content_type = "text/html"
+  response.body = "<h1>Hello browser!</h1>"
+end
+```
+
+It can get difficult to maintain if we put all our HTML in ruby strings like
+we did in the example above. It would be much nicer if we could have our HTML
+in html files and our Ruby in ruby files. Fortunately, we can achieve this
+with `File.read()`:
+
+
+```ruby
+server.mount_proc("/") do |request, response|
+  response.content_type = "text/html"
+  response.body = File.read("index.html")
+end
+```
+
+(This assumes there's a file called `index.html` in your command line's working directory)
+
+#### Task 6: Serve an HTML file with WEBRick
+
+* Copy `lesson-1-html-and-css/index.html` into `lesson-3-ruby-on-the-web`
+* Create a copy of `hello-world-server.rb` called `barking-permit-server.rb`
+* Using the example above, make the server respond with the text from `index.html`
+* Run the server with `ruby barking-permit-server.rb` and visit [http://localhost:8080/](http://localhost:8080/) to check it works
+
+### Responding to requests
+
+Our "Apply for a Barking Permit" page contains a form.
+
+Forms let the user provide the server with some input. When you submit the
+form you should see the URL update to have `?dog-name=Fido&dog-age=3` at the
+end.
+
+What's happening is the browser is making a second HTTP request to the
+server, but this time it's passing the user input in the URL (the bits after
+the question mark are called query parameters).
+
+We can access query parameters inside our WEBrick block using
+`request.query["key"]` (note: square brackets, not round brackets)
+
+```ruby
+server.mount_proc("/") do |request, response|
+
+  dog_name = request.query["dog-name"]
+  dog_age = request.query["dog-age"]
+
+  puts("The dog #{dog_name} is #{dog_age} years old")
+
+  response.body = File.read("index.html")
+end
+```
+
+# TODO: the rest of the tutorial
+
+#### Task 6: 
+
 ## Introduction to web security
 
 ## Further reading
