@@ -169,7 +169,7 @@ You can write text like this
 
 Headings come in 6 levels:
 
-```
+```html
 <h1>Heading</h1>
 <h2>Heading</h2>
 <h3>Heading</h3>
@@ -178,7 +178,39 @@ Headings come in 6 levels:
 <h6>Heading</h6>
 ```
 
-A h1 defines the most important heading whereas a h6 defines the least important.
+A `h1` defines the most important heading whereas a `h6` defines the least important. 
+  
+Headings should go from `h1` to `h6` in order - always start from `<h1>`, next use `<h2>`, and so on.
+  
+It's important to not skip one or more heading levels - this is because screenreaders can jump from heading to heading and leaving a heading level out may lead to a user being confused.
+
+  
+Don't:
+
+```html
+<h1>Heading 1</h1>
+<h3>Heading 3</h3><!-- Oh no! A h3 shouldn't be the next heading after a h1 -->
+<h4>Heading 4</h4>
+```
+
+Do:
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h2>Another heading 2</h2><!-- A heading can follow a heading of the same level -->
+<h2>Yet another heading 2</h2>
+<h3>Heading 3</h3>
+```
+
+Headings can skip a level when going back up to a more important heading level:
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h2>
+<h4>Heading 4</h4>
+<h2>Another heading 2</h2><!-- This h2 following a h4 is okay -->
+<h3>Another heading 3</h3>
+```
 
 #### Task 3: add a heading
 
