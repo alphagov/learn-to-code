@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ruby:2.6
+    container: governmentpaas/cf-cli
 
     steps:
     - uses: actions/checkout@master
@@ -13,14 +13,14 @@ jobs:
       run: |
         bundle install
         bundle exec middleman build
-
-  deploy:
-    runs-on: ubuntu-latest
-    container: governmentpaas/cf-cli
-    needs: [build]
-
-    steps:
-    - name: List
+    - name: Deploy
+      env:
+        CF_USERNAME: richard.towers+learn-to-code-deployer@digital.cabinet-office.gov.uk
+        CF_PASSWORD: ${{ secrets.PAAS_LEARN_TO_CODE_DEPLOYER_PASSWORD }}
       run: |
-        ls *
-
+        cf api https://api.london.cloud.service.gov.uk
+        cf auth
+        cf target -o govuk-paas -s learn-to-code
+        cf v3-create-app learn-to-code
+        cf v3-apply-manifest -f manifest.yml
+        cf v3-zdt-push learn-to-code -p build --wait-for-deploy-complete
