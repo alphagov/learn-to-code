@@ -6,10 +6,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: ruby:2.6
-    
+
     steps:
     - uses: actions/checkout@master
     - name: Build
       run: |
         bundle install
         bundle exec middleman build
+
+  deploy:
+    runs-on: ubuntu-latest
+    container: governmentpaas/cf-cli
+    needs: [build]
+
+    steps:
+    - name: List
+      run: |
+        ls *
+
