@@ -5,14 +5,25 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: governmentpaas/cf-cli
-
     steps:
+
+    - uses: actions/setup-ruby@v1
+      with:
+        version: '2.6'
+
+    - name: Install the CF CLI
+      run: |
+        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+        sudo apt-get update
+        sudo apt-get install -y cf-cli
+
     - uses: actions/checkout@master
     - name: Build
       run: |
         bundle install
         bundle exec middleman build
+
     - name: Deploy
       env:
         CF_USERNAME: richard.towers+learn-to-code-deployer@digital.cabinet-office.gov.uk
@@ -24,3 +35,4 @@ jobs:
         cf v3-create-app learn-to-code
         cf v3-apply-manifest -f manifest.yml
         cf v3-zdt-push learn-to-code -p build --wait-for-deploy-complete
+
