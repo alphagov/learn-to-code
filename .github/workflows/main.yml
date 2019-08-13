@@ -1,0 +1,16 @@
+name: Continuous Delivery
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Build
+      container: ruby:2.6
+      run: |
+        bundle install
+        bundle exec middleman build
