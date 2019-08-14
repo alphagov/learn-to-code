@@ -424,7 +424,7 @@ name = gets()
 puts("Hello #{name}")
 ```
 
-We can use puts and gets to create a very simple text based user interface.
+We can use `puts` and `gets` to create a very simple text based user interface.
 
 #### Getting things wrong in Ruby scripts
 
@@ -609,9 +609,9 @@ end
 
 ```ruby
 loop() do
-  puts "What's your name?"
+  puts("What's your name?")
   name = gets()
-  puts "Hello #{name}(to exit this infinite loop, press ctrl+c)"
+  puts("Hello #{name} (to exit this infinite loop, press ctrl+c)")
 end
 ```
 
@@ -654,9 +654,9 @@ some condition. To do this, we can use the `if` statement, like so:
 puts("What is your name?")
 name = gets()
 if name.include?("r")
-  puts "Hi #{name} - you sound like a pretty cool person"
+  puts("Hi #{name} - you sound like a pretty cool person")
 else
-  puts "Hi nerd"
+  puts("Hi nerd")
 end
 ```
 
@@ -753,9 +753,9 @@ number_of_rounds.times() do |i|
 end
 
 if score == number_of_rounds
-  puts "You scored #{score}/#{number_of_rounds}. Well done!"
+  puts("You scored #{score}/#{number_of_rounds}. Well done!")
 else
-  puts "You scored #{score}/#{number_of_rounds}. Better luck next time!"
+  puts("You scored #{score}/#{number_of_rounds}. Better luck next time!")
 end
 ```
 
