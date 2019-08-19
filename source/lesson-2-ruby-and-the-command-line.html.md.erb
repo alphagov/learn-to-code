@@ -534,8 +534,7 @@ In Ruby a method definition looks like this:
 
 ```ruby
 def method_name(argument)
-  result = "some value"
-  return result
+  "some value"
 end
 ```
 
@@ -566,7 +565,7 @@ age_human_years_string = gets()
 age_human_years_number = age_human_years_string.to_i()
 
 def convert_to_dog_years(age)
-  return age * 7
+  age * 7
 end
 
 age_dog_years = convert_to_dog_years(age_human_years_number)
@@ -728,11 +727,10 @@ def multiplication_challenge()
   correct_answer = x * y
   if user_input_as_a_number == correct_answer
     puts(":) correct!")
-    return true
+    true
   else
     puts(":( oops!")
     puts("The answer was #{correct_answer}")
-    return false
   end
 end
 
