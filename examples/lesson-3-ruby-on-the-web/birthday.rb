@@ -11,5 +11,5 @@ server.mount_proc("/") do |request, response|
   @
 end
 
-server.start()
+server.start
 

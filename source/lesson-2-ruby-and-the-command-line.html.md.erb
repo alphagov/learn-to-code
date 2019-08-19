@@ -337,15 +337,15 @@ again. It would be nice if we could give a particular task a name, and run it
 just by calling its name.
 
 In Ruby we do this with *methods*, and there are lots of them already built
-into the language. One example is `rand()`, which generates a random number:
+into the language. One example is `rand`, which generates a random number:
 
 ```
-irb(main):025:0> rand()
+irb(main):025:0> rand
 => 0.11487911496307956
 ```
 
 If we want to generate a random number less than a particular number, we can
-provide our maximum to `rand()` as an "argument":
+provide our maximum to `rand` as an "argument":
 
 ```
 irb(main):026:0> rand(100)
@@ -357,9 +357,9 @@ irb(main):027:0> rand(100)
 You can also call some methods on *things* by using a `.` like this:
 
 ```
-irb(main):028:0> "make me louder".upcase()
+irb(main):028:0> "make me louder".upcase
 => "MAKE ME LOUDER"
-irb(main):029:0> "em esrever".reverse()
+irb(main):029:0> "em esrever".reverse
 => "reverse me"
 ```
 
@@ -377,7 +377,7 @@ Decode this top secret, encrypted message:
 <summary>Answer</summary>
 
 ```
-irb(main):030:0> "!gniog peeK !llew repus gniod er'uoY".reverse()
+irb(main):030:0> "!gniog peeK !llew repus gniod er'uoY".reverse
 => "You're doing super well! Keep going!"
 ```
 
@@ -406,7 +406,7 @@ all of our user input and output. When we want to show something to the user
 we need to explicitly say so, and likewise, when we want some input from the
 user we have to explicitly ask for it.
 
-Ruby provides a `puts()` method (put string) and a `gets()` method (get
+Ruby provides a `puts` method (put string) and a `gets` method (get
 string).
 
 * `puts` - prints a string to the command line
@@ -420,7 +420,7 @@ Add the following to your `hello.rb` file, save it, and run it with `ruby hello.
 
 ```ruby
 puts("What is your name?")
-name = gets()
+name = gets
 puts("Hello #{name}")
 ```
 
@@ -454,7 +454,7 @@ so Ruby doesn't know what to do.
 
 Create a new script called `reverse.rb` in your text editor.
 
-Use `gets()`, `.reverse()` and `puts()` to get a string from the user,
+Use `gets`, `.reverse` and `puts` to get a string from the user,
 reverse it, and print it.
 
 <details>
@@ -462,9 +462,9 @@ reverse it, and print it.
 
 ```ruby
 puts("Enter a string to reverse: ")
-input = gets()
+input = gets
 puts("Your string reversed is: ")
-puts(input.reverse())
+puts(input.reverse)
 ```
 
 </details>
@@ -473,21 +473,21 @@ puts(input.reverse())
 
 Create a new script called `multiply.rb` in your text editor.
 
-Note that `gets()` gets the user input as a `string`. In Ruby strings and
+Note that `gets` gets the user input as a `string`. In Ruby strings and
 numbers are *not the same* (`"42" != 42`).
 
 When you need to ask the user for a number you must ask them for a string and
-then convert it into a number using `.to_i()` like so:
+then convert it into a number using `.to_i` like so:
 
 ```ruby
-user_input_as_string = gets()
-user_input_as_number = user_input_as_string.to_i()
+user_input_as_string = gets
+user_input_as_number = user_input_as_string.to_i
 ```
 
-The `i` in `.to_i()` stands for "integer" which is fancy way of saying
+The `i` in `.to_i` stands for "integer" which is fancy way of saying
 "whole number".
 
-Use `gets()`, `.to_i()` and `puts()` to get two strings from the user,
+Use `gets`, `.to_i` and `puts` to get two strings from the user,
 converts them to numbers, multiplies them together and prints the result.
 
 <details>
@@ -495,11 +495,11 @@ converts them to numbers, multiplies them together and prints the result.
 
 ```ruby
 puts("Enter the first number:")
-x_string = gets()
-x_number = x_string.to_i()
+x_string = gets
+x_number = x_string.to_i
 puts("Enter the second number:")
-y_string = gets()
-y_number = y_string.to_i()
+y_string = gets
+y_number = y_string.to_i
 puts("#{x_number} * #{y_number} = #{x_number * y_number}")
 ```
 
@@ -545,7 +545,7 @@ them as you want.
 
 #### Task 10: Create a script that converts human years to dog years
 
-Create a script called `dog-years.rb`. Use `puts()`, `gets()` and `.to_i()`
+Create a script called `dog-years.rb`. Use `puts`, `gets` and `.to_i`
 to ask the user how old their dog is.
 
 Assuming that dogs age faster than humans, and that there are seven "dog
@@ -562,8 +562,8 @@ Call the method in your script, and print the result.
 
 ```ruby
 puts("How old is your dog in human years?")
-age_human_years_string = gets()
-age_human_years_number = age_human_years_string.to_i()
+age_human_years_string = gets
+age_human_years_number = age_human_years_string.to_i
 
 def convert_to_dog_years(age)
   return age * 7
@@ -592,25 +592,25 @@ how they work. (If you get stuck in a loop in `irb` you can escape it by
 pressing `ctrl + c`):
 
 ```ruby
-5.times() do
+5.times do
   puts("Odelay!")
 end
 ```
 
 ```ruby
-10.times() do |i|
+10.times do |i|
   puts("#{10 - i} green bottles, hanging on the wall,")
   puts("#{10 - i} green bottles, hanging on the wall,")
   puts("And if one green bottle should accidentally fall,")
   puts("There'll be #{9 - i} green bottles hanging on the wall.")
-  puts()
+  puts
 end
 ```
 
 ```ruby
-loop() do
+loop do
   puts("What's your name?")
-  name = gets()
+  name = gets
   puts("Hello #{name} (to exit this infinite loop, press ctrl+c)")
 end
 ```
@@ -632,13 +632,13 @@ by pressing `ctrl + c`.
 <summary>Answer</summary>
 
 ```ruby
-loop() do
+loop do
   puts("Enter the first number:")
-  x_string = gets()
-  x_number = x_string.to_i()
+  x_string = gets
+  x_number = x_string.to_i
   puts("Enter the second number:")
-  y_string = gets()
-  y_number = y_string.to_i()
+  y_string = gets
+  y_number = y_string.to_i
   puts("#{x_number} * #{y_number} = #{x_number * y_number}")
 end
 ```
@@ -652,7 +652,7 @@ some condition. To do this, we can use the `if` statement, like so:
 
 ```ruby
 puts("What is your name?")
-name = gets()
+name = gets
 if name.include?("r")
   puts("Hi #{name} - you sound like a pretty cool person")
 else
@@ -662,7 +662,7 @@ end
 
 An `if` statement takes a "condition" (something that evaluates
 to `true` or `false`). You can use things like `==` (equals), `<` (less than),
-or methods like `.include?()` (like we did in the example).
+or methods like `.include?` (like we did in the example).
 
 If the condition is true Ruby will run the lines of code between
 the `if` and the `else`, otherwise Ruby will run the lines of code between
@@ -702,7 +702,7 @@ Here's a rough plan of how to implement this:
 
 * create a `score` variable to keep track of the users score
 * in a loop that happens 4 times
-  * generate two numbers between 1 and 12 using `rand()` and assign them to variables
+  * generate two numbers between 1 and 12 using `rand` and assign them to variables
   * print a message to the user asking them to multiply the numbers together
   * get the user's answer and covert it to a number (using `.to_i`)
   * compare the user's answer to the answer Ruby thinks is correct
@@ -717,13 +717,13 @@ the work to make the loop easier to read.
 <summary>Answer</summary>
 
 ```ruby
-def multiplication_challenge()
+def multiplication_challenge
   x = rand(12) + 1
   y = rand(12) + 1
-  
+
   print("What is #{x} multiplied by #{y} ? ")
-  user_input = gets()
-  user_input_as_a_number = user_input.to_i()
+  user_input = gets
+  user_input_as_a_number = user_input.to_i
 
   correct_answer = x * y
   if user_input_as_a_number == correct_answer
@@ -741,13 +741,13 @@ score = 0
 
 puts("Times tables challenge")
 puts("----------------------")
-puts()
+puts
 puts("You will be asked #{number_of_rounds} questions.")
 puts("Press enter to start...")
-gets()
+gets
 
-number_of_rounds.times() do |i|
-  if multiplication_challenge()
+number_of_rounds.times do |i|
+  if multiplication_challenge
     score = score + 1
   end
 end
