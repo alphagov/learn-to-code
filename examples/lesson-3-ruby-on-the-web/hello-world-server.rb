@@ -6,4 +6,4 @@ server.mount_proc("/") do |request, response|
   response.body = "Hello browser!"
 end
 
-server.start()
+server.start

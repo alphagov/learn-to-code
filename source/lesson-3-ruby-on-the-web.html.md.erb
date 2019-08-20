@@ -32,9 +32,9 @@ You'll have a basic understanding of how web applications work, and a good found
 
 ### Using `require` to access other Ruby modules
 
-In lesson 2 we used a number of built-in Ruby methods, like `rand()` (to get
-a random number), `.reverse()` (to reverse a string), `gets()` and
-`puts()` (to read and write strings from the command line).
+In lesson 2 we used a number of built-in Ruby methods, like `rand` (to get
+a random number), `.reverse` (to reverse a string), `gets` and
+`puts` (to read and write strings from the command line).
 
 These methods are so useful that they live in the core of Ruby, so you can
 always call them.
@@ -49,7 +49,7 @@ script. For example:
 ```
 irb(main):001:0> require("date")
 => true
-irb(main):002:0> Date.today()
+irb(main):002:0> Date.today
 => #<Date: 2019-05-30 ((2458633j,0s,0n),+0s,2299161j)>
 ```
 
@@ -60,12 +60,12 @@ Ruby's date type makes doing things like adding days to a date much easier
 are in a month and so on).
 
 ```
-irb(main):003:0> one_thousand_days_in_the_future = Date.today() + 1000
+irb(main):003:0> one_thousand_days_in_the_future = Date.today + 1000
 => #<Date: 2022-02-23 ((2459633j,0s,0n),+0s,2299161j)>
 ```
 
-The `.today()` method gets today's date, but you can also create dates for
-other days using `.new()`:
+The `.today` method gets today's date, but you can also create dates for
+other days using `.new`:
 
 ```
 irb(main):004:0> Date.new(2022, 2, 23)
@@ -74,15 +74,15 @@ irb(main):004:0> Date.new(2022, 2, 23)
 
 Because different cultures represent dates in different ways (e.g. Japan use
 2019-05-30, the USA use 05/30/2019 and the UK use 30/05/2019), there's a
-special method for formatting dates as strings called `.strftime()`. It takes
+special method for formatting dates as strings called `.strftime`. It takes
 a "format" string as an argument specifying how to show the date:
 
 ```
-irb(main):005:0> japan_format = Date.today().strftime("%Y-%m-%d")
+irb(main):005:0> japan_format = Date.today.strftime("%Y-%m-%d")
 => "2019-05-30"
-irb(main):006:0> usa_format = Date.today().strftime("%m/%d/%Y")
+irb(main):006:0> usa_format = Date.today.strftime("%m/%d/%Y")
 => "05/30/2019"
-irb(main):007:0> uk_format = Date.today().strftime("%d/%m/%Y")
+irb(main):007:0> uk_format = Date.today.strftime("%d/%m/%Y")
 => "30/05/2019"
 ```
 
@@ -116,10 +116,10 @@ irb(main):003:0> birthday.strftime("%A")
 ### Using `File` to read files in Ruby
 
 Sometimes it's nice to be able to store things in files, and read these files
-using Ruby so we can do something with the contents. Ruby has a `File.read()`
+using Ruby so we can do something with the contents. Ruby has a `File.read`
 method that lets us do this.
 
-`File.read()` takes the path to the file as an argument, and returns the
+`File.read` takes the path to the file as an argument, and returns the
 contents of the file as a string.
 
 ```
@@ -128,23 +128,23 @@ irb(main):004:0> File.read("/Users/your-username/Desktop/lesson-1-html-and-css/i
 ```
 
 We can work with the contents using all the string methods (like
-`.reverse()`) we've already seen.
+`.reverse`) we've already seen.
 
-There are lots of other useful methods like `.size()` (which returns how many
-characters there are in the string), and `.sub()` (which takes two arguments,
+There are lots of other useful methods like `.size` (which returns how many
+characters there are in the string), and `.sub` (which takes two arguments,
 and substitutes the first occurence of the first string with the second).
 
 ```
 irb(main):005:0> "Cats are the best".sub("Cat", "Dog")
 => "Dogs are the best"
-irb(main):006:0> "Dogs are the best".size()
+irb(main):006:0> "Dogs are the best".size
 => 17
 ```
 
 #### Task 2: count the characters in a file
 
-We created a file in `lesson-1-html-and-css/index.html`. Use `File.read()`
-and `.size()` to work out how many characters there are in the file.
+We created a file in `lesson-1-html-and-css/index.html`. Use `File.read`
+and `.size` to work out how many characters there are in the file.
 
 > In Finder you can copy the path to a directory by right clicking, holding
 down the option key (`⌥`), and choosing *Copy "Directory" as Pathname*.
@@ -157,7 +157,7 @@ the path for you.
 ```
 irb(main):006:0> file = File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
 => "<!doctype html>\n<html>...
-irb(main):007:0> file.size()
+irb(main):007:0> file.size
 1260
 ```
 
@@ -253,12 +253,12 @@ lesson-3-ruby-on-the-web
 
 ### Hello WEBrick!
 
-Earlier we `require()`'d `"date"` so we could do some things with dates which
+Earlier we `require`'d `"date"` so we could do some things with dates which
 aren't in the core ruby language. Similarly, we can require a thing called
 `"webrick"` which allows us to build HTTP servers.
 
 We can use WEBrick to create a new server by calling the
-`WEBrick::HTTPServer.new()` method like this:
+`WEBrick::HTTPServer.new` method like this:
 
 ```ruby
 require("webrick")
@@ -271,7 +271,7 @@ worry about it - at some point you'll learn about modules, classes, and named
 arguments and it will all make sense.
 
 The `server` lets us respond to HTTP requests in any way we like. We can use
-the `.mount_proc()` method to attach a block of Ruby code to a particular request like this:
+the `.mount_proc` method to attach a block of Ruby code to a particular request like this:
 
 ```ruby
 server.mount_proc("/home") do |request, response|
@@ -280,10 +280,10 @@ server.mount_proc("/home") do |request, response|
 end
 ```
 
-`.mount_proc()` is a bit like `.times()` from lesson 2:
+`.mount_proc` is a bit like `.times` from lesson 2:
 
 ```ruby
-10.times() do |i|
+10.times do |i|
   puts("#{10 - i} green bottles, hanging on the wall,")
   # ...
 end
@@ -293,11 +293,11 @@ only instead of running the block 10 times straight away, WEBrick will run
 the block every time a request is made to the `/home` path.
 
 The final thing we need to do to make the server work is start it, which we
-do by calling the `.start()` method after we've made all our calls to
-`.mount_proc()`:
+do by calling the `.start` method after we've made all our calls to
+`.mount_proc`:
 
 ```ruby
-server.start()
+server.start
 ```
 
 #### Task 5: Create a "hello world" server
@@ -314,7 +314,7 @@ server.mount_proc("/home") do |request, response|
   response.body = "Hello browser!"
 end
 
-server.start()
+server.start
 ```
 
 * On the command line, change directory into `lesson-3-ruby-on-the-web` using `cd`
@@ -367,7 +367,7 @@ end
 It can get difficult to maintain if we put all our HTML in ruby strings like
 we did in the example above. It would be much nicer if we could have our HTML
 in html files and our Ruby in ruby files. Fortunately, we can achieve this
-with `File.read()`:
+with `File.read`:
 
 
 ```ruby
@@ -398,7 +398,7 @@ server.mount_proc("/home") do |request, response|
   response.body = File.read("index.html")
 end
 
-server.start()
+server.start
 ```
 
 </details>
@@ -456,7 +456,7 @@ server.mount_proc("/home") do |request, response|
   end
 end
 
-server.start()
+server.start
 ```
 
 </details>
@@ -472,7 +472,7 @@ input?
 
 Templating lets us take a file and substitute placeholders with values of our
 choice. There are lots of fancy templating languages out there, but for us
-Ruby's `.sub()` method will be good enough.
+Ruby's `.sub` method will be good enough.
 
 Imagine we had some HTML in a file called `fruits.html`:
 
@@ -558,8 +558,8 @@ Add the following HTML to the file (it's fine to copy-paste this):
 Update `barking-permit-server.rb` so that when `request.query["dog-name"]` is
 set, `response.body` is set to `File.read("barking-permit-template.html")`.
 
-Use `.sub()` to replace `DOG_NAME` with `request.query["dog-name"]` and a
-second `.sub()` to replace `DOG_AGE_HUMAN_YEARS` with `request.query["dog-age"]`.
+Use `.sub` to replace `DOG_NAME` with `request.query["dog-name"]` and a
+second `.sub` to replace `DOG_AGE_HUMAN_YEARS` with `request.query["dog-age"]`.
 
 Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 
@@ -585,7 +585,7 @@ server.mount_proc("/home") do |request, response|
   end
 end
 
-server.start()
+server.start
 ```
 
 </details>
@@ -611,7 +611,7 @@ is valid for.
   * Age (dog years) should be the Age in human years multiplied by 7 (as per lesson 2)
   * Issued on should be today's date, formatted as `Day/Month/Year`
   * Valid until should be today's date + 1,000 days (arbitrarily), formatted as `Day/Month/Year`
-* Use three more `.sub()`s to replace the placeholders
+* Use three more `.sub`s to replace the placeholders
 * Run the server with `ruby barking-permit-server.rb`, visit [http://localhost:8080/home](http://localhost:8080/home) and submit the form.
 * When you're done, stop the server with `CTRL + C`.
 
@@ -637,21 +637,21 @@ server.mount_proc("/home") do |request, response|
       sub("DOG_NAME", dog_name).
       sub("DOG_AGE_HUMAN_YEARS", dog_age).
       sub("DOG_AGE_DOG_YEARS", convert_to_dog_years(dog_age.to_i).to_s).
-      sub("PERMIT_ISSUED_ON", Date.today().strftime("%d/%m/%Y")).
-      sub("PERMIT_VALID_UNTIL", (Date.today() + 1000).strftime("%d/%m/%Y"))
+      sub("PERMIT_ISSUED_ON", Date.today.strftime("%d/%m/%Y")).
+      sub("PERMIT_VALID_UNTIL", (Date.today + 1000).strftime("%d/%m/%Y"))
   else
     response.body = File.read("index.html")
   end
 end
 
-server.start()
+server.start
 ```
 
 </details>
 
 ### Warning: security!
 
-We've deliberately cut some corners by using `.sub()` for our templating
+We've deliberately cut some corners by using `.sub` for our templating
 which would cause security problems in a production application.
 
 In particular, mixing user input and HTML can leave us vulnerable to a thing
