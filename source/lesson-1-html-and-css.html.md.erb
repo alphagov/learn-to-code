@@ -44,7 +44,7 @@ We’ll cover programming languages (like ruby and python) in future lessons.
 HTML is the language used to build websites. All text and content that you
 see on the internet is built using HTML.
 
-CSS is used with HTML to style the page. 
+CSS is used with HTML to style the page.
 
 Whenever you go to a website (e.g. www.gov.uk) your browser sends a request
 to a special computer called a "server". The server sends back HTML and CSS,
@@ -178,13 +178,13 @@ Headings come in 6 levels:
 <h6>Heading</h6>
 ```
 
-A `h1` defines the most important heading whereas a `h6` defines the least important. 
-  
+A `h1` defines the most important heading whereas a `h6` defines the least important.
+
 Headings should go from `h1` to `h6` in order - always start from `<h1>`, next use `<h2>`, and so on.
-  
+
 It's important to not skip one or more heading levels - this is because screenreaders can jump from heading to heading and leaving a heading level out may lead to a user being confused.
 
-  
+
 Don't:
 
 ```html
@@ -263,7 +263,7 @@ Wrap your existing paragraph and link in a div:
 <div>
   <h1>Apply for a Barking Permit</h1>
   <p>
-    The ministry of dogs is trying a new pilot. Good dogs can apply for a barking permit so they can woof whenever and wherever they like. It’s not yet clear how this permit will be enforced. 
+    The ministry of dogs is trying a new pilot. Good dogs can apply for a barking permit so they can woof whenever and wherever they like. It’s not yet clear how this permit will be enforced.
     <a href="https://en.wikipedia.org/wiki/Bark_(sound)">More information about barking</a>.
  </p>
 </div>
@@ -404,13 +404,17 @@ body {
 }
 ```
 
-This rule would set the text colour (`color` - sorry about the american spelling) for the `body` to a nice shade of `hotpink`. 
+This rule would set the text colour for the `body` to a nice shade of `hotpink`.
+
+> **Note**
+>
+> Note: it's `color` (american spelling).
 
 There are three parts:
 
-* A `selector` (`body` in this example) which restricts which elements this rule applies to
-* One or more `properties` (`color` in this example) which define which things the rule changes
-* A `value` for each `property` (`hotpink` in this example)
+* A `selector`, which restricts which elements this rule applies to. In this example, the `selector` is `body`.
+* One or more `properties`, which define which things the rule changes. In this example, the `property` is `color`.
+* A `value` for each `property`. In this example, the `value` is `hotpink`.
 
 ```css
 selector {
@@ -419,12 +423,14 @@ selector {
 }
 ```
 
-There are two ways you can use CSS to style your page: using an "inline"
-style tag in your HTML, or loading your CSS from an external file.
+There are two ways you can use CSS to style your page:
 
-### Element: style (`style`)
+* using the style tag to write your CSS "inline", that is directly in your HTML file
+* using the link tag to load your CSS from an external file
 
-A style tag lets you put CSS directly inside your HTML.
+### Element: style
+
+A `<style>` tag lets you write CSS directly inside your HTML.
 
 #### Task 12: add some inline CSS
 
@@ -446,7 +452,7 @@ Jazz up your site with some CSS. Inside the `<head>` element add a new
 
 Too much? Play around with the values until you find something you like.
 
-### Element: link (`link`)
+### Element: link
 
 The `<link>` tag lets you load CSS from another file. This is easier to
 maintain and can be reused across several pages.
@@ -514,7 +520,7 @@ Once you've done all the tasks, you should have some HTML that looks something l
 <!doctype html>
 <html>
 <head>
-  <title>Apply for a Barking Permit</title>   
+  <title>Apply for a Barking Permit</title>
   <link rel="stylesheet" href="https://www.govukpaas.app/govuk-frontend.css">
 </head>
 <body>
