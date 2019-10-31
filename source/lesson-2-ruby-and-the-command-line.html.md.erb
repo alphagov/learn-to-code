@@ -55,9 +55,9 @@ Once you opened up your terminal you should see a window like this:
 
 Don't worry if the text in yours is a little different, it doesn't matter.
 
-To run a command, just type the words and press `Enter`.
+Basic commands are written on a single line, and run when you press the `Enter` button on your keyboard.
 
-Try running:
+Try typing, then pressing `Enter`:
 
 ```shell
 pwd
@@ -88,6 +88,8 @@ whargleblargle
 ```
 
 You should see an error message like `-bash: whargleblargle: command not found`.
+
+If you want to cancel your current entry, you can either delete the command using the backspace button, or press `Ctrl + C` to get a brand new line.  Your mouse won't work for navigating around the command line commands, but you can use the arrow keys on your keyboard to move the cursor left and right.
 
 #### `ls` or list
 
@@ -177,7 +179,7 @@ Start `irb` by running:
 irb
 ```
 
-Your command line prompt will change from `$ ` to `irb(main):001:0> `.
+Your command line prompt will change from `$ ` to `irb(main):001:0> `.  You can then write Ruby code into the command line.
 
 When you want to leave irb and go back to your command prompt, just type `exit` and press enter.
 
@@ -193,7 +195,7 @@ In Ruby, the `+` operator adds numbers together. Other operators include:
 * `/` - divide
 * `**` - raise to the power of
 
-You can also use brackets (`()`) to group things.
+You can also use brackets (`()`) to group things, e.g. `(2 + 2) / 2` which would evaluate to 2, rather than `2 + 2 / 2` which would evaluate to 3.
 
 #### Task 2: Maths challenge
 
@@ -223,7 +225,7 @@ or symbols and ended with a closing quote (`"`). The shortest possible string
 is called the empty string: `""`. It’s not uncommon for a single string to
 contain paragraphs or even pages of text.
 
-If you type a string into `irb` it will echo it back at you:
+If you type a string into `irb` it will return it back at you:
 
 ```
 irb(main):017:0> "Hello IRB"
@@ -266,6 +268,8 @@ name = "Fido"
 age_human_years = 4
 age_dog_years = age_human_years * 7
 ```
+
+This would give three variables: `name` with a value of `"Fido"`, `age_human_years` with a value of `4` and `age_dog_years` with a value of `28`.
 
 Variable names in Ruby have to start with a letter, and they can't contain
 spaces or "special" characters like `-`, `$`, `@` and `&`.
@@ -389,7 +393,10 @@ We've been having fun with `irb` - it's a great tool for exploring and
 learning about Ruby. Ideally though we'd like to be able to save our programs
 for later, and run them whenever we want.
 
-You can run a Ruby script from the command line with `ruby name-of-your-script.rb`
+To do this, we can write Ruby script in a text editor (like you did with HTML in
+lesson 1), then run a the script from the command line with `ruby name-of-your-script.rb`.
+
+Ruby files end with the extension `.rb`.
 
 #### Task 6: My first Ruby script
 
@@ -474,7 +481,7 @@ puts(input.reverse)
 Create a new script called `multiply.rb` in your text editor.
 
 Note that `gets` gets the user input as a `string`. In Ruby strings and
-numbers are *not the same* (`"42" != 42`).
+numbers are *not the same* (`"42"` is not equal to `42`).
 
 When you need to ask the user for a number you must ask them for a string and
 then convert it into a number using `.to_i` like so:
@@ -625,8 +632,8 @@ Earlier, you wrote a few scripts that ask the user for some input, do
 something with the input then print the result and exit. Change one of these
 scripts (e.g. `multiply.rb`) so they do this in an infinite loop (using `loop`).
 
-If you get stuck in an infinite loop in the command line you can break out
-by pressing `ctrl + c`.
+If you get stuck in an infinite loop (a loop which never ends)  in the command
+line you can break out by pressing `ctrl + c`.
 
 <details>
 <summary>Answer</summary>
@@ -663,6 +670,10 @@ end
 An `if` statement takes a "condition" (something that evaluates
 to `true` or `false`). You can use things like `==` (equals), `<` (less than),
 or methods like `.include?` (like we did in the example).
+
+Note that we use `==` instead of `=` to compare two values.  This is because
+`==` tests if two values are equal, whereas `=` assigns the value on the right
+to the variable on the left.
 
 If the condition is true Ruby will run the lines of code between
 the `if` and the `else`, otherwise Ruby will run the lines of code between
