@@ -1,9 +1,9 @@
 ---
-title: "Lesson 3: Ruby on the Web"
+title: "Lesson 4: Ruby on the Web"
 weight: 50
 ---
 
-# Lesson 3: Ruby on the Web
+# Lesson 4: Ruby on the Web
 
 ## Introduction
 
@@ -11,9 +11,6 @@ weight: 50
 
 In this tutorial we are going to look at:
 
-* using `require` to access other Ruby modules
-* using Ruby's `Date` type
-* using `File` to read files in Ruby
 * what HTTP is and how it works
 * using Google Chrome's Developer tools to inspect HTTP requests
 * building a web server with Ruby
@@ -29,139 +26,6 @@ By the end of this tutorial you will have built [this web application](https://a
 </a>
 
 You'll have a basic understanding of how web applications work, and a good foundation to build on.
-
-### Using `require` to access other Ruby modules
-
-In lesson 2 we used a number of built-in Ruby methods, like `rand` (to get
-a random number), `.reverse` (to reverse a string), `gets` and
-`puts` (to read and write strings from the command line).
-
-These methods are so useful that they live in the core of Ruby, so you can
-always call them.
-
-Some bits of Ruby are used less often, and these are not included by default.
-To use these other bits you need to `require` them. For example, the `"date"`
-module lets you work with dates and times, but it isn't included by default.
-
-Running `require("date")` includes the date code so you can use it in your
-script. For example:
-
-```
-irb(main):001:0> require("date")
-=> true
-irb(main):002:0> Date.today
-=> #<Date: 2019-05-30 ((2458633j,0s,0n),+0s,2299161j)>
-```
-
-### Working with Dates in Ruby
-
-Ruby's date type makes doing things like adding days to a date much easier
-(if you didn't have a date type you'd need to worry about how many days there
-are in a month and so on).
-
-```
-irb(main):003:0> one_thousand_days_in_the_future = Date.today + 1000
-=> #<Date: 2022-02-23 ((2459633j,0s,0n),+0s,2299161j)>
-```
-
-The `.today` method gets today's date, but you can also create dates for
-other days using `.new`:
-
-```
-irb(main):004:0> Date.new(2022, 2, 23)
-=> #<Date: 2022-02-23 ((2459633j,0s,0n),+0s,2299161j)>
-```
-
-Because different cultures represent dates in different ways (e.g. Japan use
-2019-05-30, the USA use 05/30/2019 and the UK use 30/05/2019), there's a
-special method for formatting dates as strings called `.strftime`. It takes
-a "format" string as an argument specifying how to show the date:
-
-```
-irb(main):005:0> japan_format = Date.today.strftime("%Y-%m-%d")
-=> "2019-05-30"
-irb(main):006:0> usa_format = Date.today.strftime("%m/%d/%Y")
-=> "05/30/2019"
-irb(main):007:0> uk_format = Date.today.strftime("%d/%m/%Y")
-=> "30/05/2019"
-```
-
-There are lots of placeholders you can use in your date string, including:
-
-* `%Y` - the year as a 4 digit number
-* `%m` - the month as a 2 digit number
-* `%d` - the day as a 2 digit number
-* `%A` - the day of the week as a word (e.g. Thursday)
-
-#### Task 1: What day were you born on?
-
-Using `irb` and the `Date` type, work out what day of the week you were born on.
-
-<details>
-<summary>Answer</summary>
-
-```
-irb(main):001:0> require("date")
-=> true
-
-irb(main):002:0> birthday = Date.new(1988, 1, 20)
-=> #<Date: 1988-01-20 ((2447181j,0s,0n),+0s,2299161j)>
-
-irb(main):003:0> birthday.strftime("%A")
-=> "Wednesday"
-```
-
-</details>
-
-### Using `File` to read files in Ruby
-
-Sometimes it's nice to be able to store things in files, and read these files
-using Ruby so we can do something with the contents. Ruby has a `File.read`
-method that lets us do this.
-
-`File.read` takes the path to the file as an argument, and returns the
-contents of the file as a string.
-
-```
-irb(main):004:0> File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
-=> "<!doctype html>\n<html>...
-```
-
-We can work with the contents using all the string methods (like
-`.reverse`) we've already seen.
-
-There are lots of other useful methods like `.size` (which returns how many
-characters there are in the string), and `.sub` (which takes two arguments,
-and substitutes the first occurence of the first string with the second).
-
-```
-irb(main):005:0> "Cats are the best".sub("Cat", "Dog")
-=> "Dogs are the best"
-irb(main):006:0> "Dogs are the best".size
-=> 17
-```
-
-#### Task 2: count the characters in a file
-
-We created a file in `lesson-1-html-and-css/index.html`. Use `File.read`
-and `.size` to work out how many characters there are in the file.
-
-> In Finder you can copy the path to a directory by right clicking, holding
-down the option key (`⌥`), and choosing *Copy "Directory" as Pathname*.
-Alternatively, you can drag the folder onto the terminal and it will type
-the path for you.
-
-<details>
-<summary>Answer</summary>
-
-```
-irb(main):006:0> file = File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
-=> "<!doctype html>\n<html>...
-irb(main):007:0> file.size
-1260
-```
-
-</details>
 
 ## Introduction to HTTP
 
@@ -282,7 +146,7 @@ server.mount_proc("/home") do |request, response|
 end
 ```
 
-`.mount_proc` is a bit like `.times` from lesson 2:
+`.mount_proc` is a bit like `.times` from lesson 3:
 
 ```ruby
 10.times do |i|
@@ -600,7 +464,7 @@ Following Task 8, our Barking Permit has:
 * Age (human years)
 
 We could use Ruby to add some more rows to the permit and make it a bit more
-useful. For example: age in Dog Years (from lesson 2) and how long the permit
+useful. For example: age in Dog Years (from lesson 3) and how long the permit
 is valid for.
 
 #### Task 9: Add rows to the Barking Permit
@@ -610,7 +474,7 @@ is valid for.
   * Issued on (`PERMIT_ISSUED_ON`)
   * Valid until (`PERMIT_VALID_UNTIL`)
 * Calculate values for the placeholders using Ruby
-  * Age (dog years) should be the Age in human years multiplied by 7 (as per lesson 2)
+  * Age (dog years) should be the Age in human years multiplied by 7 (as per lesson 3)
   * Issued on should be today's date, formatted as `Day/Month/Year`
   * Valid until should be today's date + 1,000 days (arbitrarily), formatted as `Day/Month/Year`
 * Use three more `.sub`s to replace the placeholders
