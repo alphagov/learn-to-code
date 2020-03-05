@@ -1,7 +1,7 @@
 Learn to Code
 ====================
 
-The Government Digital Service is a diverse organisation, with lots of people
+Government Digital Service is a diverse organisation, with lots of people
 with lots of different skills. Some people who work at GDS are professional
 software engineers, but many have never written any code.
 
@@ -11,11 +11,16 @@ through the basics of writing code.
 Status
 ------
 
-:airplane: Pilot :airplane:
+:woman_technologist: Under active development :man_technologist:
 
-We're running a pilot of three 1 hour sessions in the first quarter of 2019.
-Hopefully this will provide us with enough feedback to turn these tutorials
-into something generally useful.
+Following a successful :airplane: pilot :airplane: of three 1 hour sessions in
+the first quarter of 2019, we have continued developing these sessions based on
+feedback from students and retrospectives with coaches.
+
+The second iteration involved three 2 hour sessions in the third quarter of 2019.
+
+The current format is four 2 hour sessions, which will run in the first quarter
+of 2020.
 
 Rough plan
 ----------
@@ -32,9 +37,13 @@ Can maybe use design system so it feels like more of an achievement?
 
 Introduce using the terminal and ruby
 
-irb for testing ruby expressions, ruby blah.rb will run scripts
+irb for testing ruby expressions
 
-Maybe the maths game from http://tutorials.codebar.io/ruby/lesson2/tutorial.html ?
+### Writing Ruby scripts
+
+ruby blah.rb will run scripts
+
+More advanced Ruby functionality
 
 ### Introduction to HTTP and running code on the web
 
@@ -54,4 +63,3 @@ Influences
 - [Rails Girls](https://github.com/railsgirls/railsgirls.github.io) (CC BY-SA 3.0)
 - [Django Girls](https://github.com/DjangoGirls/tutorial) (CC BY-SA 4.0)
 - [Node Girls](https://github.com/node-girls/) (MIT License)
-
