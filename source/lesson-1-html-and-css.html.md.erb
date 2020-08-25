@@ -11,15 +11,15 @@ weight: 30
 
 In this tutorial we are going to look at:
 
-* What is HTML?
-* What is an element?
-* Webpage structure
-* Fundamental HTML elements
-* Applying styles with classes and CSS
+* what is HTML?
+* what is an element?
+* webpage structure
+* fundamental HTML elements
+* applying styles with classes and CSS
 
 ### Goal
 
-By the end of this tutorial you will have built [this webpage](https://apply-for-a-barking-permit.london.cloudapps.digital/):
+By the end of this tutorial you will have built [an "Apply for a barking permit" webpage](https://apply-for-a-barking-permit.london.cloudapps.digital/):
 
 <div style="border: 1px solid grey;">
 <a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">
@@ -27,17 +27,19 @@ By the end of this tutorial you will have built [this webpage](https://apply-for
 </a>
 </div>
 
+This webpage contains a heading, some body text, two forms and a button.
+
 Even though HTML and CSS are not programming languages they’re important fundamentals, and they’ll help you understand how the internet works.
 
-We’ll cover programming languages (like ruby and python) in future lessons.
+We’ll cover programming languages (like Ruby and Python) in future lessons.
 
 ## Introduction to HTML and CSS
 
 ### What do HTML and CSS stand for?
 
-**H**yper **T**ext **M**arkup **L**anguage
+HTML stands for Hyper Text Markup Language
 
-**C**ascading **S**tyle **S**heets
+CSS stands for Cascading Style Sheets
 
 ### What are HTML and CSS?
 
@@ -52,13 +54,15 @@ which your browser turns into a webpage for you to look at.
 
 ## HTML elements
 
-An **element** is an HTML building block. There are paragraphs, headings,
-links, lists, and [many more](https://developer.mozilla.org/en/docs/Web/HTML/Element).
+An element is an HTML building block. There are paragraphs, headings,
+links, lists, and many more.
 
 HTML elements are made up of an opening tag (sometimes including some attributes), content, and a closing tag.
 
 ![Diagram showing the structure of an HTML element](images/lesson-1/image7.png)
 <small>(<a href="https://en.wikipedia.org/wiki/HTML_element#Syntax">Image from wikipedia</a>)</small>
+
+See the [Mozilla HTML elements reference documentation](https://developer.mozilla.org/en/docs/Web/HTML/Element) for more information.
 
 ## Webpage structure
 
@@ -72,7 +76,7 @@ the browser which version of HTML the page is using.
 ```
 
 These days you will only ever need to use `html`. There used to be lots of
-complicated doctypes in the olden days, which you can read about [here](https://www.w3.org/wiki/Doctypes_and_markup_styles).
+complicated doctypes in the olden days. See the [W3C documentation on doctypes and markup styles](https://www.w3.org/wiki/Doctypes_and_markup_styles) for more information.
 
 The doctype is always followed by the `<html>` tag, which contains the contents of your page.
 
@@ -97,7 +101,7 @@ The `body` contains webpage content that is visible to the user.
 
 Let's start by defining the basic structure of your website.
 
-Open Atom and create a new folder for your work called `lesson-1-html-and-css`:
+Open Atom and create a new folder for your work called `lesson-1-html-and-css`. Select **File > Add Project Folder...** and select the correct folder:
 
 <details>
 <summary>Screenshots showing how to add a folder in Atom</summary>
@@ -105,14 +109,14 @@ Open Atom and create a new folder for your work called `lesson-1-html-and-css`:
 <img alt="Screenshot showing how to create a new folder in the Add Project Folder dialog" src="images/lesson-1/image6.png">
 </details>
 
-Then inside this folder create a new file called `index.html`:
+Then inside this folder create a new file called `index.html` by context selecting the project folder, and selecting **New File**:
 
 <details>
 <summary>Screenshot showing how to add a file in Atom</summary>
-<img alt="Screenshot showing how to add a file in Atom. Right click on the folder in the sidebar, then select 'New File'." src="images/lesson-1/image2.png">
+<img alt="Screenshot showing how to add a file in Atom. Context select the folder in the sidebar, then select 'New File'." src="images/lesson-1/image2.png">
 </details>
 
-#### Task 1: doctype, html, head and body
+### Task 1: doctype, html, head and body
 
 Using what we just learnt, and with guidance from your coach, do the following:
 
@@ -123,13 +127,13 @@ Using what we just learnt, and with guidance from your coach, do the following:
 Once you've done this, open `index.html` in your web browser:
 
 <details>
-<summary>Screenshot showing how to open the HTML file in Google Chrome</summary>
+<summary>Screenshot showing how to open the HTML file in Google Chrome</summary>:
 <img alt="Screenshot showing how to open the HTML file in Google Chrome" src="images/lesson-1/image3.png">
 </details>
 
 Do you see anything on the page?
 
-#### Task 2: set the page title
+### Task 2: set the page title
 
 Now inside your head tag create a `<title>` tag with `Apply for a Barking Permit` as your title.
 
@@ -147,7 +151,7 @@ You should see that the title of the tab in your browser has changed. If not, do
 ```
 
 Notice how in our example each tag is indented to its parent tag. It’s not required
-but It makes your code much more readable and you’ll be able to see nested tags more easily.
+but it makes your code much more readable and you’ll be able to see nested tags more easily.
 
 In HTML multiple spaces and newlines all get squished down into one space.
 
@@ -236,7 +240,7 @@ this permit will be enforced.
 
 ### Element: link (`a`)
 
-A link lets the user click through to another webpage. We use the attribute `href` to indicate where you want the user to go.
+A link lets the user go to another webpage. We use the attribute `href` to indicate where you want the user to go.
 
 The link tag is called `a` for "anchor".
 
@@ -280,7 +284,7 @@ project folder.
 It's common to keep images in their own folder, so first,
 create a folder called `images` inside the same folder as your HTML file.
 
-Next, download the images you'll need. Do this by right clicking on each of
+Next, download the images you'll need. Do this by context selecting each of
 the following links, select 'Save Link As...', and save it to the images folder
 you just created:
 
@@ -375,7 +379,7 @@ Add a `<button>` just before the end of your `form`:
 
 #### Task 11: what happens when the user submits the form?
 
-If you click the button it looks like the page just refreshes, but nothing
+If you select the button it looks like the page just refreshes, but nothing
 changes. What's going on?
 
 If you look closely you’ll notice that the answers you put in the form are
@@ -405,9 +409,7 @@ body {
 
 This rule would set the text colour for the `body` to a nice shade of `hotpink`.
 
-> **Note**
->
-> Note: it's `color` (american spelling).
+<%= warning_text('`color` is spelt using the American spelling') %>
 
 There are three parts:
 
@@ -481,13 +483,13 @@ font.
 Classes allow you to label certain elements. You can then target them in your
 CSS by using the class name prefixed with a dot. For example:
 
-**HTML**
+### HTML
 
 ```html
 <h1 class="mega-big-heading">Apply for a Barking Permit</h1>
 ```
 
-**CSS**
+### CSS
 
 ```css
 .mega-big-heading {
@@ -498,7 +500,7 @@ CSS by using the class name prefixed with a dot. For example:
 GOV.UK Frontend uses this pattern for all its styles (so they don’t get
 accidentally applied to the wrong elements).
 
-#### Task 14: add GOV.UK classes to your HTML
+### Task 14: add GOV.UK classes to your HTML
 
 Try adding these classes to your HTML and reloading the page in your browser
 to see what happens:
@@ -555,6 +557,8 @@ And your website should look something like this:
 <img src="images/lesson-1/image5.png" alt="Apply for a Barking Permit website, showing an image, a paragraph of text, a link and a form">
 </a>
 </div>
+
+This webpage contains a heading, some body text, two forms and a button.
 
 If things don't look quite right, or if you've got any questions, ask a
 developer and they should be able to help you out.
