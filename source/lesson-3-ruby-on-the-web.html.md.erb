@@ -625,7 +625,7 @@ require("webrick")
 require("date")
 
 def convert_to_dog_years(age_human_years)
-  return age_human_years * 7
+  age_human_years * 7
 end
 
 server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
