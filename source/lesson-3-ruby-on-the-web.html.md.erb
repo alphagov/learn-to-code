@@ -167,12 +167,12 @@ irb(main):007:0> file.size
 
 ### What is HTTP?
 
-HTTP stands for <strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol.
+HTTP stands for HyperText Transfer Protocol.
 
 HTTP describes the format of the communications between your web browser and
 a "web server" (which is just a kind of computer).
 
-Your browser sends **HTTP requests** and the server responds with **HTTP responses**.
+Your browser sends HTTP requests and the server responds with HTTP responses.
 
 For example, when you visit `www.gov.uk` your browser will send a request a like this:
 
@@ -222,6 +222,8 @@ HTTP request it makes.
 
 ## Building web servers with Ruby
 
+### What is a web server?
+
 A web server is a computer program that can understand HTTP requests and
 respond to them with HTTP responses.
 
@@ -254,7 +256,7 @@ lesson-3-ruby-on-the-web
 ### Hello WEBrick!
 
 Earlier we `require`'d `"date"` so we could do some things with dates which
-aren't in the core ruby language. Similarly, we can require a thing called
+are not in the core ruby language. Similarly, we can require a thing called
 `"webrick"` which allows us to build HTTP servers.
 
 We can use WEBrick to create a new server by calling the
@@ -266,7 +268,7 @@ server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: './public')
 ```
 
 This might look a bit confusing because it uses some bits of Ruby we haven't
-introduced yet (what are all these colons doing all of a sudden?). Don't
+introduced yet (what are all these colons doing all of a sudden?). Do not
 worry about it - at some point you'll learn about modules, classes, and named
 arguments and it will all make sense.
 
@@ -657,7 +659,7 @@ which would cause security problems in a production application.
 In particular, mixing user input and HTML can leave us vulnerable to a thing
 called [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting).
 
-You don't need to worry about this for the purposes of this lesson, but if
+You do not need to worry about this for the purposes of this lesson, but if
 you're building a production website make sure to talk to a developer to
 check you're following good security practices.
 
@@ -669,7 +671,7 @@ this.
 
 If you've made it this far, give yourself a massive pat on the back! These
 three lessons have been a whirlwind introduction to the world of programming
-on the web. Don't worry if it things still seem confusing - programming is a
+on the web. Do not worry if it things still seem confusing - programming is a
 skill that takes time to learn.
 
 Programming is amazingly useful now that computers are such a big part of our
