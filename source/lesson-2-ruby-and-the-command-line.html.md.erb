@@ -5,7 +5,7 @@ weight: 4
 
 # Lesson 2: Ruby and the Command Line
 
-## Introduction
+## Introduction for this lesson
 
 ### Objectives
 
@@ -15,7 +15,7 @@ In this tutorial we are going to look at:
 * how to use the command line to navigate the file system and run programs
 * what Ruby is
 * numbers and strings
-* variables
+* how to use variables
 * calling and defining methods
 
 ### Goal
@@ -23,17 +23,11 @@ In this tutorial we are going to look at:
 By the end of this tutorial you will have learnt how to navigate through the
 command line and how to run some basic operations in Ruby.
 
-In lesson 3, we'll bring all this together to write a few small Ruby programs.
-
 ## Introduction to the command line
 
 ### What is the command line?
 
-The command line is a text interface for your computer. Just like Windows
-Explorer on Windows or Finder on a Mac it lets you navigate through the files
-and folders of your computer, but it is completely text based. The command line
-works by typing commands against a prompt, which then gets passed to the
-operating system of the computer that runs these commands.
+The command line is a text interface for your computer. Similar to Windows Explorer on Windows or Finder on a Mac, it lets you navigate through the files and folders of your computer - but it is completely text based. The command line works by typing commands against a prompt, which then gets passed to the operating system of the computer that runs these commands.
 
 ### How do I access the command line?
 
@@ -41,18 +35,15 @@ On a Mac you can access the command line by opening the Terminal application
 from the Applications > Utilities folder (or use `cmd (⌘) + space` and search
 for "Terminal").
 
-The command line can seem unfamiliar and scary, but it's really just a
-different way of interacting with your computer. This tutorial only covers
-safe commands that won't do anything bad to your computer, even if you get
-them wrong.
+The command line can seem unfamiliar and scary, but it's really a different way of interacting with your computer. This tutorial only covers safe commands that will not do anything bad to your computer, even if you get them wrong.
 
 ### Navigating around in the terminal
 
-Once you opened up your terminal you should see a window like this:
+Once you've opened up your terminal you should see a window that has says "Last login" with a date after it, and a cursor next to a dollar sign.
 
-![Screenshot of the Terminal app. The text says Last login: Sat May 18 11:08:55 on ttys002 ~$ ](/images/lesson-2/image1.png)
+![](/images/lesson-2/image1.png)
 
-Don't worry if the text in yours is a little different, it doesn't matter.
+Do not worry if the text in yours is a little different - it does not matter.
 
 Basic commands are written on a single line, and run when you press the `Enter` button on your keyboard.
 
@@ -64,9 +55,7 @@ pwd
 
 #### `pwd` or print working directory
 
-The `pwd` command prints to the command line the current directory (another
-name for folder) you are in. If you just opened up your terminal, you are
-probably in your "home" directory, and should get an output similar to this:
+The `pwd` command prints to the command line the current directory (another name for folder) you are in. If you have just opened up your terminal, you are probably in your "home" directory, and should get an output similar to this:
 
 ```
 /Users/your-username
@@ -76,9 +65,7 @@ So your current "working directory" is `/Users/your-username`.
 
 #### Getting things wrong on the command line
 
-If you type a command that the command line doesn't understand, it will show
-you an error message. Don't panic, if you see one of these - everything is fine!
-Just have a look at the command you wrote and see if you can work out what was wrong.
+If you type a command that the command line does not understand, it will show you an error message. Do not panic if you see one of these - everything is fine! Take a look at the command you wrote and see if you can work out what was wrong.
 
 Try this for example:
 
@@ -88,7 +75,7 @@ whargleblargle
 
 You should see an error message like `-bash: whargleblargle: command not found`.
 
-If you want to cancel your current entry, you can either delete the command using the backspace button, or press `Ctrl + C` to get a brand new line.  Your mouse won't work for navigating around the command line commands, but you can use the arrow keys on your keyboard to move the cursor left and right.
+If you want to cancel your current entry, you can either delete the command using the backspace button, or press `Ctrl + C` to get a brand new line.  Your mouse will not work for navigating around the command line commands - but you can use the arrow keys on your keyboard to move the cursor left and right.
 
 #### `ls` or list
 
@@ -110,7 +97,7 @@ The `cd` command allows you to move between directories. You tell `cd` which dir
 cd Desktop
 ```
 
-Lots of commands need parameters like this (e.g. `cd` needs to know the directory to move to, while `pwd` does not). We call the parameters "arguments".
+Lots of commands need parameters like this - for example, `cd` needs to know the directory to move to, while `pwd` does not. We call the parameters "arguments".
 
 ### Task 1: change to the directory containing your code
 
@@ -118,22 +105,6 @@ In Lesson 1 we created a folder to keep our source code
 (`lesson-1-html-and-css`). Create a new folder for lesson 2 called
 `lesson-2-ruby` and change the working directory in your command line using
 `cd`.
-
-> **Notes**
-
-> In Finder you can copy the path to a directory by right clicking, holding
-down the option key (`⌥`), and choosing *Copy "Directory" as Pathname*.
-Alternatively, you can drag the folder onto the terminal and it will type
-the path for you.
-
-> If your directory includes spaces (or other weird characters) you might
-need to put it in quotes so the command line doesn't get confused. So:
-
-> `$ cd '/Users/your-username/My Directory With Spaces/lesson-2-ruby'`
-
-> instead of
-
-> `$ cd /Users/your-username/My Directory With Spaces/lesson-2-ruby`
 
 Confirm you're in the right place by running:
 
@@ -147,11 +118,29 @@ and check what files there are in this directory by running:
 ls
 ```
 
-There probably won't be any files yet, because we haven't created any.
+There probably will not be any files because we have not created any yet.
+
+#### Notes
+
+In Finder you can copy the path to a directory by right clicking, holding
+down the option key (`⌥`), and choosing *Copy "Directory" as Pathname*.
+Alternatively, you can drag the folder onto the terminal and it will type
+the path for you.
+
+If your directory includes spaces (or other weird characters) you might
+need to put it in quotes so the command line does not get confused. So:
+
+```bash
+$ cd '/Users/your-username/My Directory With Spaces/lesson-2-ruby'
+```
+
+instead of
+
+```bash
+$ cd /Users/your-username/My Directory With Spaces/lesson-2-ruby
+```
 
 ## Introduction to Ruby
-
-![The Ruby logo](/images/lesson-2/ruby.png)
 
 Ruby is a programming language. For a beginner, Ruby is very similar to other
 languages like Python, JavaScript and PHP. The basic skills you learn in Ruby
@@ -165,7 +154,7 @@ resources for learning, and lots of places where you can get help.
 
 There are two ways to run Ruby from the command line:
 
-* Interactively with `irb` (**I**nteractive **R**u<strong>b</strong>y)
+* Interactively with `irb` (Interactive Ruby)
 * Running a file with `ruby` itself
 
 To start with, let's look at `irb`. We'll get on to how to run a file later.
@@ -180,7 +169,7 @@ irb
 
 Your command line prompt will change from `$ ` to `irb(main):001:0> `.  You can then write Ruby code into the command line.
 
-When you want to leave irb and go back to your command prompt, just type `exit` and press enter.
+When you want to leave irb and go back to your command prompt type `exit` and press enter.
 
 ### Numbers
 
@@ -233,12 +222,9 @@ irb(main):017:0> "Hello IRB"
 
 #### Getting things wrong in IRB
 
-Just like in the command line, if you give `irb` a command it doesn't
-understand it will show you an error message. Again, don't panic! Everything
-is fine.
+Just like in the command line, if you give `irb` a command it does not understand it will show you an error message. Again, do not panic! Everything is fine.
 
-`irb` will do its best to explain why it didn't understand your Ruby, but
-sometimes the error messages can be hard for a beginner to understand.
+`irb` will do its best to explain why it did not understand your Ruby, but sometimes the error messages can be hard for a beginner to understand.
 
 For example:
 
@@ -259,8 +245,7 @@ Programming is all about creating abstractions, and in order to create an
 abstraction we must be able to assign names to things. Variables are a way of
 creating a name for a piece of data.
 
-Creating and using variables in Ruby is super simple, it's just `name` `=`
-`value`. Some examples:
+Creating variables in Ruby uses a single equals sign - `name` `=` `value`. Some examples:
 
 ```ruby
 name = "Fido"
@@ -270,8 +255,7 @@ age_dog_years = age_human_years * 7
 
 This would give three variables: `name` with a value of `"Fido"`, `age_human_years` with a value of `4` and `age_dog_years` with a value of `28`.
 
-Variable names in Ruby have to start with a letter, and they can't contain
-spaces or "special" characters like `-`, `$`, `@` and `&`.
+Variable names in Ruby have to start with a letter, and they can not contain spaces or "special" characters like `-`, `$`, `@` and `&`.
 
 As a style convention, Ruby variables use underscores to separate the bits of
 the name - this is called `snake_case` (as opposed to `camelCase` or `PascalCase` which are used elsewhere).
@@ -282,7 +266,7 @@ Use `irb` to set a variable called `answer` to the value of `7` multiplied by
 `6`. Multiply the `answer` variable by `10` in `irb` to see what happens.
 
 <details>
-<summary>Answer</summary>
+  <summary>Answer</summary>
 
 ```
 irb(main):020:0> answer = 7 * 6
@@ -335,9 +319,7 @@ irb(main):024:0> "The answer to life, the universe and everything is #{answer}"
 
 ### Calling methods
 
-While programming, we often find ourselves doing the same thing over and over
-again. It would be nice if we could give a particular task a name, and run it
-just by calling its name.
+While programming, we often find ourselves doing the same thing over and over again. It would be nice if we could give a particular task a name, and run it by calling its name.
 
 In Ruby we do this with *methods*, and there are lots of them already built
 into the language. One example is `rand`, which generates a random number:
@@ -357,7 +339,7 @@ irb(main):027:0> rand(100)
 => 43
 ```
 
-You can also call some methods on *things* by using a `.` like this:
+You can also call some methods on things by using a `.` like this:
 
 ```
 irb(main):028:0> "make me louder".upcase
@@ -374,7 +356,7 @@ Decode this top secret, encrypted message:
 !gniog peeK !llew repus gniod er'uoY
 ```
 
-(Hint: it's not Welsh - it's just been reversed)
+(Hint: it's not Welsh - it's been reversed)
 
 <details>
 <summary>Answer</summary>
