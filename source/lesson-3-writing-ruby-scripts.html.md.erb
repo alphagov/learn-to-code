@@ -97,8 +97,8 @@ so Ruby doesn't know what to do.
 
 Create a new script called `reverse.rb` in your text editor.
 
-Use `gets`, `.reverse` and `puts` to get a string from the user,
-reverse it, and print it.
+Use `gets` to get a string from the user, use `.reverse` to reverse that string,
+and use `puts` to print it. 
 
 <details>
 <summary>Answer</summary>
@@ -204,13 +204,13 @@ Call the method in your script, and print the result.
 <summary>Answer</summary>
 
 ```ruby
-puts("How old is your dog in human years?")
-age_human_years_string = gets
-age_human_years_number = age_human_years_string.to_i
-
 def convert_to_dog_years(age)
   return age * 7
 end
+
+puts("How old is your dog in human years?")
+age_human_years_string = gets
+age_human_years_number = age_human_years_string.to_i
 
 age_dog_years = convert_to_dog_years(age_human_years_number)
 puts("Your dog is #{age_dog_years} in dog years")
