@@ -24,6 +24,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Build
       run: |
+        gem install bundler -v 1.17.2
         bundle install
         bundle exec middleman build
 
