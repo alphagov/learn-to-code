@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1 # version read from `.ruby-version` file
       with:
-        version: '2.7'
+        bundler-cache: true
 
     - name: Install the CF CLI
       run: |
