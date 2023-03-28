@@ -4,19 +4,22 @@ on:
   push:
     branches:
     - master
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1 # version read from `.ruby-version` file
       with:
         bundler-cache: true
 
     - name: Install the CF CLI
+      # At time of writing, https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key gives an HTTP 403 unless the user agent is set to that of a browser (in this case, Safari)
       run: |
-        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+        wget -q --user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15" https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key
+        sudo apt-key add cli.cloudfoundry.org.key
         echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         sudo apt-get update
         sudo apt-get install -y cf7-cli
@@ -27,6 +30,7 @@ jobs:
         bundle exec middleman build
 
     - name: Deploy
+      if: ${{ github.ref == 'refs/heads/master' }}
       env:
         CF_USERNAME: richard.towers+learn-to-code-deployer@digital.cabinet-office.gov.uk
         CF_PASSWORD: ${{ secrets.PAAS_LEARN_TO_CODE_DEPLOYER_PASSWORD }}
