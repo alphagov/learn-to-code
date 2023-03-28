@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - master
+  pull_request:
 
 jobs:
   build:
@@ -27,6 +28,7 @@ jobs:
         bundle exec middleman build
 
     - name: Deploy
+      if: ${{ github.ref == 'refs/heads/master' }}
       env:
         CF_USERNAME: richard.towers+learn-to-code-deployer@digital.cabinet-office.gov.uk
         CF_PASSWORD: ${{ secrets.PAAS_LEARN_TO_CODE_DEPLOYER_PASSWORD }}
