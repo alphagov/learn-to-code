@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Lesson 3: Writing Ruby Scripts - Learn to Code</title>
+
+    <link href="/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="learn-to-code.london.cloudapps.digital/lesson-3-writing-ruby-scripts.html">
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta name="twitter:title" content="Lesson 3: Writing Ruby Scripts - Learn to Code" />
+      <meta name="twitter:url" content="learn-to-code.london.cloudapps.digital/lesson-3-writing-ruby-scripts.html" />
+
+      <meta property="og:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta property="og:site_name" content="Learn to Code" />
+      <meta property="og:title" content="Lesson 3: Writing Ruby Scripts" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="learn-to-code.london.cloudapps.digital/lesson-3-writing-ruby-scripts.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://learn-to-code.london.cloudapps.digital" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          Learn to Code
+        </span>
+      </a>
+        <strong class="govuk-tag">Beta</strong>
+    </div>
+    <div class="govuk-header__content">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="learn-to-code.london.cloudapps.digital"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+  <div id="search-results" class="search-results" aria-hidden="true" role="dialog" aria-labelledby="search-results-title">
+    <div class="search-results__inner">
+      <button class="search-results__close">Close<span class="search-results__close-label"> search results</span></button>
+      <h2 id="search-results-title" class="search-results__title" aria-live="assertive" role="alert">Results</h2>
+      <div class="search-results__content"></div>
+    </div>
+  </div>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/"><span>Learn to Code</span></a>
+    <ul>
+      <li>
+        <a href="/#acknowledgements-and-licence"><span>Acknowledgements and Licence</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/setting-up-your-computer.html"><span>Setting up your computer</span></a>
+    <ul>
+      <li>
+        <a href="/setting-up-your-computer.html#text-editor-visual-studio-code"><span>Text editor (Visual Studio Code)</span></a>
+      </li>
+      <li>
+        <a href="/setting-up-your-computer.html#terminal-and-ruby"><span>Terminal and Ruby</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-1-html-and-css.html"><span>Lesson 1: HTML and CSS</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction-to-html-and-css"><span>Introduction to HTML and CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-do-html-and-css-stand-for"><span>What do HTML and CSS stand for?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-are-html-and-css"><span>What are HTML and CSS?</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#html-elements"><span>HTML elements</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#webpage-structure"><span>Webpage structure</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#doctype-and-html"><span>doctype and HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#head-and-body-tags"><span>head and body tags</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#presentational-html-elements"><span>Presentational HTML Elements</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-1-doctype-html-head-and-body"><span>Task 1: doctype, html, head and body</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-2-set-the-page-title"><span>Task 2: set the page title</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-heading-h1"><span>Element: heading (h1)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-paragraph-p"><span>Element: paragraph (p)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link-a"><span>Element: link (a)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-div-div"><span>Element: div (div)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-image-img"><span>Element: image (img)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#forms"><span>Forms</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-form-form"><span>Element: form (form)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#elements-label-label-and-input-input"><span>Elements: label (label) and input (input)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-button-button"><span>Element: button (button)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#styling-with-css"><span>Styling with CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-can-i-do-with-css"><span>What can I do with CSS?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#anatomy-of-a-css-rule"><span>Anatomy of a CSS rule</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-style"><span>Element: style</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link"><span>Element: link</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#applying-styles-with-classes"><span>Applying styles with classes</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#html"><span>HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#css"><span>CSS</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-14-add-gov-uk-classes-to-your-html"><span>Task 14: add GOV.UK classes to your HTML</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#summary"><span>Summary</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-2-ruby-and-the-command-line.html"><span>Lesson 2: Ruby and the Command Line</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson"><span>Introduction for this lesson</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-the-command-line"><span>Introduction to the command line</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#what-is-the-command-line"><span>What is the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#how-do-i-access-the-command-line"><span>How do I access the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#navigating-around-in-the-terminal"><span>Navigating around in the terminal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#cd-or-change-directory"><span>cd or change directory</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#task-1-change-to-the-directory-containing-your-code"><span>Task 1: change to the directory containing your code</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-ruby"><span>Introduction to Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#running-ruby-interactively-with-irb"><span>Running Ruby interactively with irb</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#numbers"><span>Numbers</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#strings"><span>Strings</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#variables"><span>Variables</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#string-interpolation"><span>String interpolation</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#calling-methods"><span>Calling methods</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-3-writing-ruby-scripts.html"><span>Lesson 3: Writing Ruby Scripts</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#goal"><span>Goal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#running-a-file-with-ruby"><span>Running a file with Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#interacting-with-the-user"><span>Interacting with the user</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#defining-methods"><span>Defining methods</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#repeating-things"><span>Repeating things</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#conditionals"><span>Conditionals</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#tying-it-all-together"><span>Tying it all together</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-require-to-access-other-ruby-modules"><span>Using require to access other Ruby modules</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#working-with-dates-in-ruby"><span>Working with Dates in Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-file-to-read-files-in-ruby"><span>Using File to read files in Ruby</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Lesson 4: Ruby on the Web</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#introduction-to-http"><span> Introduction to HTTP</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-http"><span>What is HTTP?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#viewing-http-requests-using-browser-developer-tools"><span>Viewing HTTP requests using browser developer tools</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#building-web-servers-with-ruby"><span>Building web servers with Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-a-web-server"><span>What is a web server?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#hello-webrick"><span>Hello WEBrick!</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#serving-html"><span>Serving HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#responding-to-requests"><span>Responding to requests</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#templating-html"><span>Templating HTML</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Apply for a Barking Permit</span></a>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>
+              Application complete
+            </span></a>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#finishing-off-the-barking-permit"><span>Finishing off the Barking Permit</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#warning-security"><span>Warning: security!</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#congratulations"><span>Congratulations!</span></a>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="lesson-3-writing-ruby-scripts">Lesson 3: Writing Ruby Scripts</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="objectives">Objectives</h3>
+<p>In this tutorial we are going to look at:</p>
+
+<ul>
+<li>getting user input</li>
+<li>doing things multiple times using loops</li>
+<li>building simple programs</li>
+<li>using <code>require</code> to access other Ruby modules</li>
+<li>using Ruby&rsquo;s <code>Date</code> type</li>
+<li>using <code>File</code> to read files in Ruby</li>
+</ul>
+<h3 id="goal">Goal</h3>
+<p>By the end of this tutorial you will have used what you learnt in lesson 2 to
+build a couple of small Ruby programs, including one like <a href="https://repl.it/@RichardTowers/TimesTablesGame">this times tables game</a>.</p>
+<h3 id="running-a-file-with-ruby">Running a file with Ruby</h3>
+<p>We&rsquo;ve been having fun with <code>irb</code> in Lesson 2 - it&rsquo;s a great tool for exploring and
+learning about Ruby. Ideally though we&rsquo;d like to be able to save our programs
+for later, and run them whenever we want.</p>
+<p>To do this, we can write a Ruby script in a text editor (like you did with HTML in
+lesson 1), then run the script from the command line with <code>ruby name-of-your-script.rb</code>.</p>
+<p>Ruby files end with the extension <code>.rb</code>.</p>
+<h4 id="task-1-my-first-ruby-script">Task 1: My first Ruby script</h4>
+
+<ul>
+<li>Exit <code>irb</code> by running the <code>exit</code> command</li>
+<li>Create a file in your text editor (we recommended Visual Studio Code in lesson 1) called <code>hello.rb</code></li>
+<li>Confirm you can see the file in the command line by running <code>ls</code></li>
+<li>From the command line, use Ruby to run your file by typing <code>ruby hello.rb</code> and pressing enter</li>
+<li>You should see nothing returned (because <code>hello.rb</code> is empty at the moment)</li>
+</ul>
+<h3 id="interacting-with-the-user">Interacting with the user</h3>
+<p>Now that we&rsquo;re running our Ruby from a file, we can&rsquo;t rely on <code>irb</code> to handle
+all of our user input and output. When we want to show something to the user
+we need to explicitly say so, and likewise, when we want some input from the
+user we have to explicitly ask for it.</p>
+<p>Ruby provides a <code>puts</code> method (put string) and a <code>gets</code> method (get
+string).</p>
+
+<ul>
+<li><code>puts</code> - prints a string to the command line</li>
+<li><code>gets</code> - waits for the user to type one line of text into the command line,
+when they press enter, returns whatever the user typed (so you can store it
+in a variable)</li>
+</ul>
+<h4 id="task-2-hello-world">Task 2: Hello world!</h4>
+<p>Add the following to your <code>hello.rb</code> file, save it, and run it with <code>ruby hello.rb</code>:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">puts</span><span class="p">(</span><span class="s2">"What is your name?"</span><span class="p">)</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="nb">gets</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">"Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div><p>We can use <code>puts</code> and <code>gets</code> to create a very simple text based user interface.</p>
+<h4 id="getting-things-wrong-in-ruby-scripts">Getting things wrong in Ruby scripts</h4>
+<p>Just like <code>irb</code>, if you get something wrong in a Ruby script Ruby will tell
+you by printing an error message. Nothing to worry about - programmers make
+mistakes all the time.</p>
+<p>Imagine a script called <code>oops.rb</code> containing:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">puts</span><span class="p">(</span><span class="s2">"time for a deliberate error"</span><span class="p">)</span>
+<span class="n">oops</span><span class="p">(</span><span class="s2">"this won't work"</span><span class="p">)</span>
+</code></pre></div><p>When you run this with <code>ruby oops.rb</code> you&rsquo;ll get an error like this:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>time for a deliberate error
+oops.rb:2:in `&lt;main&gt;': undefined method `oops' for main:Object (NoMethodError)
+</code></pre></div><p>The <code>oops.rb:2</code> bit at the start tells us what file the error was in, and
+what line (2 in this case) the error was on. There&rsquo;s no method called <code>oops</code>
+so Ruby doesn&rsquo;t know what to do.</p>
+<h4 id="task-3-create-a-script-that-reverses-the-input">Task 3: Create a script that reverses the input</h4>
+<p>Create a new script called <code>reverse.rb</code> in your text editor.</p>
+<p>Use <code>gets</code> to get a string from the user, use <code>.reverse</code> to reverse that string,
+and use <code>puts</code> to print it.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+puts(&quot;Enter a string to reverse: &rdquo;)
+input = gets
+puts(&ldquo;Your string reversed is: &rdquo;)
+puts(input.reverse)
+&ldquo;`
+
+</details>
+<h4 id="task-4-create-a-script-that-multiplies-two-numbers">Task 4: Create a script that multiplies two numbers</h4>
+<p>Create a new script called <code>multiply.rb</code> in your text editor.</p>
+<p>Note that <code>gets</code> gets the user input as a <code>string</code>. In Ruby strings and
+numbers are <em>not the same</em> (<code>&quot;42&quot;</code> is not equal to <code>42</code>).</p>
+<p>When you need to ask the user for a number you must ask them for a string and
+then convert it into a number using <code>.to_i</code> like so:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">user_input_as_string</span> <span class="o">=</span> <span class="nb">gets</span>
+<span class="n">user_input_as_number</span> <span class="o">=</span> <span class="n">user_input_as_string</span><span class="p">.</span><span class="nf">to_i</span>
+</code></pre></div><p>The <code>i</code> in <code>.to_i</code> stands for &quot;integer&rdquo; which is fancy way of saying
+&ldquo;whole number&rdquo;.</p>
+<p>Use <code>gets</code>, <code>.to_i</code> and <code>puts</code> to get two strings from the user,
+converts them to numbers, multiplies them together and prints the result.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+puts(&quot;Enter the first number:&rdquo;)
+x_string = gets
+x_number = x_string.to_i
+puts(&ldquo;Enter the second number:&rdquo;)
+y_string = gets
+y_number = y_string.to_i
+puts(&ldquo;#{x_number} * #{y_number} = #{x_number * y_number}&rdquo;)
+&ldquo;`
+
+</details>
+<h3 id="defining-methods">Defining methods</h3>
+<p>The Ruby authors didn&rsquo;t manage to write every method we&rsquo;ll ever need into
+Ruby itself, so sometimes we need to define our own.</p>
+<p>This means we can write abstractions that describe what we&rsquo;re doing and we
+don&rsquo;t have to repeat ourselves.</p>
+<p>Earlier, we had this line of code:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">age_dog_years</span> <span class="o">=</span> <span class="n">age_human_years</span> <span class="o">*</span> <span class="mi">7</span>
+</code></pre></div><p>This is okay, but it&rsquo;s a little surprising to see that <code>7</code> in there - what&rsquo;s
+it doing? It would be nicer if we could write:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">age_dog_years</span> <span class="o">=</span> <span class="n">convert_to_dog_years</span><span class="p">(</span><span class="n">age_human_years</span><span class="p">)</span>
+</code></pre></div><p>and hide away the grubby implementation details inside a method.</p>
+<p>In Ruby a method definition looks like this:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="s2">"some value"</span>
+  <span class="k">return</span> <span class="n">result</span>
+<span class="k">end</span>
+</code></pre></div><p>You can name a method anything you could name a variable (they&rsquo;re
+<code>snake_cased</code> by convention too). They can have as many lines of code inside
+them as you want.</p>
+<h4 id="task-5-create-a-script-that-converts-human-years-to-dog-years">Task 5: Create a script that converts human years to dog years</h4>
+<p>Create a script called <code>dog-years.rb</code>. Use <code>puts</code>, <code>gets</code> and <code>.to_i</code>
+to ask the user how old their dog is.</p>
+<p>Assuming that dogs age faster than humans, and that there are seven &quot;dog
+years&rdquo; to one &ldquo;human year&rdquo;, define a method which:</p>
+
+<ul>
+<li>takes an age in human years as a argument</li>
+<li>multiplies the age in human years by seven</li>
+<li>returns the result of the multiplication</li>
+</ul>
+<p>Call the method in your script, and print the result.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+def convert_to_dog_years(age)
+  return age * 7
+end
+
+puts(&quot;How old is your dog in human years?&rdquo;)
+age_human_years_string = gets
+age_human_years_number = age_human_years_string.to_i
+
+age_dog_years = convert_to_dog_years(age_human_years_number)
+puts(&ldquo;Your dog is #{age_dog_years} in dog years&rdquo;)
+&ldquo;`
+
+</details>
+<h3 id="repeating-things">Repeating things</h3>
+<p><img src="/images/lesson-2/brøther.jpg" alt="Meme where a cat looks at a bowl of fruit loops, and says 'brøether, may i have the lööps'" style="max-width: 300px;"></p>
+<p>So far, each line of code we&rsquo;ve written has run exactly once (each time a
+script runs). Ruby goes through each line in the script, runs it, then moves
+on to the next line. When it reaches the end of the file, the script exits.</p>
+<p>One of the things that computers are really good at is repeating themselves.
+In Ruby we can use methods like <code>loop</code> and <code>.times</code> to make the computer
+repeat things.</p>
+<p>You might want to try some of the following out in <code>irb</code> to get a feel for
+how they work. (If you get stuck in a loop in <code>irb</code> you can escape it by
+pressing <code>ctrl + c</code>):</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="mi">5</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Odelay!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="mi">10</span> <span class="o">-</span> <span class="n">i</span><span class="si">}</span><span class="s2"> green bottles, hanging on the wall,"</span><span class="p">)</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="mi">10</span> <span class="o">-</span> <span class="n">i</span><span class="si">}</span><span class="s2"> green bottles, hanging on the wall,"</span><span class="p">)</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"And if one green bottle should accidentally fall,"</span><span class="p">)</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"There'll be </span><span class="si">#{</span><span class="mi">9</span> <span class="o">-</span> <span class="n">i</span><span class="si">}</span><span class="s2"> green bottles hanging on the wall."</span><span class="p">)</span>
+  <span class="nb">puts</span>
+<span class="k">end</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="kp">loop</span> <span class="k">do</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"What's your name?"</span><span class="p">)</span>
+  <span class="nb">name</span> <span class="o">=</span> <span class="nb">gets</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2"> (to exit this infinite loop, press ctrl+c)"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><p>The bit between the <code>do</code> and the <code>end</code> is called a block, which is run by the
+method repeatedly. Blocks can take parameters after the <code>do</code>, which are
+wrapped in vertical pipes like <code>|i|</code>.</p>
+<h4 id="task-6-update-one-of-your-scripts-to-work-in-a-loop">Task 6: Update one of your scripts to work in a loop</h4>
+<p>Earlier, you wrote a few scripts that ask the user for some input, do
+something with the input then print the result and exit. Change one of these
+scripts (e.g. <code>multiply.rb</code>) so they do this in an infinite loop (using <code>loop</code>).</p>
+<p>If you get stuck in an infinite loop (a loop which never ends)  in the command
+line you can break out by pressing <code>ctrl + c</code>.</p>
+
+<details>
+<summary>Answer</summary>
+
+&rdquo;`ruby
+loop do
+  puts(&ldquo;Enter the first number:&rdquo;)
+  x_string = gets
+  x_number = x_string.to_i
+  puts(&ldquo;Enter the second number:&rdquo;)
+  y_string = gets
+  y_number = y_string.to_i
+  puts(&ldquo;#{x_number} * #{y_number} = #{x_number * y_number}&rdquo;)
+end
+&ldquo;`
+
+</details>
+<h3 id="conditionals">Conditionals</h3>
+<p>One last thing to learn is how to get the computer to do something based on
+some condition. To do this, we can use the <code>if</code> statement, like so:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">puts</span><span class="p">(</span><span class="s2">"What is your name?"</span><span class="p">)</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="nb">gets</span>
+<span class="k">if</span> <span class="nb">name</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="s2">"r"</span><span class="p">)</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hi </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2"> - you sound like a pretty cool person"</span><span class="p">)</span>
+<span class="k">else</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hi nerd"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><p>An <code>if</code> statement takes a &quot;condition&rdquo; (something that evaluates
+to <code>true</code> or <code>false</code>). You can use things like <code>==</code> (equals), <code>&lt;</code> (less than),
+or methods like <code>.include?</code> (like we did in the example).</p>
+<p>Note that we use <code>==</code> instead of <code>=</code> to compare two values.  This is because
+<code>==</code> tests if two values are equal, whereas <code>=</code> assigns the value on the right
+to the variable on the left.</p>
+<p>If the condition is true Ruby will run the lines of code between
+the <code>if</code> and the <code>else</code>, otherwise Ruby will run the lines of code between
+the <code>else</code> and the <code>end</code>.</p>
+<h3 id="tying-it-all-together">Tying it all together</h3>
+<p>Phew! That was a lot to learn. To recap, we&rsquo;ve learned:</p>
+
+<ul>
+<li>how to use <code>irb</code></li>
+<li>how to use numbers</li>
+<li>what &ldquo;strings&rdquo; are and how to use them</li>
+<li>how to use variables to name things</li>
+<li>how to &ldquo;interpolate&rdquo; strings</li>
+<li>how to call methods</li>
+<li>how to run Ruby from a file</li>
+<li>how to interact with a user</li>
+<li>how to define methods</li>
+<li>how to repeat things</li>
+<li>how to do things conditionally</li>
+</ul>
+<p>If you&rsquo;ve understood all of that, well done! You now know the basics of
+programming. There&rsquo;s a lot more to learn, but it all builds on these
+fundamentals.</p>
+<p>To tie everything you&rsquo;ve learned together, here&rsquo;s one final &ldquo;hard&rdquo; task.</p>
+<h4 id="task-7-build-a-times-tables-game">Task 7: Build a times tables game</h4>
+<p>Right at the beginning, we said you&rsquo;d build <a href="https://repl.it/@RichardTowers/TimesTablesGame">this times tables game</a>.</p>
+<p>To do this you&rsquo;ll need to use everything you&rsquo;ve just learned. It&rsquo;s a pretty
+difficult problem for a beginner, so if you get stuck on something don&rsquo;t be
+afraid to ask for help.</p>
+<p>Here&rsquo;s a rough plan of how to implement this:</p>
+
+<ul>
+<li>create a <code>score</code> variable to keep track of the users score</li>
+<li>in a loop that happens 4 times
+
+<ul>
+<li>generate two numbers between 1 and 12 using <code>rand</code> and assign them to variables</li>
+<li>print a message to the user asking them to multiply the numbers together</li>
+<li>get the user&rsquo;s answer and covert it to a number (using <code>.to_i</code>)</li>
+<li>compare the user&rsquo;s answer to the answer Ruby thinks is correct</li>
+<li>show the user a message saying whether they&rsquo;re correct (and add one to their score)</li>
+</ul></li>
+<li>if the user scored 4 then show them a message saying they got them all right</li>
+<li>otherwise, show the user a message commiserating them for their failure</li>
+</ul>
+<p>For bonus points, consider whether you could define a method to do some of
+the work to make the loop easier to read.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+def multiplication_challenge
+  x = rand(12) + 1
+  y = rand(12) + 1
+
+  print(&quot;What is #{x} multiplied by #{y} ? &rdquo;)
+  user_input = gets
+  user_input_as_a_number = user_input.to_i
+
+  correct_answer = x * y
+  if user_input_as_a_number == correct_answer
+    puts(&ldquo;:) correct!&rdquo;)
+    return true
+  else
+    puts(&ldquo;:( oops!&rdquo;)
+    puts(&ldquo;The answer was #{correct_answer}&rdquo;)
+    return false
+  end
+end
+
+number_of_rounds = 4
+score = 0
+
+puts(&ldquo;Times tables challenge&rdquo;)
+puts(&ldquo;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-&rdquo;)
+puts
+puts(&ldquo;You will be asked #{number_of_rounds} questions.&rdquo;)
+puts(&ldquo;Press enter to start&hellip;&rdquo;)
+gets
+
+number_of_rounds.times do |i|
+  if multiplication_challenge
+    score = score + 1
+  end
+end
+
+if score == number_of_rounds
+  puts(&ldquo;You scored #{score}/#{number_of_rounds}. Well done!&rdquo;)
+else
+  puts(&ldquo;You scored #{score}/#{number_of_rounds}. Better luck next time!&rdquo;)
+end
+&ldquo;`
+
+</details>
+<h3 id="using-require-to-access-other-ruby-modules">Using <code>require</code> to access other Ruby modules</h3>
+<p>In lesson 2 we used a number of built-in Ruby methods, like <code>rand</code> (to get
+a random number), <code>.reverse</code> (to reverse a string), <code>gets</code> and
+<code>puts</code> (to read and write strings from the command line).</p>
+<p>These methods are so useful that they live in the core of Ruby, so you can
+always call them.</p>
+<p>Some bits of Ruby are used less often, and these are not included by default.
+To use these other bits you need to <code>require</code> them. For example, the <code>&quot;date&quot;</code>
+module lets you work with dates and times, but it isn&rsquo;t included by default.</p>
+<p>Running <code>require(&quot;date&quot;)</code> includes the date code so you can use it in your
+script. For example:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):001:0&gt; require("date")
+=&gt; true
+irb(main):002:0&gt; Date.today
+=&gt; #&lt;Date: 2019-05-30 ((2458633j,0s,0n),+0s,2299161j)&gt;
+</code></pre></div><h3 id="working-with-dates-in-ruby">Working with Dates in Ruby</h3>
+<p>Ruby&rsquo;s date type makes doing things like adding days to a date much easier
+(if you didn&rsquo;t have a date type you&rsquo;d need to worry about how many days there
+are in a month and so on).</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):003:0&gt; one_thousand_days_in_the_future = Date.today + 1000
+=&gt; #&lt;Date: 2022-02-23 ((2459633j,0s,0n),+0s,2299161j)&gt;
+</code></pre></div><p>The <code>.today</code> method gets today&rsquo;s date, but you can also create dates for
+other days using <code>.new</code>:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):004:0&gt; Date.new(2022, 2, 23)
+=&gt; #&lt;Date: 2022-02-23 ((2459633j,0s,0n),+0s,2299161j)&gt;
+</code></pre></div><p>Because different cultures represent dates in different ways (e.g. Japan use
+2019-05-30, the USA use 05/30/2019 and the UK use 30/05/2019), there&rsquo;s a
+special method for formatting dates as strings called <code>.strftime</code>. It takes
+a &quot;format&rdquo; string as an argument specifying how to show the date:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):005:0&gt; japan_format = Date.today.strftime("%Y-%m-%d")
+=&gt; "2019-05-30"
+irb(main):006:0&gt; usa_format = Date.today.strftime("%m/%d/%Y")
+=&gt; "05/30/2019"
+irb(main):007:0&gt; uk_format = Date.today.strftime("%d/%m/%Y")
+=&gt; "30/05/2019"
+</code></pre></div><p>There are lots of placeholders you can use in your date string, including:</p>
+
+<ul>
+<li><code>%Y</code> - the year as a 4 digit number</li>
+<li><code>%m</code> - the month as a 2 digit number</li>
+<li><code>%d</code> - the day as a 2 digit number</li>
+<li><code>%A</code> - the day of the week as a word (e.g. Thursday)</li>
+</ul>
+<h4 id="task-1-what-day-were-you-born-on">Task 1: What day were you born on?</h4>
+<p>Using <code>irb</code> and the <code>Date</code> type, work out what day of the week you were born on.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`
+irb(main):001:0> require(&quot;date&rdquo;)
+=> true
+
+irb(main):002:0> birthday = Date.new(1988, 1, 20)
+=> #<Date: 1988-01-20 ((2447181j,0s,0n),+0s,2299161j)>
+
+irb(main):003:0> birthday.strftime(&ldquo;%A&rdquo;)
+=> &ldquo;Wednesday&rdquo;
+&ldquo;`
+
+</details>
+<h3 id="using-file-to-read-files-in-ruby">Using <code>File</code> to read files in Ruby</h3>
+<p>Sometimes it&rsquo;s nice to be able to store things in files, and read these files
+using Ruby so we can do something with the contents. Ruby has a <code>File.read</code>
+method that lets us do this.</p>
+<p><code>File.read</code> takes the path to the file as an argument, and returns the
+contents of the file as a string.</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code>irb(main):004:0&gt; File.read("/Users/your-username/Desktop/lesson-1-html-and-css/index.html")
+=&gt; "<span class="cp">&lt;!doctype html&gt;</span>\n<span class="nt">&lt;html&gt;</span>...
+</code></pre></div><p>We can work with the contents using all the string methods (like
+<code>.reverse</code>) we&rsquo;ve already seen.</p>
+<p>There are lots of other useful methods like <code>.size</code> (which returns how many
+characters there are in the string), and <code>.sub</code> (which takes two arguments,
+and substitutes the first occurence of the first string with the second).</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):005:0&gt; "Cats are the best".sub("Cat", "Dog")
+=&gt; "Dogs are the best"
+irb(main):006:0&gt; "Dogs are the best".size
+=&gt; 17
+</code></pre></div><h4 id="task-2-count-the-characters-in-a-file">Task 2: count the characters in a file</h4>
+<p>We created a file in <code>lesson-1-html-and-css/index.html</code>. Use <code>File.read</code>
+and <code>.size</code> to work out how many characters there are in the file.</p>
+
+<blockquote>
+<p>In Finder you can copy the path to a directory by right clicking, holding
+down the option key (<code>⌥</code>), and choosing <em>Copy &quot;Directory&rdquo; as Pathname</em>.
+Alternatively, you can drag the folder onto the terminal and it will type
+the path for you.</p>
+</blockquote>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`
+irb(main):006:0> file = File.read(&rdquo;/Users/your-username/Desktop/lesson-1-html-and-css/index.html&quot;)
+=> &ldquo;<!doctype html>\n<html>&hellip;
+irb(main):007:0> file.size
+1260
+&rdquo;`
+
+</details>
+<h2 id="further-reading">Further reading</h2>
+<p>If you learn best from <em>weird</em> books then <a href="https://poignant.guide/">_why&rsquo;s (poignant) guide</a>
+is excellent (see cartoon below). If you&rsquo;d prefer something less silly, have a look at:</p>
+
+<ul>
+<li><a href="https://pine.fm/LearnToProgram/">Learn to Program</a></li>
+<li><a href="https://learnrubythehardway.org/book/">Learn Ruby The Hard Way</a></li>
+<li><a href="http://rubykoans.com/">Ruby Koans</a></li>
+</ul>
+<p>Which are all great.</p>
+<p><a href="/images/lesson-2/poignant-guide.gif" rel="noopener noreferrer"><img src="/images/lesson-2/poignant-guide.gif" alt="A comic strip from _why's (poignant) guide showing Dr. Cham lost in some tunnels under a mysterious castle" /></a></p>
+
+            
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/alphagov/learn-to-code/blob/master/source/lesson-3-writing-ruby-scripts.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code/issues/new?labels=bug&amp;title=Re:%20'Lesson%203:%20Writing%20Ruby%20Scripts'&amp;body=Problem%20with%20'Lesson%203:%20Writing%20Ruby%20Scripts'%20(learn-to-code.london.cloudapps.digital/lesson-3-writing-ruby-scripts.html)">Report problem</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+        <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/accessibility.html">Accessibility</a>
+            </li>
+        </ul>
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          rel="license"
+        >Creative Commons CC BY-NC-SA 4.0 Licence</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="/javascripts/application.js"></script>
+  </body>
+</html>

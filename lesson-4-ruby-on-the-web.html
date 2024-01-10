@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Lesson 4: Ruby on the Web - Learn to Code</title>
+
+    <link href="/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="learn-to-code.london.cloudapps.digital/lesson-4-ruby-on-the-web.html">
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta name="twitter:title" content="Lesson 4: Ruby on the Web - Learn to Code" />
+      <meta name="twitter:url" content="learn-to-code.london.cloudapps.digital/lesson-4-ruby-on-the-web.html" />
+
+      <meta property="og:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta property="og:site_name" content="Learn to Code" />
+      <meta property="og:title" content="Lesson 4: Ruby on the Web" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="learn-to-code.london.cloudapps.digital/lesson-4-ruby-on-the-web.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://learn-to-code.london.cloudapps.digital" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          Learn to Code
+        </span>
+      </a>
+        <strong class="govuk-tag">Beta</strong>
+    </div>
+    <div class="govuk-header__content">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="learn-to-code.london.cloudapps.digital"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+  <div id="search-results" class="search-results" aria-hidden="true" role="dialog" aria-labelledby="search-results-title">
+    <div class="search-results__inner">
+      <button class="search-results__close">Close<span class="search-results__close-label"> search results</span></button>
+      <h2 id="search-results-title" class="search-results__title" aria-live="assertive" role="alert">Results</h2>
+      <div class="search-results__content"></div>
+    </div>
+  </div>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/"><span>Learn to Code</span></a>
+    <ul>
+      <li>
+        <a href="/#acknowledgements-and-licence"><span>Acknowledgements and Licence</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/setting-up-your-computer.html"><span>Setting up your computer</span></a>
+    <ul>
+      <li>
+        <a href="/setting-up-your-computer.html#text-editor-visual-studio-code"><span>Text editor (Visual Studio Code)</span></a>
+      </li>
+      <li>
+        <a href="/setting-up-your-computer.html#terminal-and-ruby"><span>Terminal and Ruby</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-1-html-and-css.html"><span>Lesson 1: HTML and CSS</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction-to-html-and-css"><span>Introduction to HTML and CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-do-html-and-css-stand-for"><span>What do HTML and CSS stand for?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-are-html-and-css"><span>What are HTML and CSS?</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#html-elements"><span>HTML elements</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#webpage-structure"><span>Webpage structure</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#doctype-and-html"><span>doctype and HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#head-and-body-tags"><span>head and body tags</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#presentational-html-elements"><span>Presentational HTML Elements</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-1-doctype-html-head-and-body"><span>Task 1: doctype, html, head and body</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-2-set-the-page-title"><span>Task 2: set the page title</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-heading-h1"><span>Element: heading (h1)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-paragraph-p"><span>Element: paragraph (p)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link-a"><span>Element: link (a)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-div-div"><span>Element: div (div)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-image-img"><span>Element: image (img)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#forms"><span>Forms</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-form-form"><span>Element: form (form)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#elements-label-label-and-input-input"><span>Elements: label (label) and input (input)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-button-button"><span>Element: button (button)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#styling-with-css"><span>Styling with CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-can-i-do-with-css"><span>What can I do with CSS?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#anatomy-of-a-css-rule"><span>Anatomy of a CSS rule</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-style"><span>Element: style</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link"><span>Element: link</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#applying-styles-with-classes"><span>Applying styles with classes</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#html"><span>HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#css"><span>CSS</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-14-add-gov-uk-classes-to-your-html"><span>Task 14: add GOV.UK classes to your HTML</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#summary"><span>Summary</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#lesson-1-html-and-css-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-2-ruby-and-the-command-line.html"><span>Lesson 2: Ruby and the Command Line</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson"><span>Introduction for this lesson</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-the-command-line"><span>Introduction to the command line</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#what-is-the-command-line"><span>What is the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#how-do-i-access-the-command-line"><span>How do I access the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#navigating-around-in-the-terminal"><span>Navigating around in the terminal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#cd-or-change-directory"><span>cd or change directory</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#task-1-change-to-the-directory-containing-your-code"><span>Task 1: change to the directory containing your code</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-ruby"><span>Introduction to Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#running-ruby-interactively-with-irb"><span>Running Ruby interactively with irb</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#numbers"><span>Numbers</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#strings"><span>Strings</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#variables"><span>Variables</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#string-interpolation"><span>String interpolation</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#calling-methods"><span>Calling methods</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-3-writing-ruby-scripts.html"><span>Lesson 3: Writing Ruby Scripts</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-goal"><span>Goal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#running-a-file-with-ruby"><span>Running a file with Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#interacting-with-the-user"><span>Interacting with the user</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#defining-methods"><span>Defining methods</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#repeating-things"><span>Repeating things</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#conditionals"><span>Conditionals</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#tying-it-all-together"><span>Tying it all together</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-require-to-access-other-ruby-modules"><span>Using require to access other Ruby modules</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#working-with-dates-in-ruby"><span>Working with Dates in Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-file-to-read-files-in-ruby"><span>Using File to read files in Ruby</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Lesson 4: Ruby on the Web</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#introduction-to-http"><span> Introduction to HTTP</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-http"><span>What is HTTP?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#viewing-http-requests-using-browser-developer-tools"><span>Viewing HTTP requests using browser developer tools</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#building-web-servers-with-ruby"><span>Building web servers with Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-a-web-server"><span>What is a web server?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#hello-webrick"><span>Hello WEBrick!</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#serving-html"><span>Serving HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#responding-to-requests"><span>Responding to requests</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#templating-html"><span>Templating HTML</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Apply for a Barking Permit</span></a>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>
+              Application complete
+            </span></a>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#finishing-off-the-barking-permit"><span>Finishing off the Barking Permit</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#warning-security"><span>Warning: security!</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#congratulations"><span>Congratulations!</span></a>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="lesson-4-ruby-on-the-web">Lesson 4: Ruby on the Web</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="objectives">Objectives</h3>
+<p>In this tutorial we are going to look at:</p>
+
+<ul>
+<li>what HTTP is and how it works</li>
+<li>using Google Chrome&rsquo;s Developer tools to inspect HTTP requests</li>
+<li>building a web server with Ruby</li>
+<li>templating HTML</li>
+<li>introducing web security</li>
+</ul>
+<h3 id="goal">Goal</h3>
+<p>By the end of this tutorial you will have built <a href="https://apply-for-a-barking-permit-ruby.london.cloudapps.digital/home">this web application</a>:</p>
+<p><a href="https://apply-for-a-barking-permit-ruby.london.cloudapps.digital/home">
+<img src="images/lesson-3/finished-application.png" alt="Apply for a Barking Permit website, showing the form from lesson 1 and the confirmation page">
+</a></p>
+<p>You&rsquo;ll have a basic understanding of how web applications work, and a good foundation to build on.</p>
+<h2 id="introduction-to-http"> Introduction to HTTP</h2>
+<h3 id="what-is-http">What is HTTP?</h3>
+<p>HTTP stands for HyperText Transfer Protocol.</p>
+<p>HTTP describes the format of the communications between your web browser and
+a &ldquo;web server&rdquo; (which is just a kind of computer).</p>
+<p>Your browser sends HTTP requests and the server responds with HTTP responses.</p>
+<p>For example, when you visit <code>www.gov.uk</code> your browser will send a request a like this:</p>
+<div class="highlight"><pre class="highlight http" tabindex="0"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">www.gov.uk</span>
+</code></pre></div><p>And GOV.UK&rsquo;s server will respond with something like:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code>HTTP/1.1 200 OK
+Date: Wed, 29 May 2019 12:08:17 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 32897
+
+<span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+... snip ...
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div><p>In this case the response contains the HTML of the GOV.UK homepage.</p>
+<h3 id="viewing-http-requests-using-browser-developer-tools">Viewing HTTP requests using browser developer tools</h3>
+<p>Modern browsers come with built in tools that let you see what&rsquo;s happening
+under the hood. In Google Chrome on a Mac you can bring these up for any
+webpage by pressing Command + Option + I (<code>⌘ + ⌥ + I</code>).</p>
+<p><a href="/images/lesson-3/developer-tools.png" rel="noopener noreferrer"><img src="/images/lesson-3/developer-tools.png" alt="Screenshot showing the Google Chrome developer tools on www.gov.uk" /></a></p>
+<p>The Network tab shows you the requests and responses your browser is sending and receiving.</p>
+<h4 id="task-3-use-the-developer-tools-to-look-at-an-http-request">Task 3: Use the developer tools to look at an HTTP request</h4>
+<p>Go to any website you like and use the developer tools to look at the first
+HTTP request it makes.</p>
+
+<details>
+<summary>Answer (screenshots)</summary>
+
+![Screenshot showing the Google Chrome developer tools network tab](/images/lesson-3/developer-tools-network.png)
+![Screenshot showing the Google Chrome developer tools focused on a particular request](/images/lesson-3/developer-tools-network-focused.png)
+
+</details>
+<h2 id="building-web-servers-with-ruby">Building web servers with Ruby</h2>
+<h3 id="what-is-a-web-server">What is a web server?</h3>
+<p>A web server is a computer program that can understand HTTP requests and
+respond to them with HTTP responses.</p>
+<p>In lesson 1 we built a website which sent the same HTML back for every
+request. By getting Ruby involved in handling the request we can make our
+website dynamic (so the response is not always the same). We can also perform
+side effects in response to certain requests (like sending emails, or
+printing out physical barking permits).</p>
+<p>Ruby is a great language to get started with, because it has everything you
+need to build simple web servers built right in to the language.</p>
+<p>First of all, let&rsquo;s create some files for us to serve.</p>
+<h4 id="task-4-create-files-and-directories">Task 4: Create files and directories</h4>
+
+<ul>
+<li>Create a folder called <code>lesson-4-ruby-on-the-web</code> next to your other lesson folders.</li>
+<li>Inside this folder, create another folder called <code>public</code>, and copy <a href="/lesson-1-html-and-css.html#element-image-img">the images folder from lesson 1</a> inside.</li>
+</ul>
+<p>You should end up with a directory structure like:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>lesson-4-ruby-on-the-web
+└── public
+    └── images
+        ├── puppy-in-a-hat.jpg
+        └── shiba-inu.jpg
+</code></pre></div><h3 id="hello-webrick">Hello WEBrick!</h3>
+<p>Earlier we <code>require</code>&lsquo;d <code>&quot;date&quot;</code> so we could do some things with dates which
+are not in the core ruby language. Similarly, we can require a thing called
+<code>&quot;webrick&quot;</code> which allows us to build HTTP servers.</p>
+<p>We can use WEBrick to create a new server by calling the
+<code>WEBrick::HTTPServer.new</code> method like this:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">require</span><span class="p">(</span><span class="s2">"webrick"</span><span class="p">)</span>
+<span class="n">server</span> <span class="o">=</span> <span class="no">WEBrick</span><span class="o">::</span><span class="no">HTTPServer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Port</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="no">DocumentRoot</span><span class="p">:</span> <span class="s1">'./public'</span><span class="p">)</span>
+</code></pre></div><p>This might look a bit confusing because it uses some bits of Ruby we haven&rsquo;t
+introduced yet (what are all these colons doing all of a sudden?). Do not
+worry about it - at some point you&rsquo;ll learn about modules, classes, and named
+arguments and it will all make sense.</p>
+<p>The <code>server</code> lets us respond to HTTP requests in any way we like. We can use
+the <code>.mount_proc</code> method to attach a block of Ruby code to a particular request like this:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">server</span><span class="p">.</span><span class="nf">mount_proc</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">|</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hello server!"</span><span class="p">)</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"Hello browser!"</span>
+<span class="k">end</span>
+</code></pre></div><p><code>.mount_proc</code> is a bit like <code>.times</code> from lesson 3:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="mi">10</span> <span class="o">-</span> <span class="n">i</span><span class="si">}</span><span class="s2"> green bottles, hanging on the wall,"</span><span class="p">)</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div><p>only instead of running the block 10 times straight away, WEBrick will run
+the block every time a request is made to the <code>/home</code> path.</p>
+<p>The final thing we need to do to make the server work is start it, which we
+do by calling the <code>.start</code> method after we&rsquo;ve made all our calls to
+<code>.mount_proc</code>:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">server</span><span class="p">.</span><span class="nf">start</span>
+</code></pre></div><h4 id="task-5-create-a-quot-hello-world-quot-server">Task 5: Create a &ldquo;hello world&rdquo; server</h4>
+
+<ul>
+<li>Create a file inside the <code>lesson-4-ruby-on-the-web</code> folder called <code>hello-world-server.rb</code></li>
+<li>Copy / paste (or type) the following ruby into <code>hello-world-server.rb</code></li>
+</ul>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">require</span><span class="p">(</span><span class="s2">"webrick"</span><span class="p">)</span>
+<span class="n">server</span> <span class="o">=</span> <span class="no">WEBrick</span><span class="o">::</span><span class="no">HTTPServer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Port</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="no">DocumentRoot</span><span class="p">:</span> <span class="s1">'./public'</span><span class="p">)</span>
+
+<span class="n">server</span><span class="p">.</span><span class="nf">mount_proc</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">|</span>
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hello server!"</span><span class="p">)</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"Hello browser!"</span>
+<span class="k">end</span>
+
+<span class="n">server</span><span class="p">.</span><span class="nf">start</span>
+</code></pre></div>
+<ul>
+<li>On the command line, change directory into <code>lesson-4-ruby-on-the-web</code> using <code>cd</code></li>
+<li>Run <code>hello-world-server.rb</code> from the command line with <code>ruby hello-world-server.rb</code></li>
+<li>Visit <a href="http://localhost:8080/home">http://localhost:8080/home</a> in your browser</li>
+<li>Reload the page a few times to see what happens</li>
+</ul>
+
+<details>
+<summary>Answer</summary>
+
+You should see a web page that says &ldquo;Hello browser!&rdquo; and you should see some lines on the command line like this:
+
+&ldquo;`
+[2019-05-29 21:38:46] INFO  WEBrick 1.3.1
+[2019-05-29 21:38:46] INFO  ruby 2.3.7 (2018-03-28) [universal.x86_64-darwin17]
+[2019-05-29 21:38:46] INFO  WEBrick::HTTPServer#start: pid=86541 port=8080
+Hello server!
+::1 - - [29/May/2019:21:38:58 BST] &quot;GET / HTTP/1.1&rdquo; 200 14
+- -> /
+Hello server!
+::1 - - [29/May/2019:21:38:59 BST] &ldquo;GET /favicon.ico HTTP/1.1&rdquo; 200 14
+http://localhost:8080/ -> /favicon.ico
+Hello server!
+::1 - - [29/May/2019:21:39:03 BST] &ldquo;GET / HTTP/1.1&rdquo; 200 14
+- -> /
+Hello server!
+::1 - - [29/May/2019:21:39:03 BST] &ldquo;GET /favicon.ico HTTP/1.1&rdquo; 200 14
+http://localhost:8080/ -> /favicon.ico
+&ldquo;`
+
+Note that `puts(&quot;Hello server!&rdquo;)` still prints to the command line, and that
+the `response.body` is what we see in the browser.
+
+</details>
+<h3 id="serving-html">Serving HTML</h3>
+<p>We usually want to respond with some HTML, not just &ldquo;Hello browser!&rdquo;.</p>
+<p>To make the browser treat our response as HTML we need to set an HTTP header
+called <code>Content-Type</code> like this:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">server</span><span class="p">.</span><span class="nf">mount_proc</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">|</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">content_type</span> <span class="o">=</span> <span class="s2">"text/html; charset=utf-8"</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"&lt;h1&gt;Hello browser!&lt;/h1&gt;"</span>
+<span class="k">end</span>
+</code></pre></div><p>It can get difficult to maintain if we put all our HTML in ruby strings like
+we did in the example above. It would be much nicer if we could have our HTML
+in html files and our Ruby in ruby files. Fortunately, we can achieve this
+with <code>File.read</code>:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">server</span><span class="p">.</span><span class="nf">mount_proc</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">|</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">content_type</span> <span class="o">=</span> <span class="s2">"text/html; charset=utf-8"</span>
+  <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"index.html"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><p>(This assumes there&rsquo;s a file called <code>index.html</code> in your command line&rsquo;s working directory)</p>
+<h4 id="task-6-serve-an-html-file-with-webrick">Task 6: Serve an HTML file with WEBRick</h4>
+
+<ul>
+<li>Copy <code>lesson-1-html-and-css/index.html</code> into <code>lesson-4-ruby-on-the-web</code></li>
+<li>Create a copy of <code>hello-world-server.rb</code> called <code>barking-permit-server.rb</code></li>
+<li>Using the example above, make the server respond with the text from <code>index.html</code></li>
+<li>Run the server with <code>ruby barking-permit-server.rb</code> and visit <a href="http://localhost:8080/home">http://localhost:8080/home</a> to check it works</li>
+<li>When you&rsquo;re done, stop the server with <code>CTRL + C</code></li>
+</ul>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+require(&quot;webrick&rdquo;)
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: &rsquo;./public&rsquo;)
+
+server.mount_proc(&ldquo;/home&rdquo;) do |request, response|
+  response.body = File.read(&ldquo;index.html&rdquo;)
+end
+
+server.start
+&ldquo;`
+
+</details>
+<h3 id="responding-to-requests">Responding to requests</h3>
+<p>Our &quot;Apply for a Barking Permit&rdquo; page contains a form.</p>
+<p>Forms let the user provide the server with some input. When you submit the
+form you should see the URL update to have <code>?dog-name=Fido&amp;dog-age=3</code> at the
+end.</p>
+<p>What&rsquo;s happening is the browser is making a second HTTP request to the
+server, but this time it&rsquo;s passing the user input in the URL (the bits after
+the question mark are called query parameters).</p>
+<p>We can access query parameters inside our WEBrick block using
+<code>request.query[&quot;key&quot;]</code> (note: square brackets, not round brackets)</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="n">server</span><span class="p">.</span><span class="nf">mount_proc</span><span class="p">(</span><span class="s2">"/home"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="o">|</span>
+
+  <span class="n">dog_name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">query</span><span class="p">[</span><span class="s2">"dog-name"</span><span class="p">]</span>
+  <span class="n">dog_age</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">query</span><span class="p">[</span><span class="s2">"dog-age"</span><span class="p">]</span>
+
+  <span class="nb">puts</span><span class="p">(</span><span class="s2">"The dog </span><span class="si">#{</span><span class="n">dog_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">dog_age</span><span class="si">}</span><span class="s2"> years old"</span><span class="p">)</span>
+
+  <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"index.html"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><h4 id="task-7-different-responses-depending-on-the-query">Task 7: different responses depending on the query</h4>
+
+<ul>
+<li>Update <code>barking-permit-server.rb</code> to read user input with <code>request.query[]</code></li>
+<li>Using <code>if request.query[&quot;dog-name&quot;]</code> set the value of <code>response.body</code> to be
+&ldquo;The dog Fido is 3 years old&rdquo; if the user provided a name, or
+<code>File.read(...)</code> if not</li>
+<li>Run the server with <code>ruby barking-permit-server.rb</code>, visit <a href="http://localhost:8080/home">http://localhost:8080/home</a> and submit the form</li>
+<li>When you&rsquo;re done, stop the server with <code>CTRL + C</code></li>
+</ul>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`ruby
+require(&quot;webrick&rdquo;)
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: &lsquo;./public&rsquo;)
+
+server.mount_proc(&ldquo;/home&rdquo;) do |request, response|
+  dog_name = request.query[&ldquo;dog-name&rdquo;]
+  dog_age = request.query[&ldquo;dog-age&rdquo;]
+
+  if dog_name
+    response.body = &ldquo;The dog #{dog_name} is #{dog_age} years old&rdquo;
+  else
+    response.body = File.read(&ldquo;index.html&rdquo;)
+  end
+end
+
+server.start
+&ldquo;`
+
+</details>
+<h3 id="templating-html">Templating HTML</h3>
+<p>We&rsquo;ve learned how to get the user&rsquo;s form input on the server, and change our
+response depending on the input.</p>
+<p>Our response to the user should be HTML as well though. If we&rsquo;re reading the
+HTML response from a file how do we change the contents based on the user&rsquo;s
+input?</p>
+<p>Templating lets us take a file and substitute placeholders with values of our
+choice. There are lots of fancy templating languages out there, but for us
+Ruby&rsquo;s <code>.sub</code> method will be good enough.</p>
+<p>Imagine we had some HTML in a file called <code>fruits.html</code>:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Favourite Fruit<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>My favourite fruit is FAVOURITE_FRUIT_NAME. I like it the best because it is FAVOURITE_FRUIT_REASON.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div><p>We could load this file up, and then substitute the placeholders like this:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"fruits.html"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="s2">"FAVOURITE_FRUIT_NAME"</span><span class="p">,</span> <span class="s2">"Banana"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="s2">"FAVOURITE_FRUIT_REASON"</span><span class="p">,</span> <span class="s2">"easy to peel"</span><span class="p">)</span>
+</code></pre></div><p>Which would return:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Favourite Fruit<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>My favourite fruit is Banana. I like it the best because it is easy to peel.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div><h4 id="task-8-template-barking-permit">Task 8: Template barking permit</h4>
+<p>Create a file called <code>barking-permit-template.html</code> in <code>lesson-4-ruby-on-the-web</code>.</p>
+<p>Add the following HTML to the file (it&rsquo;s fine to copy-paste this):</p>
+
+<details>
+<summary>HTML for `barking-permit-template.html`</summary>
+
+&rdquo;`html
+<!doctype html>
+<html>
+  <head>
+    <title>Apply for a Barking Permit</title>
+    <link rel="stylesheet" href="https://l2c.london.cloudapps.digital/govuk-frontend.css">
+    <style>
+    .govuk-barking-permit table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .govuk-barking-permit td,th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="govuk-width-container">
+      <h1 class="govuk-heading-xl">Apply for a Barking Permit</h1>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your permit is available below
+            </div>
+          </div>
+          <div class="govuk-barking-permit">
+            <table>
+              <tr><th colspan="3">Barking Permit</th></tr>
+              <tr><td rowspan="6"><img src="images/puppy-in-a-hat.jpg" alt="A puppy in a hat"></td></tr>
+              <tr><th>Name</th><td>DOG_NAME</td></tr>
+              <tr><th>Age (human years)</th><td>DOG_AGE_HUMAN_YEARS</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+&ldquo;`
+
+</details>
+<p>Update <code>barking-permit-server.rb</code> so that when <code>request.query[&quot;dog-name&quot;]</code> is
+set, <code>response.body</code> is set to <code>File.read(&quot;barking-permit-template.html&quot;)</code>.</p>
+<p>Use <code>.sub</code> to replace <code>DOG_NAME</code> with <code>request.query[&quot;dog-name&quot;]</code> and a
+second <code>.sub</code> to replace <code>DOG_AGE_HUMAN_YEARS</code> with <code>request.query[&quot;dog-age&quot;]</code>.</p>
+<p>Run the server with <code>ruby barking-permit-server.rb</code>, visit <a href="http://localhost:8080/home">http://localhost:8080/home</a> and submit the form.</p>
+<p>When you&rsquo;re done, stop the server with <code>CTRL + C</code>.</p>
+
+<details>
+<summary>Answer</summary>
+
+&rdquo;`ruby
+require(&ldquo;webrick&rdquo;)
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: &lsquo;./public&rsquo;)
+
+server.mount_proc(&ldquo;/home&rdquo;) do |request, response|
+  dog_name = request.query[&ldquo;dog-name&rdquo;]
+  dog_age = request.query[&ldquo;dog-age&rdquo;]
+
+  if dog_name
+    response.body = File.read(&ldquo;barking-permit-template.html&rdquo;)
+      .sub(&ldquo;DOG_NAME&rdquo;, dog_name)
+      .sub(&ldquo;DOG_AGE_HUMAN_YEARS&rdquo;, dog_age)
+  else
+    response.body = File.read(&ldquo;index.html&rdquo;)
+  end
+end
+
+server.start
+&ldquo;`
+
+</details>
+<h3 id="finishing-off-the-barking-permit">Finishing off the Barking Permit</h3>
+<p>Following Task 8, our Barking Permit has:</p>
+
+<ul>
+<li>Name</li>
+<li>Age (human years)</li>
+</ul>
+<p>We could use Ruby to add some more rows to the permit and make it a bit more
+useful. For example: age in Dog Years (from lesson 3) and how long the permit
+is valid for.</p>
+<h4 id="task-9-add-rows-to-the-barking-permit">Task 9: Add rows to the Barking Permit</h4>
+
+<ul>
+<li>Add rows (<code>&lt;tr&gt;...&lt;/tr&gt;</code>) with template placeholders to <code>barking-permit-template.html</code> for:
+
+<ul>
+<li>Age (dog years) (<code>DOG_AGE_DOG_YEARS</code>)</li>
+<li>Issued on (<code>PERMIT_ISSUED_ON</code>)</li>
+<li>Valid until (<code>PERMIT_VALID_UNTIL</code>)</li>
+</ul></li>
+<li>Calculate values for the placeholders using Ruby
+
+<ul>
+<li>Age (dog years) should be the Age in human years multiplied by 7 (as per lesson 3)</li>
+<li>Issued on should be today&rsquo;s date, formatted as <code>Day/Month/Year</code></li>
+<li>Valid until should be today&rsquo;s date + 1,000 days (arbitrarily), formatted as <code>Day/Month/Year</code></li>
+</ul></li>
+<li>Use three more <code>.sub</code>s to replace the placeholders</li>
+<li>Run the server with <code>ruby barking-permit-server.rb</code>, visit <a href="http://localhost:8080/home">http://localhost:8080/home</a> and submit the form.</li>
+<li>When you&rsquo;re done, stop the server with <code>CTRL + C</code>.</li>
+</ul>
+
+<details>
+<summary>Answer</summary>
+
+&rdquo;`ruby
+require(&ldquo;webrick&rdquo;)
+require(&ldquo;date&rdquo;)
+
+def convert_to_dog_years(age_human_years)
+  return age_human_years * 7
+end
+
+server = WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: &lsquo;./public&rsquo;)
+
+server.mount_proc(&ldquo;/home&rdquo;) do |request, response|
+  dog_name = request.query[&ldquo;dog-name&rdquo;]
+  dog_age = request.query[&ldquo;dog-age&rdquo;]
+
+  if dog_name
+    response.body = File.read(&ldquo;barking-permit-template.html&rdquo;)
+      .sub(&ldquo;DOG_NAME&rdquo;, dog_name)
+      .sub(&ldquo;DOG_AGE_HUMAN_YEARS&rdquo;, dog_age)
+      .sub(&ldquo;DOG_AGE_DOG_YEARS&rdquo;, convert_to_dog_years(dog_age.to_i).to_s)
+      .sub(&ldquo;PERMIT_ISSUED_ON&rdquo;, Date.today.strftime(&ldquo;%d/%m/%Y&rdquo;))
+      .sub(&ldquo;PERMIT_VALID_UNTIL&rdquo;, (Date.today + 1000).strftime(&ldquo;%d/%m/%Y&rdquo;))
+  else
+    response.body = File.read(&ldquo;index.html&rdquo;)
+  end
+end
+
+server.start
+&ldquo;`
+
+</details>
+<h3 id="warning-security">Warning: security!</h3>
+<p>We&rsquo;ve deliberately cut some corners by using <code>.sub</code> for our templating
+which would cause security problems in a production application.</p>
+<p>In particular, mixing user input and HTML can leave us vulnerable to a thing
+called <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">Cross-site scripting</a>.</p>
+<p>You do not need to worry about this for the purposes of this lesson, but if
+you&rsquo;re building a production website make sure to talk to a developer to
+check you&rsquo;re following good security practices.</p>
+<p>Frameworks like <a href="https://rubyonrails.org/">Ruby on Rails</a> and
+<a href="http://sinatrarb.com/">Sinatra</a> help you avoid making security mistakes like
+this.</p>
+<h2 id="congratulations">Congratulations!</h2>
+<p>If you&rsquo;ve made it this far, give yourself a massive pat on the back! These
+three lessons have been a whirlwind introduction to the world of programming
+on the web. Do not worry if it things still seem confusing - programming is a
+skill that takes time to learn.</p>
+<p>Programming is amazingly useful now that computers are such a big part of our
+lives, but it can also be great fun. Hopefully this is just the start of your
+learning journey!</p>
+<h2 id="further-reading">Further reading</h2>
+
+<ul>
+<li><a href="http://tutorials.codebar.io/">http://tutorials.codebar.io/</a></li>
+<li><a href="http://railsgirls.com/">http://railsgirls.com/</a></li>
+</ul>
+
+            
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/alphagov/learn-to-code/blob/master/source/lesson-4-ruby-on-the-web.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code/issues/new?labels=bug&amp;title=Re:%20'Lesson%204:%20Ruby%20on%20the%20Web'&amp;body=Problem%20with%20'Lesson%204:%20Ruby%20on%20the%20Web'%20(learn-to-code.london.cloudapps.digital/lesson-4-ruby-on-the-web.html)">Report problem</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+        <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/accessibility.html">Accessibility</a>
+            </li>
+        </ul>
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          rel="license"
+        >Creative Commons CC BY-NC-SA 4.0 Licence</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="/javascripts/application.js"></script>
+  </body>
+</html>

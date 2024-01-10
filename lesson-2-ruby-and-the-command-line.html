@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Lesson 2: Ruby and the Command Line - Learn to Code</title>
+
+    <link href="/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="learn-to-code.london.cloudapps.digital/lesson-2-ruby-and-the-command-line.html">
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta name="twitter:title" content="Lesson 2: Ruby and the Command Line - Learn to Code" />
+      <meta name="twitter:url" content="learn-to-code.london.cloudapps.digital/lesson-2-ruby-and-the-command-line.html" />
+
+      <meta property="og:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta property="og:site_name" content="Learn to Code" />
+      <meta property="og:title" content="Lesson 2: Ruby and the Command Line" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="learn-to-code.london.cloudapps.digital/lesson-2-ruby-and-the-command-line.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://learn-to-code.london.cloudapps.digital" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          Learn to Code
+        </span>
+      </a>
+        <strong class="govuk-tag">Beta</strong>
+    </div>
+    <div class="govuk-header__content">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="learn-to-code.london.cloudapps.digital"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+  <div id="search-results" class="search-results" aria-hidden="true" role="dialog" aria-labelledby="search-results-title">
+    <div class="search-results__inner">
+      <button class="search-results__close">Close<span class="search-results__close-label"> search results</span></button>
+      <h2 id="search-results-title" class="search-results__title" aria-live="assertive" role="alert">Results</h2>
+      <div class="search-results__content"></div>
+    </div>
+  </div>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/"><span>Learn to Code</span></a>
+    <ul>
+      <li>
+        <a href="/#acknowledgements-and-licence"><span>Acknowledgements and Licence</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/setting-up-your-computer.html"><span>Setting up your computer</span></a>
+    <ul>
+      <li>
+        <a href="/setting-up-your-computer.html#text-editor-visual-studio-code"><span>Text editor (Visual Studio Code)</span></a>
+      </li>
+      <li>
+        <a href="/setting-up-your-computer.html#terminal-and-ruby"><span>Terminal and Ruby</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-1-html-and-css.html"><span>Lesson 1: HTML and CSS</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction-to-html-and-css"><span>Introduction to HTML and CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-do-html-and-css-stand-for"><span>What do HTML and CSS stand for?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-are-html-and-css"><span>What are HTML and CSS?</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#html-elements"><span>HTML elements</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#webpage-structure"><span>Webpage structure</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#doctype-and-html"><span>doctype and HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#head-and-body-tags"><span>head and body tags</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#presentational-html-elements"><span>Presentational HTML Elements</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-1-doctype-html-head-and-body"><span>Task 1: doctype, html, head and body</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-2-set-the-page-title"><span>Task 2: set the page title</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-heading-h1"><span>Element: heading (h1)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-paragraph-p"><span>Element: paragraph (p)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link-a"><span>Element: link (a)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-div-div"><span>Element: div (div)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-image-img"><span>Element: image (img)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#forms"><span>Forms</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-form-form"><span>Element: form (form)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#elements-label-label-and-input-input"><span>Elements: label (label) and input (input)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-button-button"><span>Element: button (button)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#styling-with-css"><span>Styling with CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-can-i-do-with-css"><span>What can I do with CSS?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#anatomy-of-a-css-rule"><span>Anatomy of a CSS rule</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-style"><span>Element: style</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link"><span>Element: link</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#applying-styles-with-classes"><span>Applying styles with classes</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#html"><span>HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#css"><span>CSS</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-14-add-gov-uk-classes-to-your-html"><span>Task 14: add GOV.UK classes to your HTML</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#summary"><span>Summary</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-2-ruby-and-the-command-line.html"><span>Lesson 2: Ruby and the Command Line</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson"><span>Introduction for this lesson</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-the-command-line"><span>Introduction to the command line</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#what-is-the-command-line"><span>What is the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#how-do-i-access-the-command-line"><span>How do I access the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#navigating-around-in-the-terminal"><span>Navigating around in the terminal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#cd-or-change-directory"><span>cd or change directory</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#task-1-change-to-the-directory-containing-your-code"><span>Task 1: change to the directory containing your code</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-ruby"><span>Introduction to Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#running-ruby-interactively-with-irb"><span>Running Ruby interactively with irb</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#numbers"><span>Numbers</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#strings"><span>Strings</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#variables"><span>Variables</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#string-interpolation"><span>String interpolation</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#calling-methods"><span>Calling methods</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-3-writing-ruby-scripts.html"><span>Lesson 3: Writing Ruby Scripts</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-goal"><span>Goal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#running-a-file-with-ruby"><span>Running a file with Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#interacting-with-the-user"><span>Interacting with the user</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#defining-methods"><span>Defining methods</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#repeating-things"><span>Repeating things</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#conditionals"><span>Conditionals</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#tying-it-all-together"><span>Tying it all together</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-require-to-access-other-ruby-modules"><span>Using require to access other Ruby modules</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#working-with-dates-in-ruby"><span>Working with Dates in Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-file-to-read-files-in-ruby"><span>Using File to read files in Ruby</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Lesson 4: Ruby on the Web</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#introduction-to-http"><span> Introduction to HTTP</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-http"><span>What is HTTP?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#viewing-http-requests-using-browser-developer-tools"><span>Viewing HTTP requests using browser developer tools</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#building-web-servers-with-ruby"><span>Building web servers with Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-a-web-server"><span>What is a web server?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#hello-webrick"><span>Hello WEBrick!</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#serving-html"><span>Serving HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#responding-to-requests"><span>Responding to requests</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#templating-html"><span>Templating HTML</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Apply for a Barking Permit</span></a>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>
+              Application complete
+            </span></a>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#finishing-off-the-barking-permit"><span>Finishing off the Barking Permit</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#warning-security"><span>Warning: security!</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#congratulations"><span>Congratulations!</span></a>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="lesson-2-ruby-and-the-command-line">Lesson 2: Ruby and the Command Line</h1>
+<h2 id="introduction-for-this-lesson">Introduction for this lesson</h2>
+<h3 id="objectives">Objectives</h3>
+<p>In this tutorial we are going to look at:</p>
+
+<ul>
+<li>what a command line is</li>
+<li>how to use the command line to navigate the file system and run programs</li>
+<li>what Ruby is</li>
+<li>numbers and strings</li>
+<li>how to use variables</li>
+<li>calling and defining methods</li>
+</ul>
+<h3 id="goal">Goal</h3>
+<p>By the end of this tutorial you will have learnt how to navigate through the
+command line and how to run some basic operations in Ruby.</p>
+<h2 id="introduction-to-the-command-line">Introduction to the command line</h2>
+<h3 id="what-is-the-command-line">What is the command line?</h3>
+<p>The command line is a text interface for your computer. Similar to Windows Explorer on Windows or Finder on a Mac, it lets you navigate through the files and folders of your computer - but it is completely text based. The command line works by typing commands against a prompt, which then gets passed to the operating system of the computer that runs these commands.</p>
+<h3 id="how-do-i-access-the-command-line">How do I access the command line?</h3>
+<p>On a Mac you can access the command line by opening the Terminal application
+from the Applications &gt; Utilities folder (or use <code>cmd (⌘) + space</code> and search
+for &ldquo;Terminal&rdquo;).</p>
+<p>The command line can seem unfamiliar and scary, but it&rsquo;s really a different way of interacting with your computer. This tutorial only covers safe commands that will not do anything bad to your computer, even if you get them wrong.</p>
+<h3 id="navigating-around-in-the-terminal">Navigating around in the terminal</h3>
+<p>Once you&rsquo;ve opened up your terminal you should see a window that has says &ldquo;Last login&rdquo; with a date after it, and a cursor next to a dollar sign.</p>
+<p><a href="/images/lesson-2/image1.png" rel="noopener noreferrer"><img src="/images/lesson-2/image1.png" alt="" /></a></p>
+<p>Do not worry if the text in yours is a little different - it does not matter.</p>
+<p>Basic commands are written on a single line, and run when you press the <code>Enter</code> button on your keyboard.</p>
+<p>Try typing, then pressing <code>Enter</code>:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nb">pwd</span>
+</code></pre></div><h4 id="pwd-or-print-working-directory"><code>pwd</code> or print working directory</h4>
+<p>The <code>pwd</code> command prints to the command line the current directory (another name for folder) you are in. If you have just opened up your terminal, you are probably in your &ldquo;home&rdquo; directory, and should get an output similar to this:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>/Users/your-username
+</code></pre></div><p>So your current &ldquo;working directory&rdquo; is <code>/Users/your-username</code>.</p>
+<h4 id="getting-things-wrong-on-the-command-line">Getting things wrong on the command line</h4>
+<p>If you type a command that the command line does not understand, it will show you an error message. Do not panic if you see one of these - everything is fine! Take a look at the command you wrote and see if you can work out what was wrong.</p>
+<p>Try this for example:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>whargleblargle
+</code></pre></div><p>You should see an error message like <code>-bash: whargleblargle: command not found</code>.</p>
+<p>If you want to cancel your current entry, you can either delete the command using the backspace button, or press <code>Ctrl + C</code> to get a brand new line.  Your mouse will not work for navigating around the command line commands - but you can use the arrow keys on your keyboard to move the cursor left and right.</p>
+<h4 id="ls-or-list"><code>ls</code> or list</h4>
+<p>You might wonder &ldquo;how I do know which files are in a directory?&rdquo;, the <code>ls</code> command can do this:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nb">ls</span>
+</code></pre></div><p>This should print a list of the files and folders inside the working
+directory. You&rsquo;ll probably see directories like <code>Applications</code>, <code>Desktop</code>,
+<code>Documents</code> and <code>Downloads</code>.</p>
+<h3 id="cd-or-change-directory"><code>cd</code> or change directory</h3>
+<p>The <code>cd</code> command allows you to move between directories. You tell <code>cd</code> which directory to move to by putting the path after the <code>cd</code>, like this:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nb">cd </span>Desktop
+</code></pre></div><p>Lots of commands need parameters like this - for example, <code>cd</code> needs to know the directory to move to, while <code>pwd</code> does not. We call the parameters &ldquo;arguments&rdquo;.</p>
+<h3 id="task-1-change-to-the-directory-containing-your-code">Task 1: change to the directory containing your code</h3>
+<p>In Lesson 1 we created a folder to keep our source code
+(<code>lesson-1-html-and-css</code>). Create a new folder for lesson 2 called
+<code>lesson-2-ruby</code> and change the working directory in your command line using
+<code>cd</code>.</p>
+<p>Confirm you&rsquo;re in the right place by running:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nb">pwd</span>
+</code></pre></div><p>and check what files there are in this directory by running:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nb">ls</span>
+</code></pre></div><p>There probably will not be any files because we have not created any yet.</p>
+<h4 id="notes">Notes</h4>
+<p>In Finder you can copy the path to a directory by right clicking, holding
+down the option key (<code>⌥</code>), and choosing <em>Copy &ldquo;Directory&rdquo; as Pathname</em>.
+Alternatively, you can drag the folder onto the terminal and it will type
+the path for you.</p>
+<p>If your directory includes spaces (or other weird characters) you might
+need to put it in quotes so the command line does not get confused. So:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="s1">'/Users/your-username/My Directory With Spaces/lesson-2-ruby'</span>
+</code></pre></div><p>instead of</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="nv">$ </span><span class="nb">cd</span> /Users/your-username/My Directory With Spaces/lesson-2-ruby
+</code></pre></div><h2 id="introduction-to-ruby">Introduction to Ruby</h2>
+<p>Ruby is a programming language. For a beginner, Ruby is very similar to other
+languages like Python, JavaScript and PHP. The basic skills you learn in Ruby
+will translate directly into many other languages.</p>
+<p>As well as being a wonderful language, Ruby has a vibrant, friendly, and
+sometimes weird community of people. That means there&rsquo;s lots of great
+resources for learning, and lots of places where you can get help.</p>
+<h3 id="running-ruby-interactively-with-irb">Running Ruby interactively with <code>irb</code></h3>
+<p>There are two ways to run Ruby from the command line:</p>
+
+<ul>
+<li>Interactively with <code>irb</code> (Interactive Ruby)</li>
+<li>Running a file with <code>ruby</code> itself</li>
+</ul>
+<p>To start with, let&rsquo;s look at <code>irb</code>. We&rsquo;ll get on to how to run a file later.</p>
+<p><code>irb</code> is lets us write bits of Ruby and quickly see what they evaluate to.</p>
+<p>Start <code>irb</code> by running:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>irb
+</code></pre></div><p>Your command line prompt will change from <code>$</code> to <code>irb(main):001:0&gt;</code>.  You can then write Ruby code into the command line.</p>
+<p>When you want to leave irb and go back to your command prompt type <code>exit</code> and press enter.</p>
+<h3 id="numbers">Numbers</h3>
+<p>We can use Ruby as a kind of calculator. Try typing <code>1 + 1</code> into irb and
+pressing enter. Do you get the right answer?</p>
+<p>In Ruby, the <code>+</code> operator adds numbers together. Other operators include:</p>
+
+<ul>
+<li><code>-</code> - subtract</li>
+<li><code>*</code> - multiply</li>
+<li><code>/</code> - divide</li>
+<li><code>**</code> - raise to the power of</li>
+</ul>
+<p>You can also use brackets (<code>()</code>) to group things, e.g. <code>(2 + 2) / 2</code> which would evaluate to 2, rather than <code>2 + 2 / 2</code> which would evaluate to 3.</p>
+<h4 id="task-2-maths-challenge">Task 2: Maths challenge</h4>
+<p>Use <code>irb</code> to work out the answer to &ldquo;191 multiplied by 7&rdquo;.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`
+irb(main):016:0> 191 * 7
+=> 1337
+&rdquo;`
+
+</details>
+<h3 id="strings">Strings</h3>
+<p>In the real world strings tie things up. Programming strings have <em>nothing</em>
+to do with real-world strings.</p>
+<p>Programming strings are used to store collections of letters and numbers.
+That could be a single letter like <code>&quot;a&quot;</code>, a word like <code>&quot;hi&quot;</code>, or a sentence like
+<code>&quot;Hello my friends.&quot;</code>.</p>
+<p>A Ruby string is written as a quote (<code>&quot;</code>) followed by some letters, numbers,
+or symbols and ended with a closing quote (<code>&quot;</code>). The shortest possible string
+is called the empty string: <code>&quot;&quot;</code>. It’s not uncommon for a single string to
+contain paragraphs or even pages of text.</p>
+<p>If you type a string into <code>irb</code> it will return it back at you:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):017:0&gt; "Hello IRB"
+=&gt; "Hello IRB"
+</code></pre></div><h4 id="getting-things-wrong-in-irb">Getting things wrong in IRB</h4>
+<p>Just like in the command line, if you give <code>irb</code> a command it does not understand it will show you an error message. Again, do not panic! Everything is fine.</p>
+<p><code>irb</code> will do its best to explain why it did not understand your Ruby, but sometimes the error messages can be hard for a beginner to understand.</p>
+<p>For example:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):018:0&gt; "Hello IRB" + 7
+TypeError: no implicit conversion of Fixnum into String
+        from (irb):1:in `+'
+        from (irb):1
+        from /usr/bin/irb:11:in `&lt;main&gt;'
+</code></pre></div><p>Here, <code>irb</code> is telling us that you&rsquo;re not allowed to add strings and numbers
+together in Ruby.</p>
+<h3 id="variables">Variables</h3>
+<p>Programming is all about creating abstractions, and in order to create an
+abstraction we must be able to assign names to things. Variables are a way of
+creating a name for a piece of data.</p>
+<p>Creating variables in Ruby uses a single equals sign - <code>name</code> <code>=</code> <code>value</code>. Some examples:</p>
+<div class="highlight"><pre class="highlight ruby" tabindex="0"><code><span class="nb">name</span> <span class="o">=</span> <span class="s2">"Fido"</span>
+<span class="n">age_human_years</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">age_dog_years</span> <span class="o">=</span> <span class="n">age_human_years</span> <span class="o">*</span> <span class="mi">7</span>
+</code></pre></div><p>This would give three variables: <code>name</code> with a value of <code>&quot;Fido&quot;</code>, <code>age_human_years</code> with a value of <code>4</code> and <code>age_dog_years</code> with a value of <code>28</code>.</p>
+<p>Variable names in Ruby have to start with a letter, and they can not contain spaces or &ldquo;special&rdquo; characters like <code>-</code>, <code>$</code>, <code>@</code> and <code>&amp;</code>.</p>
+<p>As a style convention, Ruby variables use underscores to separate the bits of
+the name - this is called <code>snake_case</code> (as opposed to <code>camelCase</code> or <code>PascalCase</code> which are used elsewhere).</p>
+<h4 id="task-3-set-and-use-a-variable">Task 3: Set and use a variable</h4>
+<p>Use <code>irb</code> to set a variable called <code>answer</code> to the value of <code>7</code> multiplied by
+<code>6</code>. Multiply the <code>answer</code> variable by <code>10</code> in <code>irb</code> to see what happens.</p>
+
+<details>
+  <summary>Answer</summary>
+
+&ldquo;`
+irb(main):020:0> answer = 7 * 6
+=> 42
+irb(main):021:0> answer * 10
+=> 420
+irb(main):022:0> answer
+=> 42
+&rdquo;`
+
+</details>
+<h3 id="string-interpolation">String interpolation</h3>
+<p>We often need to build a string out of other strings and bits of Ruby. In
+Ruby we can do this with &ldquo;string interpolation&rdquo;.</p>
+<p>Within the string we use the interpolation marker <code>#{}</code>. Inside those
+brackets we can put any variables or Ruby code which will be evaluated,
+converted to a string, and output in that spot of the outer string.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):019:0&gt; "The dog #{name} is #{age_human_years} human years old, which is #{age_dog_years} in dog years."
+=&gt; "The dog Fido is 4 human years old, which is 28 in dog years."
+</code></pre></div>
+<blockquote>
+<p>Note: on a Mac you can enter the <code>#</code> key with option (<code>⌥</code>) + 3</p>
+</blockquote>
+<h4 id="task-4-use-string-interpolation">Task 4: Use string interpolation</h4>
+<p>Using string interpolation in <code>irb</code>, create a string with the text:</p>
+
+<blockquote>
+<p>&ldquo;The answer to life, the universe and everything is &hellip;&rdquo;</p>
+</blockquote>
+<p>Where <code>...</code> is the value of the <code>answer</code> variable you set in Task 3.</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`
+irb(main):023:0> answer = 7 * 6
+=> 42
+irb(main):024:0> &quot;The answer to life, the universe and everything is #{answer}&rdquo;
+=> &ldquo;The answer to life, the universe and everything is 42&rdquo;
+&ldquo;`
+
+</details>
+<h3 id="calling-methods">Calling methods</h3>
+<p>While programming, we often find ourselves doing the same thing over and over again. It would be nice if we could give a particular task a name, and run it by calling its name.</p>
+<p>In Ruby we do this with <em>methods</em>, and there are lots of them already built
+into the language. One example is <code>rand</code>, which generates a random number:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):025:0&gt; rand
+=&gt; 0.11487911496307956
+</code></pre></div><p>If we want to generate a random number less than a particular number, we can
+provide our maximum to <code>rand</code> as an &quot;argument&rdquo;:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):026:0&gt; rand(100)
+=&gt; 7
+irb(main):027:0&gt; rand(100)
+=&gt; 43
+</code></pre></div><p>You can also call some methods on things by using a <code>.</code> like this:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>irb(main):028:0&gt; "make me louder".upcase
+=&gt; "MAKE ME LOUDER"
+irb(main):029:0&gt; "em esrever".reverse
+=&gt; "reverse me"
+</code></pre></div><h4 id="task-5-decode-a-secret-message">Task 5: Decode a secret message</h4>
+<p>Decode this top secret, encrypted message:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>!gniog peeK !llew repus gniod er'uoY
+</code></pre></div><p>(Hint: it&rsquo;s not Welsh - it&rsquo;s been reversed)</p>
+
+<details>
+<summary>Answer</summary>
+
+&ldquo;`
+irb(main):030:0> &rdquo;!gniog peeK !llew repus gniod er'uoY&quot;.reverse
+=> &ldquo;You&rsquo;re doing super well! Keep going!&rdquo;
+&ldquo;`
+
+</details>
+
+            
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/alphagov/learn-to-code/blob/master/source/lesson-2-ruby-and-the-command-line.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code/issues/new?labels=bug&amp;title=Re:%20'Lesson%202:%20Ruby%20and%20the%20Command%20Line'&amp;body=Problem%20with%20'Lesson%202:%20Ruby%20and%20the%20Command%20Line'%20(learn-to-code.london.cloudapps.digital/lesson-2-ruby-and-the-command-line.html)">Report problem</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+        <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/accessibility.html">Accessibility</a>
+            </li>
+        </ul>
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          rel="license"
+        >Creative Commons CC BY-NC-SA 4.0 Licence</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="/javascripts/application.js"></script>
+  </body>
+</html>

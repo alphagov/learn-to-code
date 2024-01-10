@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Lesson 1: HTML and CSS - Learn to Code</title>
+
+    <link href="/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="learn-to-code.london.cloudapps.digital/lesson-1-html-and-css.html">
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta name="twitter:title" content="Lesson 1: HTML and CSS - Learn to Code" />
+      <meta name="twitter:url" content="learn-to-code.london.cloudapps.digital/lesson-1-html-and-css.html" />
+
+      <meta property="og:image" content="learn-to-code.london.cloudapps.digital/images/govuk-large.png" />
+      <meta property="og:site_name" content="Learn to Code" />
+      <meta property="og:title" content="Lesson 1: HTML and CSS" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="learn-to-code.london.cloudapps.digital/lesson-1-html-and-css.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://learn-to-code.london.cloudapps.digital" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          Learn to Code
+        </span>
+      </a>
+        <strong class="govuk-tag">Beta</strong>
+    </div>
+    <div class="govuk-header__content">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="learn-to-code.london.cloudapps.digital"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+  <div id="search-results" class="search-results" aria-hidden="true" role="dialog" aria-labelledby="search-results-title">
+    <div class="search-results__inner">
+      <button class="search-results__close">Close<span class="search-results__close-label"> search results</span></button>
+      <h2 id="search-results-title" class="search-results__title" aria-live="assertive" role="alert">Results</h2>
+      <div class="search-results__content"></div>
+    </div>
+  </div>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/"><span>Learn to Code</span></a>
+    <ul>
+      <li>
+        <a href="/#acknowledgements-and-licence"><span>Acknowledgements and Licence</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/setting-up-your-computer.html"><span>Setting up your computer</span></a>
+    <ul>
+      <li>
+        <a href="/setting-up-your-computer.html#text-editor-visual-studio-code"><span>Text editor (Visual Studio Code)</span></a>
+      </li>
+      <li>
+        <a href="/setting-up-your-computer.html#terminal-and-ruby"><span>Terminal and Ruby</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-1-html-and-css.html"><span>Lesson 1: HTML and CSS</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#introduction-to-html-and-css"><span>Introduction to HTML and CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-do-html-and-css-stand-for"><span>What do HTML and CSS stand for?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-are-html-and-css"><span>What are HTML and CSS?</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#html-elements"><span>HTML elements</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#webpage-structure"><span>Webpage structure</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#doctype-and-html"><span>doctype and HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#head-and-body-tags"><span>head and body tags</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#presentational-html-elements"><span>Presentational HTML Elements</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-1-doctype-html-head-and-body"><span>Task 1: doctype, html, head and body</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-2-set-the-page-title"><span>Task 2: set the page title</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-heading-h1"><span>Element: heading (h1)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-paragraph-p"><span>Element: paragraph (p)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link-a"><span>Element: link (a)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-div-div"><span>Element: div (div)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-image-img"><span>Element: image (img)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#forms"><span>Forms</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-form-form"><span>Element: form (form)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#elements-label-label-and-input-input"><span>Elements: label (label) and input (input)</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-button-button"><span>Element: button (button)</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#styling-with-css"><span>Styling with CSS</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#what-can-i-do-with-css"><span>What can I do with CSS?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#anatomy-of-a-css-rule"><span>Anatomy of a CSS rule</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-style"><span>Element: style</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#element-link"><span>Element: link</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#applying-styles-with-classes"><span>Applying styles with classes</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-1-html-and-css.html#html"><span>HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#css"><span>CSS</span></a>
+          </li>
+          <li>
+            <a href="/lesson-1-html-and-css.html#task-14-add-gov-uk-classes-to-your-html"><span>Task 14: add GOV.UK classes to your HTML</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#summary"><span>Summary</span></a>
+      </li>
+      <li>
+        <a href="/lesson-1-html-and-css.html#further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-2-ruby-and-the-command-line.html"><span>Lesson 2: Ruby and the Command Line</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson"><span>Introduction for this lesson</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#introduction-for-this-lesson-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-the-command-line"><span>Introduction to the command line</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#what-is-the-command-line"><span>What is the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#how-do-i-access-the-command-line"><span>How do I access the command line?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#navigating-around-in-the-terminal"><span>Navigating around in the terminal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#cd-or-change-directory"><span>cd or change directory</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#task-1-change-to-the-directory-containing-your-code"><span>Task 1: change to the directory containing your code</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-2-ruby-and-the-command-line.html#introduction-to-ruby"><span>Introduction to Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#running-ruby-interactively-with-irb"><span>Running Ruby interactively with irb</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#numbers"><span>Numbers</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#strings"><span>Strings</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#variables"><span>Variables</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#string-interpolation"><span>String interpolation</span></a>
+          </li>
+          <li>
+            <a href="/lesson-2-ruby-and-the-command-line.html#calling-methods"><span>Calling methods</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-3-writing-ruby-scripts.html"><span>Lesson 3: Writing Ruby Scripts</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-introduction-goal"><span>Goal</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#running-a-file-with-ruby"><span>Running a file with Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#interacting-with-the-user"><span>Interacting with the user</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#defining-methods"><span>Defining methods</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#repeating-things"><span>Repeating things</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#conditionals"><span>Conditionals</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#tying-it-all-together"><span>Tying it all together</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-require-to-access-other-ruby-modules"><span>Using require to access other Ruby modules</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#working-with-dates-in-ruby"><span>Working with Dates in Ruby</span></a>
+          </li>
+          <li>
+            <a href="/lesson-3-writing-ruby-scripts.html#using-file-to-read-files-in-ruby"><span>Using File to read files in Ruby</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-3-writing-ruby-scripts.html#lesson-3-writing-ruby-scripts-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Lesson 4: Ruby on the Web</span></a>
+    <ul>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction"><span>Introduction</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-objectives"><span>Objectives</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-introduction-goal"><span>Goal</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#introduction-to-http"><span> Introduction to HTTP</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-http"><span>What is HTTP?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#viewing-http-requests-using-browser-developer-tools"><span>Viewing HTTP requests using browser developer tools</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#building-web-servers-with-ruby"><span>Building web servers with Ruby</span></a>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#what-is-a-web-server"><span>What is a web server?</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#hello-webrick"><span>Hello WEBrick!</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#serving-html"><span>Serving HTML</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#responding-to-requests"><span>Responding to requests</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#templating-html"><span>Templating HTML</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>Apply for a Barking Permit</span></a>
+  </li>
+  <li>
+    <a href="/lesson-4-ruby-on-the-web.html"><span>
+              Application complete
+            </span></a>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#finishing-off-the-barking-permit"><span>Finishing off the Barking Permit</span></a>
+          </li>
+          <li>
+            <a href="/lesson-4-ruby-on-the-web.html#warning-security"><span>Warning: security!</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#congratulations"><span>Congratulations!</span></a>
+      </li>
+      <li>
+        <a href="/lesson-4-ruby-on-the-web.html#lesson-4-ruby-on-the-web-further-reading"><span>Further reading</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="lesson-1-html-and-css">Lesson 1: HTML and CSS</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="objectives">Objectives</h3>
+<p>In this tutorial we are going to look at:</p>
+
+<ul>
+<li>what is HTML?</li>
+<li>what is an element?</li>
+<li>webpage structure</li>
+<li>fundamental HTML elements</li>
+<li>applying styles with classes and CSS</li>
+</ul>
+<h3 id="goal">Goal</h3>
+<p>By the end of this tutorial you will have built <a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">an &ldquo;Apply for a barking permit&rdquo; webpage</a>:</p>
+
+<div style="border: 1px solid grey;">
+<a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">
+<img src="images/lesson-1/image5.png" alt="Apply for a Barking Permit website, showing an image, a paragraph of text, a link and a form">
+</a>
+</div>
+<p>This webpage contains a heading, some body text, two forms and a button.</p>
+<p>Even though HTML and CSS are not programming languages they’re important fundamentals, and they’ll help you understand how the internet works.</p>
+<p>We’ll cover programming languages (like Ruby and Python) in future lessons.</p>
+<h2 id="introduction-to-html-and-css">Introduction to HTML and CSS</h2>
+<h3 id="what-do-html-and-css-stand-for">What do HTML and CSS stand for?</h3>
+<p>HTML stands for Hyper Text Markup Language</p>
+<p>CSS stands for Cascading Style Sheets</p>
+<h3 id="what-are-html-and-css">What are HTML and CSS?</h3>
+<p>HTML is the language used to build websites. All text and content that you
+see on the internet is built using HTML.</p>
+<p>CSS is used with HTML to style the page.</p>
+<p>Whenever you go to a website (e.g. www.gov.uk) your browser sends a request
+to a special computer called a &ldquo;server&rdquo;. The server sends back HTML and CSS,
+which your browser turns into a webpage for you to look at.</p>
+<h2 id="html-elements">HTML elements</h2>
+<p>An element is an HTML building block. There are paragraphs, headings,
+links, lists, and many more.</p>
+<p>HTML elements are made up of an opening tag (sometimes including some attributes), content, and a closing tag.</p>
+<p><a href="images/lesson-1/image7.png" rel="noopener noreferrer"><img src="/images/lesson-1/image7.png" alt="Diagram showing the structure of an HTML element" /></a>
+<small>(<a href="https://en.wikipedia.org/wiki/HTML_element#Syntax">Image from wikipedia</a>)</small></p>
+<p>See the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element">Mozilla HTML elements reference documentation</a> for more information.</p>
+<h2 id="webpage-structure">Webpage structure</h2>
+<h3 id="doctype-and-html"><code>doctype</code> and <code>HTML</code></h3>
+<p>The doctype is the first thing that must be defined in an HTML page. It tells
+the browser which version of HTML the page is using.</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="cp">&lt;!doctype html&gt;</span>
+</code></pre></div><p>These days you will only ever need to use <code>html</code>. There used to be lots of
+complicated doctypes in the olden days. See the <a href="https://www.w3.org/wiki/Doctypes_and_markup_styles">W3C documentation on doctypes and markup styles</a> for more information.</p>
+<p>The doctype is always followed by the <code>&lt;html&gt;</code> tag, which contains the contents of your page.</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div><h3 id="head-and-body-tags"><code>head</code> and <code>body</code> tags</h3>
+<p>A HTML page is split into two parts. The <code>head</code> and the <code>body</code>.</p>
+<p>The <code>head</code> contains webpage information like the page title (the text in the
+browser tab), stylesheets, scripts and other information about the page.
+Everything in the <code>head</code> is invisible - you can’t put an image or a paragraph
+of text in <code>head</code>.</p>
+<p>The <code>body</code> contains webpage content that is visible to the user.</p>
+<h2 id="presentational-html-elements">Presentational HTML Elements</h2>
+<p>Let&rsquo;s start by defining the basic structure of your website.</p>
+<p>Open Visual Studio Code and create a new folder for your work called <code>lesson-1-html-and-css</code>. Select <strong>File &gt; Open Folder&hellip;</strong> and select the correct folder:</p>
+
+<details>
+<summary>Screenshots showing how to add a folder in Visual Studio Code</summary>
+<img alt="Screenshot showing how to add a folder to Visual Studio Code. Menu &gt; File &gt; Add Project Folder..." src="images/lesson-1/image4.png">
+<img alt="Screenshot showing how to create a new folder in the Add Project Folder dialog" src="images/lesson-1/image6.png">
+</details>
+<p>Then inside this folder create a new file called <code>index.html</code> by clicking the *<em>New File&hellip;</em> button in the sidebar:</p>
+
+<details>
+<summary>Screenshot showing how to add a file in Visual Studio Code</summary>
+<img alt="Screenshot showing how to add a file in Visual Studio Code. Right-click the folder in the sidebar, then select 'New File'." src="images/lesson-1/image2.png">
+</details>
+<h3 id="task-1-doctype-html-head-and-body">Task 1: doctype, html, head and body</h3>
+<p>Using what we just learnt, and with guidance from your coach, do the following:</p>
+
+<ul>
+<li>declare the doctype to be HTML</li>
+<li>open and close a set of <code>&lt;html&gt;&lt;/html&gt;</code> tags</li>
+<li>Within this, create the <code>head</code> and <code>body</code> tags</li>
+</ul>
+<p>Once you&rsquo;ve done this, open <code>index.html</code> in your web browser:</p>
+
+<details>
+<summary>Screenshot showing how to open the HTML file in Google Chrome</summary>:
+<img alt="Screenshot showing how to open the HTML file in Google Chrome" src="images/lesson-1/image3.png">
+</details>
+<p>Do you see anything on the page?</p>
+<h3 id="task-2-set-the-page-title">Task 2: set the page title</h3>
+<p>Now inside your head tag create a <code>&lt;title&gt;</code> tag with <code>Apply for a Barking Permit</code> as your title.</p>
+<p>You should see that the title of the tab in your browser has changed. If not, double check your code.</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div><p>Notice how in our example each tag is indented to its parent tag. It’s not required
+but it makes your code much more readable and you’ll be able to see nested tags more easily.</p>
+<p>In HTML multiple spaces and newlines all get squished down into one space.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>You      can
+write
+
+text       like    this
+</code></pre></div><p>and they’ll end up getting displayed with all the space squished, like so:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>You can write text like this
+</code></pre></div><h3 id="element-heading-h1">Element: heading (<code>h1</code>)</h3>
+<p>Headings come in 6 levels:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Heading<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Heading<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Heading<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>Heading<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>Heading<span class="nt">&lt;/h6&gt;</span>
+</code></pre></div><p>A <code>h1</code> defines the most important heading whereas a <code>h6</code> defines the least important.</p>
+<p>Headings should go from <code>h1</code> to <code>h6</code> in order - always start from <code>&lt;h1&gt;</code>, next use <code>&lt;h2&gt;</code>, and so on.</p>
+<p>It&rsquo;s important to not skip one or more heading levels - this is because screenreaders can jump from heading to heading and leaving a heading level out may lead to a user being confused.</p>
+<p>Don&rsquo;t:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Heading 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Heading 3<span class="nt">&lt;/h3&gt;</span><span class="c">&lt;!-- Oh no! A h3 shouldn't be the next heading after a h1 --&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Heading 4<span class="nt">&lt;/h4&gt;</span>
+</code></pre></div><p>Do:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Heading 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Heading 2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Another heading 2<span class="nt">&lt;/h2&gt;</span><span class="c">&lt;!-- A heading can follow a heading of the same level --&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Yet another heading 2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Heading 3<span class="nt">&lt;/h3&gt;</span>
+</code></pre></div><p>Headings can skip a level when going back up to a more important heading level:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1&gt;</span>Heading 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Heading 2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Heading 3<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Heading 4<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Another heading 2<span class="nt">&lt;/h2&gt;</span><span class="c">&lt;!-- This h2 following a h4 is okay --&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Another heading 3<span class="nt">&lt;/h3&gt;</span>
+</code></pre></div><h4 id="task-3-add-a-heading">Task 3: add a heading</h4>
+<p>Add a <code>h1</code> heading tag, which includes the phrase <code>Apply for a Barking Permit</code>, inside the <code>body</code> tag of your page.</p>
+<h3 id="element-paragraph-p">Element: paragraph (<code>p</code>)</h3>
+<p>Putting content into a <code>&lt;p&gt;</code> tag will break your text up into paragraphs.
+This helps make the content of your page easier to read for the user.</p>
+<h4 id="task-4-add-a-paragraph">Task 4: add a paragraph</h4>
+<p>Add the following paragraph inside your <code>&lt;body&gt;</code> tag, after the <code>&lt;h1&gt;</code>:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;p&gt;</span>
+The ministry of dogs is trying a new pilot. Good dogs can apply for a
+barking permit so they can woof whenever they like. It’s not yet clear how
+this permit will be enforced.
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div><h3 id="element-link-a">Element: link (<code>a</code>)</h3>
+<p>A link lets the user go to another webpage. We use the attribute <code>href</code> to indicate where you want the user to go.</p>
+<p>The link tag is called <code>a</code> for &ldquo;anchor&rdquo;.</p>
+<h4 id="task-5-add-a-link">Task 5: add a link</h4>
+<p>Add a link to the end of your paragraph:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Bark_(sound)"</span><span class="nt">&gt;</span>
+More information about barking
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div><h3 id="element-div-div">Element: div (<code>div</code>)</h3>
+<p>A div tag lets you group elements together. Grouping elements is useful as we can later style them together (e.g. giving them all the same colour).</p>
+<h4 id="task-6-add-a-div">Task 6: add a div</h4>
+<p>Wrap your existing paragraph, link and heading in a div:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    The ministry of dogs is trying a new pilot. Good dogs can apply for a barking permit so they can woof whenever and wherever they like. It’s not yet clear how this permit will be enforced.
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Bark_(sound)"</span><span class="nt">&gt;</span>More information about barking<span class="nt">&lt;/a&gt;</span>.
+ <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div><p>It&rsquo;s called &ldquo;div&rdquo; for &ldquo;division&rdquo;.</p>
+<h3 id="element-image-img">Element: image (<code>img</code>)</h3>
+<p>So far we&rsquo;ve learned a lot about how to add text to our page. Now let’s add some images!</p>
+<p>Before we start, we&rsquo;ll need to add the image files we want to use to the
+project folder.</p>
+<p>It&rsquo;s common to keep images in their own folder, so first,
+create a folder called <code>images</code> inside the same folder as your HTML file.</p>
+<p>Next, download the images you&rsquo;ll need. Do this by right-clicking each of
+the following links, select &lsquo;Save Link As&hellip;&rsquo;, and save it to the images folder
+you just created:</p>
+
+<ul>
+<li><a href="https://apply-for-a-barking-permit.london.cloudapps.digital/images/shiba-inu.jpg">shiba-inu.jpg</a></li>
+<li><a href="https://apply-for-a-barking-permit.london.cloudapps.digital/images/puppy-in-a-hat.jpg">puppy-in-a-hat.jpg</a></li>
+</ul>
+<p>Images are primarily made up of three components:</p>
+
+<ul>
+<li>the <code>&lt;img&gt;</code> tag</li>
+<li>the <code>src</code> attribute, which gives the location, or source, of the image</li>
+<li>the <code>alt</code> attribute, which is displayed if the image can&rsquo;t be shown, and is read by screen reader software</li>
+</ul>
+<p>In order for us to see this image on the webpage we need to link to the
+image, this involves telling the webpage where it is and what it is called.</p>
+<h4 id="task-7-add-an-image">Task 7: add an image</h4>
+<p>After the main heading of the page, add the following:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/shiba-inu.jpg"</span> <span class="na">alt=</span><span class="s">"A happy shiba inu"</span><span class="nt">&gt;</span>
+</code></pre></div><p>Here you can see we have told the <code>src</code> of the image to look in the images
+folder and display the image <code>shiba-inu.jpeg</code>, then we have given it a
+description in the <code>alt</code> attribute.</p>
+<h2 id="forms">Forms</h2>
+<p>Forms let you ask your user for input. There are a number of interactive
+components (like text boxes and buttons) you can use in forms.</p>
+<h3 id="element-form-form">Element: form (<code>form</code>)</h3>
+<p>The <code>&lt;form&gt;</code> element groups a set of components together so all of the inputs
+can be submitted at once.</p>
+<h4 id="task-8-create-an-empty-form">Task 8: create an empty form</h4>
+<p>Create an empty form at the end your <code>&lt;div&gt;</code>:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code>    ...
+    <span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div><h3 id="elements-label-label-and-input-input">Elements: label (<code>label</code>) and input (<code>input</code>)</h3>
+<p>Labels and Inputs work together to tell the user what information they need to provide and to let them enter it.</p>
+<p><code>&lt;label&gt;</code> elements have a <code>for</code> attribute and <code>&lt;input&gt;</code> elements have an <code>id</code>
+attribute. The combination of <code>for</code> and <code>id</code> link the elements together.</p>
+<p><code>&lt;input&gt;</code> elements also have a <code>name</code> attribute which is used when the form is
+submitted. Most of the time the <code>id</code> and <code>name</code> attributes have the same value.</p>
+<p>It&rsquo;s common to wrap a label / input pair in a <code>&lt;div&gt;</code> so they’re grouped together nicely.</p>
+<h4 id="task-9-add-labels-and-inputs">Task 9: add labels and inputs</h4>
+<p>Let’s create a couple of inputs in the form to ask the user for the name and age of their dog:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"dog-name"</span><span class="nt">&gt;</span>Dog name<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"dog-name"</span> <span class="na">name=</span><span class="s">"dog-name"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"dog-age"</span><span class="nt">&gt;</span>Dog age (human years)<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"dog-age"</span> <span class="na">name=</span><span class="s">"dog-age"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div><h3 id="element-button-button">Element: button (<code>button</code>)</h3>
+<p>The final thing our form needs is a way for the user to submit their answers.
+In HTML we use the <code>&lt;button&gt;</code> tag for creating buttons.</p>
+<h4 id="task-10-add-a-button">Task 10: add a button</h4>
+<p>Add a <code>&lt;button&gt;</code> just before the end of your <code>form</code>:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;button&gt;</span>Apply for a permit<span class="nt">&lt;/button&gt;</span>
+</code></pre></div><h4 id="task-11-what-happens-when-the-user-submits-the-form">Task 11: what happens when the user submits the form?</h4>
+<p>If you select the button it looks like the page just refreshes, but nothing
+changes. What&rsquo;s going on?</p>
+<p>If you look closely you’ll notice that the answers you put in the form are
+appearing in the URL - this is the simplest way of submitting data. In a
+later session we&rsquo;ll cover how to handle this information &ldquo;on the server&rdquo; so
+you can show the user a nice confirmation page.</p>
+<h2 id="styling-with-css">Styling with CSS</h2>
+<p>CSS is the language used to style websites.</p>
+<p>It defines the visual representation of the content. For example colour, margins, borders, backgrounds, position in the page.</p>
+<h3 id="what-can-i-do-with-css">What can I do with CSS?</h3>
+<p>You can change the color, position, dimensions and presentation of different elements.</p>
+<h3 id="anatomy-of-a-css-rule">Anatomy of a CSS rule</h3>
+<p>Here&rsquo;s an example CSS rule:</p>
+<div class="highlight"><pre class="highlight css" tabindex="0"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>This rule would set the text colour for the <code>body</code> to a nice shade of <code>hotpink</code>.</p>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    `color` is spelt using the American spelling
+  </strong>
+</div>
+<p>There are three parts:</p>
+
+<ul>
+<li>A <code>selector</code>, which restricts which elements this rule applies to. In this example, the <code>selector</code> is <code>body</code>.</li>
+<li>One or more <code>properties</code>, which define which things the rule changes. In this example, the <code>property</code> is <code>color</code>.</li>
+<li>A <code>value</code> for each <code>property</code>. In this example, the <code>value</code> is <code>hotpink</code>.</li>
+</ul>
+<div class="highlight"><pre class="highlight css" tabindex="0"><code><span class="nt">selector</span> <span class="p">{</span>
+  <span class="py">property1</span><span class="p">:</span> <span class="n">value1</span><span class="p">;</span>
+  <span class="py">property2</span><span class="p">:</span> <span class="n">value2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>There are two ways you can use CSS to style your page:</p>
+
+<ul>
+<li>using the style tag to write your CSS &ldquo;inline&rdquo;, that is directly in your HTML file</li>
+<li>using the link tag to load your CSS from an external file</li>
+</ul>
+<h3 id="element-style">Element: style</h3>
+<p>A <code>&lt;style&gt;</code> tag lets you write CSS directly inside your HTML.</p>
+<h4 id="task-12-add-some-inline-css"> Task 12: add some inline CSS</h4>
+<p>Jazz up your site with some CSS. Inside the <code>&lt;head&gt;</code> element add a new
+<code>&lt;style&gt;</code> element like the following:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+  <span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">cyan</span><span class="p">;</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="nb">cursive</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div><p>Too much? Play around with the values until you find something you like.</p>
+<h3 id="element-link">Element: link</h3>
+<p>The <code>&lt;link&gt;</code> tag lets you load CSS from another file. This is easier to
+maintain and can be reused across several pages.</p>
+<h4 id="task-13-replace-inline-css-with-external-css">Task 13: replace inline CSS with external CSS</h4>
+<p>Replace your style tag with a link tag like the following:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://l2c.london.cloudapps.digital/govuk-frontend.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div><p>This includes the CSS from the GOV.UK Frontend project. We can use those to
+make our website look like GOV.UK. Nothing will change yet though - first we
+need to apply some classes.</p>
+<h2 id="applying-styles-with-classes">Applying styles with classes</h2>
+<p>Often you don’t want to apply a style to <em>every</em> element, but just to certain
+ones that mean something to you. For example, you might want to make one
+heading use a big font and another one somewhere else on the page use a small
+font.</p>
+<p>Classes allow you to label certain elements. You can then target them in your
+CSS by using the class name prefixed with a dot. For example:</p>
+<h3 id="html">HTML</h3>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"mega-big-heading"</span><span class="nt">&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div><h3 id="css">CSS</h3>
+<div class="highlight"><pre class="highlight css" tabindex="0"><code><span class="nc">.mega-big-heading</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>GOV.UK Frontend uses this pattern for all its styles (so they don’t get
+accidentally applied to the wrong elements).</p>
+<h3 id="task-14-add-gov-uk-classes-to-your-html">Task 14: add GOV.UK classes to your HTML</h3>
+<p>Try adding these classes to your HTML and reloading the page in your browser
+to see what happens:</p>
+
+<ul>
+<li><code>class=&quot;govuk-heading-xl&quot;</code> (to your main heading)</li>
+<li><code>class=&quot;govuk-body&quot;</code> (to your paragraph)</li>
+<li><code>class=&quot;govuk-width-container&quot;</code> (to your outermost div)</li>
+<li><code>class=&quot;govuk-form-group&quot;</code> (to both of the divs outside your labels and inputs)</li>
+<li><code>class=&quot;govuk-label&quot;</code> (to both of your labels)</li>
+<li><code>class=&quot;govuk-input&quot;</code> (to both of your inputs)</li>
+<li><code>class=&quot;govuk-button&quot;</code> (to your button)</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Once you&rsquo;ve done all the tasks, you should have some HTML that looks something like this:</p>
+<div class="highlight"><pre class="highlight html" tabindex="0"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://l2c.london.cloudapps.digital/govuk-frontend.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"govuk-width-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"govuk-heading-xl"</span><span class="nt">&gt;</span>Apply for a Barking Permit<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/shiba-inu.jpg"</span> <span class="na">alt=</span><span class="s">"A happy shiba inu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"govuk-body"</span><span class="nt">&gt;</span>
+      The ministry of dogs is trying a new pilot.
+      Good dogs can apply for a barking permit so they can woof whenever they like.
+      It’s not yet clear how this permit will be enforced.
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Bark_(sound)"</span><span class="nt">&gt;</span>More information about barking<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"govuk-form-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"govuk-label"</span> <span class="na">for=</span><span class="s">"dog-name"</span><span class="nt">&gt;</span>Dog name<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"govuk-input"</span> <span class="na">id=</span><span class="s">"dog-name"</span> <span class="na">name=</span><span class="s">"dog-name"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"govuk-form-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"govuk-label"</span> <span class="na">for=</span><span class="s">"dog-age"</span><span class="nt">&gt;</span>Dog age (human years)<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"govuk-input"</span> <span class="na">id=</span><span class="s">"dog-age"</span> <span class="na">name=</span><span class="s">"dog-age"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"govuk-button"</span><span class="nt">&gt;</span>Apply for a permit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div><p>And your website should look something like this:</p>
+
+<div style="border: 1px solid grey;">
+<a href="https://apply-for-a-barking-permit.london.cloudapps.digital/">
+<img src="images/lesson-1/image5.png" alt="Apply for a Barking Permit website, showing an image, a paragraph of text, a link and a form">
+</a>
+</div>
+<p>This webpage contains a heading, some body text, two forms and a button.</p>
+<p>If things don&rsquo;t look quite right, or if you&rsquo;ve got any questions, ask a
+developer and they should be able to help you out.</p>
+<h2 id="further-reading">Further reading</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en/docs/Web/HTML/Element">HTML elements</a></li>
+<li><a href="http://htmlandcssbook.com/extras/html-escape-codes/">Special characters</a></li>
+<li><a href="http://werbach.com/barebones/barebones.html">The Bare Bones Guide to HTML</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference?redirectlocale=en-US&amp;redirectslug=CSS%2FCSS_Reference">CSS Properties</a></li>
+<li><a href="https://learn.shayhowe.com/html-css/">More CSS</a></li>
+</ul>
+
+            
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/alphagov/learn-to-code/blob/master/source/lesson-1-html-and-css.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code/issues/new?labels=bug&amp;title=Re:%20'Lesson%201:%20HTML%20and%20CSS'&amp;body=Problem%20with%20'Lesson%201:%20HTML%20and%20CSS'%20(learn-to-code.london.cloudapps.digital/lesson-1-html-and-css.html)">Report problem</a></li>
+                <li><a href="https://github.com/alphagov/learn-to-code">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+        <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/accessibility.html">Accessibility</a>
+            </li>
+        </ul>
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          rel="license"
+        >Creative Commons CC BY-NC-SA 4.0 Licence</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="/javascripts/application.js"></script>
+  </body>
+</html>
