@@ -1,10 +1,10 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: learn-to-code.london.cloudapps.digital
+host: https://alphagov.github.io/learn-to-code
 
 # Header-related options
 show_govuk_logo: false
 service_name: Learn to Code
-service_link: https://learn-to-code.london.cloudapps.digital
+service_link: /
 phase: Beta
 
 # Links to show on right-hand-side of header

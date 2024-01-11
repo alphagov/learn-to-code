@@ -1,6 +1,7 @@
 name: Continuous Delivery
 
 on:
+  workflow_dispatch: {}
   push:
     branches:
     - master
@@ -8,19 +9,14 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: ruby/setup-ruby@v1 # version read from `.ruby-version` file
       with:
         bundler-cache: true
-
-    - name: Install the CF CLI
-      run: |
-        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-        sudo apt-get update
-        sudo apt-get install -y cf7-cli
 
     - name: Build
       run: |
@@ -28,13 +24,7 @@ jobs:
         bundle exec middleman build
 
     - name: Deploy
-      if: ${{ github.ref == 'refs/heads/master' }}
-      env:
-        CF_USERNAME: richard.towers+learn-to-code-deployer@digital.cabinet-office.gov.uk
-        CF_PASSWORD: ${{ secrets.PAAS_LEARN_TO_CODE_DEPLOYER_PASSWORD }}
-      run: |
-        cf api https://api.london.cloud.service.gov.uk
-        cf auth
-        cf target -o govuk-paas -s learn-to-code
-        cf push learn-to-code --strategy rolling
-
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
