@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 # For environments that don't have a JS runtime (https://github.com/rails/execjs)
-gem "mini_racer", '~> 0.4.0'
+gem "mini_racer"
 
 # For faster file watcher updates on Windows:
 gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]

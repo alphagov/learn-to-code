@@ -1,8 +1,0 @@
----
-applications:
-- name: learn-to-code
-  memory: 64M
-  instances: 2
-  path: ./build
-  buildpacks:
-  - staticfile_buildpack
