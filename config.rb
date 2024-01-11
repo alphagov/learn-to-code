@@ -31,3 +31,6 @@ Middleman::Extensions.register :creative_commons_footer do
 end
 
 activate :creative_commons_footer
+
+set :relative_links, true
+activate :relative_assets
